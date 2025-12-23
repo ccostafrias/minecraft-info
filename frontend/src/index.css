@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Variables */
+
+:root {
+  --font-main: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/*Reset & root*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+.transitions-activated, .transitions-activated * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: .1s;
+}
+
+html {
+  --bg: #f4f4f5;
+  --bg2: #d6d7db;
+  --bg3: #c7c7c7;
+  --text: #383a42;
+  --red: #bd3030;
+  --green: #2bb32b;
+}
+
+html.dark {
+  --bg: #1e1e1e;
+  --bg2: #3c3d3f;
+  --bg3: #292929;
+  --text: #abb2bf;
+  --red: #862f2f;
+  --green: #2e8f2e;
+}
+
+body, button, input, textarea, a {
+  color: var(--text);
+  font-family: var(--font-main);
+}
+
+html, body {
+  background: var(--bg);
+  font-size: 18px;
+  line-height: 1;
+  height: 100vh;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh; /* ou height: 100%; */
+}
+
+button, input {
+  /* appearance: none; */
+  background: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*Custom resets*/
+
+img {
+  max-width: 100%;
+}
