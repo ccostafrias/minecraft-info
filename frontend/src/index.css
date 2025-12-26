@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@plugin 'tailwind-scrollbar';
+
+@theme {
+  --color-surface-base: hsl(var(--color-surface-base));
+  --color-surface-muted: hsl(var(--color-surface-muted));
+  --color-surface-strong: hsl(var(--color-surface-strong));
+  --color-text-primary: hsl(var(--color-text-primary));
+  --color-accent-danger: hsl(var(--color-accent-danger));
+  --color-accent-success: hsl(var(--color-accent-success));
+  --color-highlight: hsl(var(--color-highlight));
+}
+
 /* Variables */
 
 :root {
@@ -12,40 +24,39 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
-  /* margin: 0; */
-  /* padding: 0; */
 }
 
-.transitions-activated, .transitions-activated * {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-duration: .1s;
+.transitions-activated {
+  transition: background-color .1s, border-color .1s, color .1s, fill .1s, stroke .1s;
 }
 
 html {
-  --bg: #f4f4f5;
-  --bg2: #d6d7db;
-  --bg3: #c7c7c7;
-  --text: #383a42;
-  --red: #bd3030;
-  --green: #2bb32b;
+  --color-surface-base: #f4f4f5;
+  --color-surface-muted: #d6d7db;
+  --color-surface-strong: #c7c7c7;
+  --color-text-primary: #383a42;
+  --color-accent-danger: #bd3030;
+  --color-accent-success: #2bb32b;
+  --color-highlight: #303030;
 }
 
 html.dark {
-  --bg: #1e1e1e;
-  --bg2: #3c3d3f;
-  --bg3: #292929;
-  --text: #abb2bf;
-  --red: #862f2f;
-  --green: #2e8f2e;
+  --color-surface-base: #1e1e1e;
+  --color-surface-muted: #3c3d3f;
+  --color-surface-strong: #292929;
+  --color-text-primary: #abb2bf;
+  --color-accent-danger: #862f2f;
+  --color-accent-success: #2e8f2e;
+  --color-highlight: #fffbeb;
 }
 
-body, button, input, textarea, a {
-  color: var(--text);
+body, button, textarea, a {
+  color: var(--color-text-primary);
   font-family: var(--font-main);
 }
 
 html, body {
-  background: var(--bg);
+  background: var(--color-surface-base);
   font-size: 18px;
   line-height: 1;
   height: 100vh;
@@ -57,18 +68,64 @@ html, body {
   min-height: 100vh; /* ou height: 100%; */
 }
 
-button, input {
-  /* appearance: none; */
-  background: none;
-  border: none;
-}
-
-a {
-  text-decoration: none;
-}
-
 /*Custom resets*/
 
 img {
   max-width: 100%;
+}
+
+/* Crafting */
+
+.recipes-main {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+
+  grid-template-areas: 
+    'crafting items'
+    'possible-craftings possible-craftings';
+}
+
+.items-main {
+  grid-template-columns: minmax(120px, 300px) 1fr;
+  grid-template-rows: auto auto 1fr;
+
+  grid-template-areas: 
+    'title title'
+    'item details'
+    'craftings craftings';
+
+  /* grid-template-columns: 220px 1fr 220px;
+  grid-template-rows: auto 1fr;
+
+  grid-template-areas: 
+    'title title title'
+    'item details craftings'; */
+
+}
+
+@media (max-width: 768px) {
+  .recipes-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+
+    grid-template-areas: 
+      'crafting'
+      'items'
+      'possible-craftings';
+  }
+
+  .items-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+
+    grid-template-areas: 
+      'title'
+      'item'
+      'details'
+      'craftings';
+  }
+}
+
+.items-grid, .possible-craftings {
+  scrollbar-color: var(--color-highlight) transparent;
 }

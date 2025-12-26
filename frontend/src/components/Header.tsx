@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { IoMdMoon } from 'react-icons/io';
+import { MdWbSunny } from 'react-icons/md';
 
 export default function Header() {
   const [theme, setTheme] = useState(() => {
@@ -41,7 +43,9 @@ export default function Header() {
     <header className="p-4 flex justify-between">
       <nav>
         <ul className='flex gap-4'>
-          <Link to="/">Recipes</Link>
+          <NavLink to="/" className={({isActive}) => isActive ? 'underline' : ''}>Recipes</NavLink>
+          {/* <NavLink to="/potions" className={({isActive}) => isActive ? 'underline' : ''} >Potions</NavLink> */}
+          <NavLink to="/entities" className={({isActive}) => isActive ? 'underline' : ''} >Entities</NavLink>
         </ul>
       </nav>
       <div>
@@ -64,8 +68,9 @@ function ThemeChanger({ theme , toggleTheme }: ThemeChangerProps) {
         onClick={toggleTheme} 
         aria-label="Mudar para tema escuro" 
         className="theme-toggle cursor-pointer"
+        tabIndex={0}
       >
-        🌙
+        <IoMdMoon size="30"/>
       </button>
     )
   }
@@ -75,8 +80,9 @@ function ThemeChanger({ theme , toggleTheme }: ThemeChangerProps) {
       onClick={toggleTheme} 
       aria-label="Mudar para tema claro" 
       className="theme-toggle cursor-pointer"
+      tabIndex={0}
     >
-      ☀️
+      <MdWbSunny size="30"/>
     </button>
   )
 

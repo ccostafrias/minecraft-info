@@ -2,9 +2,17 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "CommonJS",
-    "rootDir": "src",
+    "rootDir": "..",
     "outDir": "dist",
     "esModuleInterop": true,
-    "strict": true
-  }
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    }
+  },
+  "include": [
+    "src",
+    "../shared"
+  ]
 }

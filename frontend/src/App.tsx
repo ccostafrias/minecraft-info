@@ -1,20 +1,37 @@
-import React, { useState } from 'react'
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react'
+import { RouterProvider, Route, Navigate, Outlet, createHashRouter, createRoutesFromElements } from 'react-router-dom';
 
 import Home from './pages/Home';
+import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+function RootLayout() {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
+
+const router = createHashRouter(createRoutesFromElements(
+  <Route path="/" element={<RootLayout />}>
+    <Route index element={<Home />} />
+    <Route path="/about" element={<div>About Page</div>} />
+    <Route path="/potions" element={<div>Potions Page</div>} />
+    <Route 
+      path="/item/:itemId" 
+      element={<ItemPage />}
+      loader={itemPageLoader}
+    />
+    <Route path="*" element={<Navigate to="/" replace/>} />
+  </Route>
+))
+
 export default function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="*" element={<Navigate to="/" replace/>} />
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<div>About Page</div>} />
-      </Routes>
-      <Footer />
-    </Router>
+    <RouterProvider router={router}/>
   )
 }
