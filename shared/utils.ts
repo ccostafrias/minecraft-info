@@ -1,10 +1,12 @@
-export function normalizeMatrix(matrix: number[][]): number[][] {
+import type { Id, ItemName, Matrix3x3, MinecraftItem } from './types'
+
+export function normalizeMatrix(matrix: Id[][]): Id[][] {
   let top = 0
   let bottom = matrix.length - 1
   let left = 0
   let right = matrix[0].length - 1
 
-  const isRowEmpty = (row: number[]) => row.every(v => v === 0)
+  const isRowEmpty = (row: Id[]) => row.every(v => v === 0)
 
   while (top <= bottom && isRowEmpty(matrix[top])) top++
   while (top <= bottom && isRowEmpty(matrix[bottom])) bottom--
@@ -23,7 +25,7 @@ export function normalizeMatrix(matrix: number[][]): number[][] {
     return [[0]]
   }
 
-  const result: number[][] = []
+  const result: Id[][] = []
   for (let i = top; i <= bottom; i++) {
     result.push(matrix[i].slice(left, right + 1))
   }
@@ -73,12 +75,12 @@ export function containsSubmatrix(
   return false
 }
 
-export function toMatrix2D(arr: number[], width: number): number[][] {
+export function toMatrix2D(arr: Id[], width: number): Id[][] {
   if (arr.length % width !== 0) {
     throw new Error('Array não pode ser convertido para matriz')
   }
 
-  const matrix: number[][] = []
+  const matrix: Id[][] = []
 
   for (let i = 0; i < arr.length; i += width) {
     matrix.push(arr.slice(i, i + width))
@@ -87,14 +89,30 @@ export function toMatrix2D(arr: number[], width: number): number[][] {
   return matrix
 }
 
-export const normalizeRecipe = (inShape: number[][] | undefined) => {
-  if (!inShape) return Array.from({ length: 9 }, () => ({name: 'empty', displayName: ''}));
-
+export const normalizeRecipe = (inShape: ItemName[][]): Matrix3x3<ItemName> => {
   const normalized = Array.from({ length: 3 }, (_, i) =>
     Array.from(
       { length: 3 },
-      (_, j) => (inShape[i] && inShape[i][j] ? inShape[i][j] : {name: 'empty', displayName: ''})
+      (_, j) => (inShape[i] && inShape[i][j] ? inShape[i][j] : defaultItemName())
     )
-  );
+  ) as Matrix3x3<ItemName>;
+
   return normalized;
 };
+
+export function defaultItemName(): ItemName {
+  return { name: 'empty', displayName: '' };
+}
+
+export function defaultCrafting(): ItemName[] {
+  return Array.from({ length: 9 }, () => defaultItemName())
+}
+
+export function transformRecipe(inShape: Id[][], callback: (id: number | null) => MinecraftItem | undefined): ItemName[][] {
+  return inShape.map((row: (number | null)[]) =>
+    row.map((id: number | null) => {
+      const itm = callback(id)
+      return itm ? { name: itm.name, displayName: itm.displayName, id: itm.id } : defaultItemName()
+    })
+  )
+}

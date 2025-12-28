@@ -1,14 +1,15 @@
 import React, { memo, useRef, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
-import type { MinecraftItem } from "@shared/types";
+import type { ItemName } from "@shared/types";
+import { defaultItemName } from "@shared/utils";
 import { useDoubleTap } from "use-double-tap";
 
 interface CraftingSlotProps {
   index: number;
-  item: MinecraftItem | null;
-  holdingItemRef: React.RefObject<MinecraftItem | null>;
-  setHoldingItem: React.Dispatch<React.SetStateAction<MinecraftItem | null>>;
-  setCrafting: React.Dispatch<React.SetStateAction<(MinecraftItem | null)[]>>;
+  item: ItemName;
+  holdingItemRef: React.RefObject<ItemName| null>;
+  setHoldingItem: React.Dispatch<React.SetStateAction<ItemName | null>>;
+  setCrafting: React.Dispatch<React.SetStateAction<ItemName[]>>;
 }
 
 export const CraftingSlot = memo(function CraftingSlot({
@@ -25,7 +26,7 @@ export const CraftingSlot = memo(function CraftingSlot({
 
   console.log("rendering crafting slot", index);
 
-  const changeCrafting = (newItem: MinecraftItem | null) => {
+  const changeCrafting = (newItem: ItemName) => {
     setCrafting((prev) => {
       const newCrafting = [...prev];
       newCrafting[index] = newItem;
@@ -69,7 +70,7 @@ export const CraftingSlot = memo(function CraftingSlot({
     isInside.current = false;
     setHoldingItem(null);
     setDragAnimation(false);
-    changeCrafting(null);
+    changeCrafting(defaultItemName());
   }
 
   const handleClick = () => {
@@ -85,21 +86,21 @@ export const CraftingSlot = memo(function CraftingSlot({
     e.preventDefault();
     console.log('right click crafting slot', index);
 
-    if (!item) return;
+    if (!item.displayName) return;
 
     if (holdingItemRef.current) {
       setHoldingItem(null);
       return;
     }
-    changeCrafting(null);
+    changeCrafting(defaultItemName());
   }
 
   const handleDoubleClick = () => {
     console.log('double click crafting slot', index);
 
-    if (!item) return;
+    if (!item.displayName) return;
 
-    changeCrafting(null);
+    changeCrafting(defaultItemName());
   }
 
   const handleDoubleTap = useDoubleTap(handleDoubleClick, 200, {
@@ -115,7 +116,7 @@ export const CraftingSlot = memo(function CraftingSlot({
       onContextMenu={handleRightClick}
       {...handleDoubleTap}
     >
-      {item && (
+      {item.displayName && (
         <motion.div
           className="aspect-square size-20 grid place-items-center "
           drag

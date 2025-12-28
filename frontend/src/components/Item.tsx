@@ -1,11 +1,11 @@
 import React, { memo, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
-import type { MinecraftItem } from "@shared/types";
+import type { ItemName, MinecraftItem } from "@shared/types";
 
 interface ItemProps {
   item: MinecraftItem;
-  holdingItem: MinecraftItem | null;
-  setHoldingItem: React.Dispatch<React.SetStateAction<MinecraftItem | null>>;
+  holdingItem: ItemName | null;
+  setHoldingItem: React.Dispatch<React.SetStateAction<ItemName | null>>;
 }
 
 export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: ItemProps) {

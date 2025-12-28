@@ -50,7 +50,7 @@ html.dark {
   --color-highlight: #fffbeb;
 }
 
-body, button, textarea, a {
+body, button, textarea {
   color: var(--color-text-primary);
   font-family: var(--font-main);
 }
@@ -85,21 +85,23 @@ img {
     'possible-craftings possible-craftings';
 }
 
-.items-main {
-  grid-template-columns: minmax(120px, 300px) 1fr;
-  grid-template-rows: auto auto 1fr;
-
-  grid-template-areas: 
-    'title title'
-    'item details'
-    'craftings craftings';
-
-  /* grid-template-columns: 220px 1fr 220px;
+.items-main.has-recipe {
+  grid-template-columns: 240px 1fr 240px;
   grid-template-rows: auto 1fr;
 
   grid-template-areas: 
     'title title title'
-    'item details craftings'; */
+    'item details craftings';
+
+}
+
+.items-main.no-recipe {
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr;
+
+  grid-template-areas: 
+    'title title'
+    'item details';
 
 }
 
@@ -114,7 +116,7 @@ img {
       'possible-craftings';
   }
 
-  .items-main {
+  .items-main.has-recipe {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
 
@@ -123,6 +125,16 @@ img {
       'item'
       'details'
       'craftings';
+  }
+
+  .items-main.no-recipe {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+
+    grid-template-areas: 
+      'title'
+      'item'
+      'details';
   }
 }
 

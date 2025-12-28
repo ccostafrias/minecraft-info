@@ -1,8 +1,8 @@
-import React from 'react'
 import { RouterProvider, Route, Navigate, Outlet, createHashRouter, createRoutesFromElements } from 'react-router-dom';
 
 import Home from './pages/Home';
 import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
+import ItemNotFound from './pages/ItemNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -25,6 +25,7 @@ const router = createHashRouter(createRoutesFromElements(
       path="/item/:itemId" 
       element={<ItemPage />}
       loader={itemPageLoader}
+      errorElement={<ItemNotFound />}
     />
     <Route path="*" element={<Navigate to="/" replace/>} />
   </Route>

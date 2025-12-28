@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { IoIosClose } from "react-icons/io";
 import { FaCircleInfo } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa6";
 
@@ -8,20 +7,21 @@ import { SearchBar } from "../components/SearchBar";
 import { Item } from "../components/Item";
 import { CraftingSlot } from "../components/CraftingSlot";
 import { PossibleCrafting } from "../components/PossibleCrafting";
-import type { MinecraftItem, ItemsInfo } from "@shared/types";
+import type { MinecraftItem, ItemsInfo, ItemName } from "@shared/types";
+import { defaultCrafting } from "@shared/utils";
 
 export default function Home() {
   const navigate = useNavigate();
-  const [crafting, setCrafting] = useState<(MinecraftItem | null)[]>(() => {
+  const [crafting, setCrafting] = useState<ItemName[]>(() => {
     const savedCrafting = localStorage.getItem('lastCrafting');
-    return savedCrafting ? JSON.parse(savedCrafting) : Array.from({ length: 9 }, () => null);
+    return savedCrafting ? JSON.parse(savedCrafting) : defaultCrafting();
   })
   const [items, setItems] = useState<ItemsInfo>({ items: [], nextOffset: 0, hasMore: false })
   const [loadingItems, setLoadingItems] = useState<boolean>(true)
   const [possibleCraftings, setPossibleCraftings] = useState<MinecraftItem[] | null>(null)
 
-  const [holdingItem, setHoldingItem] = useState<MinecraftItem | null>(null)
-  const holdingItemRef = useRef<MinecraftItem | null>(null);
+  const [holdingItem, setHoldingItem] = useState<ItemName | null>(null)
+  const holdingItemRef = useRef<ItemName | null>(null);
 
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [possibleSearchTerm, setPossibleSearchTerm] = useState<string>("")
@@ -54,7 +54,7 @@ export default function Home() {
   }, [searchTerm])
 
   useEffect(() => {
-    if (crafting.every(slot => slot === null)) {
+    if (crafting.every(slot => !slot.displayName)) {
       setPossibleCraftings(null)
       localStorage.removeItem('lastCrafting')
       return
@@ -66,14 +66,18 @@ export default function Home() {
     const controller = new AbortController()
 
     const timeout = setTimeout(() => {
-      const formatedCrafting = crafting.map(slot => slot ? slot.id : 0)
+      const formatedCrafting = crafting.map(slot => slot.displayName ? slot.id : 0)
+      console.log('formatted crafting:', formatedCrafting)
   
       fetch(
         `/api/possibleRecipes?recipe=${encodeURIComponent(JSON.stringify(formatedCrafting))}`, 
         { signal: controller.signal }
       )
         .then(res => res.json())
-        .then(data => setPossibleCraftings(data))
+        .then(data => {
+          console.log('possible craftings data:', data)
+          setPossibleCraftings(data)
+        })
         .catch(err => {
           if (err.name !== 'AbortError') {
             console.error(err)
@@ -122,7 +126,7 @@ export default function Home() {
   }, [])
 
   const clearCrafting = () => {
-    setCrafting(Array.from({ length: 9 }, () => null))
+    setCrafting(defaultCrafting());
   }
 
   const craftingElements = crafting.map((item, index: number) => {
@@ -153,7 +157,7 @@ export default function Home() {
   const possibleCraftingsElements = possibleCraftings ? possibleCraftings
     .filter(item => item.displayName.toLowerCase().includes(possibleSearchTerm.toLowerCase()))
     .map((item, index) => (
-    <PossibleCrafting key={`possible-crafting-${index}`} item={item} index={index} />
+      <PossibleCrafting key={`possible-crafting-${index}`} item={item} index={index} />
   )) : null
 
   return (

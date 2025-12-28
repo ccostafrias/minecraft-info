@@ -1,7 +1,6 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import type { MinecraftItem } from "@shared/types";
-import { normalizeRecipe } from "../utils/normalizeRecipe";
 import { Crafting } from "../components/Crafting";
 
 interface PossibleCraftingProps {
@@ -10,8 +9,6 @@ interface PossibleCraftingProps {
 }
 
 export const PossibleCrafting = memo(function PossibleCrafting({ item, index }: PossibleCraftingProps) {
-  const normalizedRecipe = normalizeRecipe(item.recipe?.inShape).flat()
-
   console.log('rendering possible crafting for', item.displayName);
 
   return (
@@ -30,7 +27,7 @@ export const PossibleCrafting = memo(function PossibleCrafting({ item, index }: 
         <h3 className="text-ellipsis whitespace-nowrap overflow-hidden hover:underline" >{item.displayName}</h3>
       </Link>
       
-      <Crafting crafting={normalizedRecipe} />
+      <Crafting key={`crafting-${item.id}`} crafting={item.recipes!} />
     </div>
   );
 })
