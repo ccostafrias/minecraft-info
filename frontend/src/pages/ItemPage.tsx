@@ -3,6 +3,7 @@ import type { LoaderFunctionArgs } from 'react-router-dom';
 import type { Meta, MinecraftItem } from '@shared/types';
 import { GrFormPrevious } from 'react-icons/gr';
 import { Crafting } from '../components/Crafting';
+import { useEffect } from 'react';
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { itemId } = params
@@ -22,7 +23,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
     const item = await fetch(`/api/item/${itemId}`)
     if (!item.ok) {
-      throw new Response(`Failed to fetch item with ID '${itemId}'`, { status: item.status, statusText: item.statusText } );
+      throw new Response(`Failed to fetch item with ID "${itemId}"`, { status: item.status, statusText: item.statusText } );
     }
     const itemData = await item.json()
 
@@ -35,29 +36,34 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function ItemPage() {
   const { item, meta } = useLoaderData() as { item: MinecraftItem, meta: Meta }
+
+  useEffect(() => {
+    document.title = `${item.displayName} - Minecraft Recipes`;
+    localStorage.setItem('lastVisitedItem', item.id.toString());
+  }, [item])
   console.log('item data loaded:', item);
 
   return (
-    <main className={`items-main h-full grid items-center w-9/10 max-w-200 m-auto gap-4 p-4 ${item.recipes!.length > 0 ? 'has-recipe' : 'no-recipe'}`}>
+    <main className={`items-main items-center gap-4 ${item.recipes!.length > 0 ? 'has-recipe' : 'no-recipe'}`}>
       {/* Title */}
       <header className="item-header [grid-area:title] border-b-2 pb-4 grid grid-cols-[1fr_auto_1fr] items-center">
         {/* Previne usuário de ir além do primeiro item */}
-        {item.id > meta.minId ? (
+        {item.id > meta.minId && (
           <Link to={`/item/${item.id - 1}`} className='p-2 flex flex-row items-center gap-2' >
             <GrFormPrevious className='text-4xl md:text-xl' />
             <span className='hidden md:inline'>Previous item</span>
           </Link>
-        ) : <div></div>}
+        )}
 
-        <h1 className='text-3xl font-bold text-center'>Item Details</h1>
+        <h1 className='text-3xl font-bold text-center col-start-2'>Item Details</h1>
 
         {/* Previnir usuário de ir além do último item */}
-        {item.id < meta.maxId ? (
+        {item.id < meta.maxId && (
           <Link to={`/item/${item.id + 1}`} className='p-2 flex flex-row items-center gap-2 justify-self-end' >
             <span className='hidden md:inline'>Next item</span>
             <GrFormPrevious className='rotate-180 text-4xl md:text-xl'/>
           </Link>
-        ) : <div></div>}
+        )}
       </header>
       {/* Item */}
       <section className="item-section [grid-area:item] flex flex-col gap-4 items-center justify-center">

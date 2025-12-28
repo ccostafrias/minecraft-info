@@ -44,8 +44,9 @@ export default function Header() {
       <nav>
         <ul className='flex gap-4'>
           <NavLink to="/" className={({isActive}) => isActive ? 'underline' : ''}>Recipes</NavLink>
+          <NavLink to="/item" className={({isActive}) => isActive ? 'underline' : ''} >Items</NavLink>
+          <NavLink to="/entity" className={({isActive}) => isActive ? 'underline' : ''} >Entities</NavLink>
           {/* <NavLink to="/potions" className={({isActive}) => isActive ? 'underline' : ''} >Potions</NavLink> */}
-          <NavLink to="/entities" className={({isActive}) => isActive ? 'underline' : ''} >Entities</NavLink>
         </ul>
       </nav>
       <div>

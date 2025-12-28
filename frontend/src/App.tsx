@@ -5,6 +5,18 @@ import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
 import ItemNotFound from './pages/ItemNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Entities from './pages/Entities';
+
+function getLastVisitedItemId() {
+  const raw = localStorage.getItem('lastVisitedItem')
+  const id = raw !== null ? Number(raw) : NaN
+  return Number.isFinite(id) && id >= 0 ? id : 0
+}
+
+function RedirectToLastItem() {
+  const id = getLastVisitedItemId()
+  return <Navigate to={`/item/${id}`} replace />
+}
 
 function RootLayout() {
   return (
@@ -19,8 +31,14 @@ function RootLayout() {
 const router = createHashRouter(createRoutesFromElements(
   <Route path="/" element={<RootLayout />}>
     <Route index element={<Home />} />
-    <Route path="/about" element={<div>About Page</div>} />
-    <Route path="/potions" element={<div>Potions Page</div>} />
+
+    <Route path="/item" element={<RedirectToLastItem />} />
+    <Route path="/entity" element={<Navigate to={`/entity/2`} replace />} />
+
+    <Route 
+      path="/entity/:entityId" 
+      element={<Entities />}
+    />
     <Route 
       path="/item/:itemId" 
       element={<ItemPage />}
