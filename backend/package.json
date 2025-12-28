@@ -14,7 +14,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1",
-    "minecraft-data": "^3.102.0"
+    "minecraft-data": "^3.102.0",
+    "tsconfig": "^7.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

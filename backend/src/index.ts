@@ -27,8 +27,7 @@ function getMinMaxID(items: MinecraftItem[]): { minId: number; maxId: number } {
 const getRecipe = (id: number | null) => id ? mcData.items[id] : undefined
 
 for (const recipe in mcData.recipes) {
-  mcData.recipes[recipe] = mcData.recipes[recipe]
-    .map((r: any) => {
+  mcData.recipes[recipe].map((r: any) => {
       if (!r.inShape) {
         const ingredients = r.ingredients || []
         r.inShape = toMatrix2D(ingredients, 3)

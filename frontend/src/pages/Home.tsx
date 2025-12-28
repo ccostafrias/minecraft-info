@@ -1,17 +1,19 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaCircleInfo } from "react-icons/fa6";
+import { useInView } from "react-intersection-observer";
 import { FaTrash } from "react-icons/fa6";
 
+import type { MinecraftItem, ItemsInfo, ItemName } from "@shared/types";
 import { SearchBar } from "../components/SearchBar";
 import { Item } from "../components/Item";
 import { CraftingSlot } from "../components/CraftingSlot";
 import { PossibleCrafting } from "../components/PossibleCrafting";
-import type { MinecraftItem, ItemsInfo, ItemName } from "@shared/types";
 import { defaultCrafting } from "@shared/utils";
 
 export default function Home() {
   const navigate = useNavigate();
+
   const [crafting, setCrafting] = useState<ItemName[]>(() => {
     const savedCrafting = localStorage.getItem('lastCrafting');
     return savedCrafting ? JSON.parse(savedCrafting) : defaultCrafting();
@@ -20,11 +22,26 @@ export default function Home() {
   const [loadingItems, setLoadingItems] = useState<boolean>(true)
   const [possibleCraftings, setPossibleCraftings] = useState<MinecraftItem[] | null>(null)
 
+  // Holding
   const [holdingItem, setHoldingItem] = useState<ItemName | null>(null)
   const holdingItemRef = useRef<ItemName | null>(null);
 
+  // Search
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [possibleSearchTerm, setPossibleSearchTerm] = useState<string>("")
+
+  const { ref: trackingRef } = useInView({
+    threshold: 0,
+    triggerOnce: false,
+    rootMargin: '200px',
+    onChange: (inView, entry) => {
+      if (inView) {
+        console.log('loading more items...', entry?.target)
+      } else {
+        console.log('not loading more items', entry?.target)
+      }
+    }
+  })
 
   useEffect(() => {
     const controller = new AbortController()
@@ -60,9 +77,8 @@ export default function Home() {
       return
     }
 
-    console.log('fetching possible craftings for', crafting)
-
     localStorage.setItem('lastCrafting', JSON.stringify(crafting))
+
     const controller = new AbortController()
 
     const timeout = setTimeout(() => {
@@ -139,7 +155,7 @@ export default function Home() {
 
   const itemsElements = items.items.map((item, index: number) => {
     return (
-      <div key={`item-slot-${index}`} className={`relative rounded-xl bg-highlight flex flex-col justify-between items-center p-1 cursor-pointer hover:outline-4 ${holdingItem?.name === item.name ? 'outline-4' : ''}`}>
+      <div key={`item-slot-${index}`} className={`item bg-highlight cursor-pointer hover:outline-4 ${holdingItem?.name === item.name ? 'outline-4' : ''}`}>
         <div 
           role="button"
           className="absolute left-0 top-0 m-1 text-surface-muted hover:text-surface-strong" 
@@ -200,6 +216,10 @@ export default function Home() {
           ) : items.items.length > 0 ? (
             <div className="items-grid p-2 grid grid-cols-[repeat(auto-fill,minmax(90px,1fr))] auto-rows-min gap-2 self-center h-80 overflow-y-auto overflow-x-hidden w-full">
               {itemsElements}
+              {/* Skeleton */}
+              <ItemSkeleton count={items.hasMore ? 10 : 0} />
+              {/* IntersectionObserver sentinel */}
+              <div ref={trackingRef} className="h-1 w-full" aria-hidden />
             </div>
           ) : (
             <p className="p-2">No items found :/</p>
@@ -221,4 +241,26 @@ export default function Home() {
       </section>
     </main>
   );
+}
+
+function ItemSkeleton({ count }: { count: number }) {
+  const skeletons = useMemo(() => {
+    const arr = Array.from({ length: count }, (_, i) => {
+      return (
+        <div key={`item-skeleton-${i}`} className="item border-2 border-surface-muted">
+          <div className="size-20"/>
+          <span className="h-2 w-12 bg-surface-muted rounded-[5px] shimmer"></span>
+          <span className="h-2 w-10 m-1 bg-surface-muted rounded-[5px] shimmer"></span>
+        </div>
+      )
+    });
+
+    return arr;
+  }, [count]);
+
+  return (
+    <>
+      {skeletons}
+    </>
+  )
 }

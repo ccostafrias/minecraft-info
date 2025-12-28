@@ -32,12 +32,12 @@ html {
 
 html {
   --color-surface-base: #f4f4f5;
-  --color-surface-muted: #d6d7db;
+  --color-surface-muted: #e5e5e5;
   --color-surface-strong: #c7c7c7;
   --color-text-primary: #383a42;
   --color-accent-danger: #bd3030;
   --color-accent-success: #2bb32b;
-  --color-highlight: #303030;
+  --color-highlight: #acacac;
 }
 
 html.dark {
@@ -140,4 +140,27 @@ img {
 
 .items-grid, .possible-craftings {
   scrollbar-color: var(--color-highlight) transparent;
+}
+
+.item {
+  @apply relative rounded-xl flex items-center p-2 flex-col justify-between 
+}
+
+.shimmer {
+	background: linear-gradient(
+		90deg,
+		var(--color-surface-strong) 30%,
+		var(--color-surface-muted) 50%,
+		var(--color-surface-strong) 70%
+	);
+	background-size: 400%;
+	animation: shimmer 1.5s infinite linear;
+}
+@keyframes shimmer {
+	0% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0 0;
+	}
 }
