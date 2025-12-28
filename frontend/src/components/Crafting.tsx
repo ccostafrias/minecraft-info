@@ -33,7 +33,7 @@ export function Crafting({ crafting }: CraftingProps) {
     return (
       <div
         key={`recipe-slot-${item.name}-${idx}`}
-        className="rounded-[10px] bg-highlight grid place-items-center cursor-pointer hover:outline-4 md:size-16 size-20"
+        className="rounded-[10px] bg-highlight grid place-items-center cursor-pointer hover:outline-4 md:size-14 size-16"
         onClick={() => handleClickItem(item)}
         title={item.displayName}
       >

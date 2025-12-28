@@ -177,7 +177,7 @@ export default function Home() {
   )) : null
 
   return (
-    <main className="recipes-main h-full grid w-9/10 max-w-200 m-auto gap-10">
+    <main className="recipes-main gap-10">
       {/* Crafting */}
       <section className="crafting-section self-center flex justify-center flex-col gap-4 items-center [grid-area:crafting]">
         <header className="grid grid-cols-[1fr_auto_1fr] items-center w-full">
