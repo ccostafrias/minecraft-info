@@ -9,7 +9,7 @@ interface PossibleCraftingProps {
 }
 
 export const PossibleCrafting = memo(function PossibleCrafting({ item, index }: PossibleCraftingProps) {
-  console.log('rendering possible crafting for', item.displayName);
+  // console.log('rendering possible crafting for', item.displayName);
 
   return (
     <div

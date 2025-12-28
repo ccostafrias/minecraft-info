@@ -27,7 +27,6 @@ export function Crafting({ crafting }: CraftingProps) {
     return () => clearInterval(interval);
   }, [crafting])
 
-  console.log(crafting, index)
   const actualCrafting = crafting[index].flat()
 
   const elements = actualCrafting.map((item, idx) => {

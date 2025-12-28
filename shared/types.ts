@@ -1,13 +1,18 @@
-export interface MinecraftItem {
-  id: number;
+export interface ItemName {
   name: string;
   displayName: string;
+  id: number;
+}
+
+interface Tool {
+  enchantCategories: string[];
+  repairWith: string[];
+  maxDurability: number;
+}
+
+export interface MinecraftItem extends ItemName, Partial<Tool> {
   stackSize?: number;
-  recipe?: Recipe;
   recipes?: Matrix3x3<ItemName>[];
-  enchantCategories?: string[];
-  repairWith?: string[];
-  maxDurability?: number;
 }
 
 export interface ItemsInfo {
@@ -16,18 +21,12 @@ export interface ItemsInfo {
   hasMore: boolean;
 }
 
-export interface ItemName {
-  name: string;
-  displayName: string;
-  id?: number;
-}
-
-export interface Recipe {
+export interface Recipe<T> {
   result: {
     id: number;
     count: number;
   };
-  inShape: Matrix3x3<ItemName>;
+  inShape: Matrix3x3<T>;
 }
 
 export interface RecipeMap {

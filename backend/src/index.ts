@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import minecraftData from 'minecraft-data'
 import { normalizeMatrix, containsSubmatrix, toMatrix2D, normalizeRecipe, transformRecipe } from '@shared/utils'
-import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName } from '@shared/types'
+import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, Recipe } from '@shared/types'
 
 const app = express()
 const mcData = minecraftData('1.20')
@@ -26,18 +26,20 @@ function getMinMaxID(items: MinecraftItem[]): { minId: number; maxId: number } {
 
 const getRecipe = (id: number | null) => id ? mcData.items[id] : undefined
 
-const recipeValues = Object.values(mcData.recipes).flat()
+for (const recipe in mcData.recipes) {
+  mcData.recipes[recipe] = mcData.recipes[recipe]
+    .map((r: any) => {
+      if (!r.inShape) {
+        const ingredients = r.ingredients || []
+        r.inShape = toMatrix2D(ingredients, 3)
+      }
+      r.inShape = normalizeMatrix(r.inShape)
+      return r
+    })
+}
+
+const recipeValues = Object.values(mcData.recipes).flat() as Recipe<Id>[]
 const itemValues = Object.values(mcData.items) as MinecraftItem[]
-
-const shapedRecipes = recipeValues
-  .filter((r: any) => r.inShape)
-  .map((r: any) => ({
-    result: r.result,
-    inShape: normalizeMatrix(r.inShape)
-  }))
-
-const ingredientRecipes = recipeValues
-  .filter((r: any) => r.ingredients && !r.inShape)
 
 app.get('/api/itemsMeta', (req, res) => {
   const { minId, maxId } = getMinMaxID(itemValues)
@@ -46,11 +48,6 @@ app.get('/api/itemsMeta', (req, res) => {
     minId,
     maxId
   })
-})
-
-app.get('/api/ingredientRecipes', (req, res) => {
-  const ingredients = ingredientRecipes.map((r: any) => ({...r, ingredients: r.ingredients.map((id: number) => mcData.items[id].name), name: mcData.items[r.result.id].name}))
-  res.json(ingredients)
 })
 
 app.get('/api/possibleRecipes', (req, res) => {
@@ -64,7 +61,7 @@ app.get('/api/possibleRecipes', (req, res) => {
   const normalizedInput = normalizeMatrix(matrix) as Id[][]
   const matches: RecipeMap = {}
 
-  for (const recipe of shapedRecipes) {
+  for (const recipe of recipeValues) {
     if (containsSubmatrix(recipe.inShape, normalizedInput)) {
       const id = recipe.result.id
       

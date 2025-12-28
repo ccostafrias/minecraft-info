@@ -33,7 +33,6 @@ export function normalizeMatrix(matrix: Id[][]): Id[][] {
   return result
 }
 
-
 export function matchesAt(
   big: number[][],
   small: number[][],
@@ -76,19 +75,22 @@ export function containsSubmatrix(
 }
 
 export function toMatrix2D(arr: Id[], width: number): Id[][] {
-  if (arr.length % width !== 0) {
-    throw new Error('Array não pode ser convertido para matriz')
+  const ref = [...arr]
+  
+  while (ref.length % width !== 0) {
+    ref.push(0)
   }
 
   const matrix: Id[][] = []
 
-  for (let i = 0; i < arr.length; i += width) {
-    matrix.push(arr.slice(i, i + width))
+  for (let i = 0; i < ref.length; i += width) {
+    matrix.push(ref.slice(i, i + width))
   }
 
   return matrix
 }
 
+// Normaliza uma receita para uma matriz 3x3, preenchendo com itens vazios quando necessário
 export const normalizeRecipe = (inShape: ItemName[][]): Matrix3x3<ItemName> => {
   const normalized = Array.from({ length: 3 }, (_, i) =>
     Array.from(
@@ -101,13 +103,14 @@ export const normalizeRecipe = (inShape: ItemName[][]): Matrix3x3<ItemName> => {
 };
 
 export function defaultItemName(): ItemName {
-  return { name: 'empty', displayName: '' };
+  return { name: 'empty', displayName: '', id: -1 };
 }
 
 export function defaultCrafting(): ItemName[] {
   return Array.from({ length: 9 }, () => defaultItemName())
 }
 
+// Transforma uma matriz de IDs em uma matriz de ItemName usando o callback fornecido
 export function transformRecipe(inShape: Id[][], callback: (id: number | null) => MinecraftItem | undefined): ItemName[][] {
   return inShape.map((row: (number | null)[]) =>
     row.map((id: number | null) => {
