@@ -3,6 +3,8 @@ import type { LoaderFunctionArgs } from 'react-router-dom';
 import type { Meta, MinecraftItem } from '@shared/types';
 import { GrFormPrevious } from 'react-icons/gr';
 import { Crafting } from '../components/Crafting';
+import { useEffect } from 'react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { itemId } = params
@@ -13,8 +15,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
     if (!meta) {
       const metaResponse = await fetch('/api/itemsMeta');
-      const metaData = await metaResponse.json()
-      meta = JSON.stringify(metaData);
+      if (!metaResponse.ok) {
+        meta = JSON.stringify({ minId: 0, maxId: 1300 }); // Default fallback values  
+      } else {
+        const metaData = await metaResponse.json()
+        meta = JSON.stringify(metaData);
+      }
       sessionStorage.setItem(metaKey, meta);
     } else {
       meta = JSON.parse(meta);
@@ -35,6 +41,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function ItemPage() {
   const { item, meta } = useLoaderData() as { item: MinecraftItem, meta: Meta }
+
+  useDocumentTitle(`${item.displayName} - Minecraft Recipes`);
+
+  useEffect(() => {
+    sessionStorage.setItem('lastVisitedItem', item.id.toString());
+  }, [item])
   console.log('item data loaded:', item);
 
   return (
