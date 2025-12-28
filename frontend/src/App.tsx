@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Entities from './pages/Entities';
 
 function getLastVisitedItemId() {
-  const raw = localStorage.getItem('lastVisitedItem')
+  const raw = sessionStorage.getItem('lastVisitedItem')
   const id = raw !== null ? Number(raw) : NaN
   return Number.isFinite(id) && id >= 0 ? id : 0
 }

@@ -7,10 +7,12 @@ interface Props {
   url: string
   scale?: number
   rotate?: boolean
+  rotation?: [number, number, number]
+  isDragging?: boolean
 }
 
 
-export default function GltfModel({ url, scale = 1, rotate = true }: Props) {
+export default function GltfModel({ url, scale = 1, rotate = true, rotation = [0, 0, 0], isDragging = false }: Props) {
   const gltf = useLoader(GLTFLoader, url)
   const groupRef = useRef<THREE.Group>(null)
 
@@ -27,7 +29,7 @@ export default function GltfModel({ url, scale = 1, rotate = true }: Props) {
   })
 
   useFrame((_, delta) => {
-    if (groupRef.current && rotate) {
+    if (groupRef.current && rotate && !isDragging) {
       groupRef.current.rotation.y -= delta * 0.5
     }
   })
@@ -35,7 +37,7 @@ export default function GltfModel({ url, scale = 1, rotate = true }: Props) {
   return (
     <group 
       ref={groupRef} 
-      rotation={[Math.atan(Math.sqrt(2))/2, Math.PI / 4, 0]} 
+      rotation={[Math.atan(Math.sqrt(2))/2 + rotation[0], Math.PI / 4 + rotation[1], rotation[2]]} 
       scale={scale}
     >
       <primitive object={gltf.scene} />

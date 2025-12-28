@@ -43,3 +43,11 @@ export interface Meta {
   minId: number;
   maxId: number;
 }
+
+export interface Vec2 {
+  x: number;
+  y: number;
+}
+export interface MouseStatus extends Vec2 {
+  isDown: boolean;
+}

@@ -9,23 +9,20 @@ export default function Header() {
   })
 
   useEffect(() => {
-    // pega o tema salvo em localStorage
     const savedTheme = localStorage.getItem("theme")
 
-    // se tiver salvo, pega diretamente
     if (savedTheme) {
       setTheme(savedTheme)
-    } else { // se não, pega da preferência do navegador
+    } else {
+      // usa a preferência do sistema se não houver tema salvo
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
       setTheme(prefersDark ? "dark" : "light")
     }
 
-    // só então adicionará uma nova classe para body, 
     const timer = setTimeout(() => {
       document.body.classList.add('transitions-activated')
     }, 50)
 
-    // função de limpeza para remover o timer se o componente for desmontado
     return () => clearTimeout(timer)
   }, [])
 

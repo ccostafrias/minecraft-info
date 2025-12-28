@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "tailwind-scrollbar": "^4.0.2",
-    "tsconfig-paths": "^4.2.0"
-  }
-}

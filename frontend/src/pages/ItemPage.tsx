@@ -39,7 +39,7 @@ export default function ItemPage() {
 
   useEffect(() => {
     document.title = `${item.displayName} - Minecraft Recipes`;
-    localStorage.setItem('lastVisitedItem', item.id.toString());
+    sessionStorage.setItem('lastVisitedItem', item.id.toString());
   }, [item])
   console.log('item data loaded:', item);
 
