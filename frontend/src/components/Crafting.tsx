@@ -11,7 +11,7 @@ export function Crafting({ crafting }: CraftingProps) {
   const [index, setIndex] = useState(0);
 
   const handleClickItem = (item: ItemName) => {
-    if (!item.id) return;
+    if (item.id == -1) return;
 
     console.log('click possible crafting item', item.name);
     navigate(`/item/${item.id || item.name}`);
@@ -33,7 +33,7 @@ export function Crafting({ crafting }: CraftingProps) {
     return (
       <div
         key={`recipe-slot-${item.name}-${idx}`}
-        className="rounded-[10px] bg-highlight grid place-items-center cursor-pointer hover:outline-4 md:size-14 size-16"
+        className="block-square cursor-pointer hover:outline-4"
         onClick={() => handleClickItem(item)}
         title={item.displayName}
       >

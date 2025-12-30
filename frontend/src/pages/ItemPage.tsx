@@ -1,10 +1,13 @@
+import { useEffect } from 'react';
 import { useLoaderData, Link } from 'react-router-dom'
 import type { LoaderFunctionArgs } from 'react-router-dom';
 import type { Meta, MinecraftItem } from '@shared/types';
-import { GrFormPrevious } from 'react-icons/gr';
-import { Crafting } from '../components/Crafting';
-import { useEffect } from 'react';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { Crafting } from '../components/Crafting';
+import { NoCrafting } from '../components/NoCrafting';
+
+import { TbArrowBigRightFilled } from "react-icons/tb";
+import { GrFormPrevious } from 'react-icons/gr';
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { itemId } = params
@@ -32,7 +35,10 @@ export async function loader({ params }: LoaderFunctionArgs) {
     }
     const itemData = await item.json()
 
-    return { item: itemData, meta }
+    const uniqueTags = await fetch('/api/tags');
+    const tagsData = await uniqueTags.json();
+
+    return { item: itemData, meta, tags: tagsData };
   } catch (error) {
     throw error;
   }
@@ -40,14 +46,21 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export default function ItemPage() {
-  const { item, meta } = useLoaderData() as { item: MinecraftItem, meta: Meta }
+  const { item, meta, tags } = useLoaderData() as { item: MinecraftItem, meta: Meta, tags: string[] };
 
   useDocumentTitle(`${item.displayName} - Minecraft Recipes`);
 
   useEffect(() => {
     sessionStorage.setItem('lastVisitedItem', item.id.toString());
   }, [item])
-  console.log('item data loaded:', item);
+
+  console.log('unique tags: ', tags);
+
+  const tagElements = item.tags!.map((tag) => {
+    return (
+      <span key={tag} className='inline-block text-[16px] capitalize p-2 rounded-md bg-highlight text-surface-muted shadow-black shadow-2xl'>{tag}</span>
+    )
+  })
 
   return (
     <main className={`items-main items-center gap-4 ${item.recipes!.length > 0 ? 'has-recipe' : 'no-recipe'}`}>
@@ -72,20 +85,37 @@ export default function ItemPage() {
         )}
       </header>
       {/* Item */}
-      <section className="item-section [grid-area:item] flex flex-col gap-4 items-center justify-center">
-        <div className='p-4 m-2 rounded-2xl bg-highlight'>
+      <section className="item-section [grid-area:item] flex flex-col items-center justify-center py-4">
+        <div className='p-4 rounded-2xl bg-highlight'>
           <img
             src={`./items/${item.name}.png`}
             alt={item.displayName}
             className="block size-32 object-contain select-none pointer-events-none"
           />
         </div>
-        <h2 className='text-2xl font-bold text-center whitespace-nowrap text-ellipsis overflow-hidden max-w-full'>{item.displayName}</h2>
+      </section>
+      {/* Description */}
+      <section className="[grid-area:description] flex flex-col gap-4">
+          <header className='flex flex-row gap-x-4 items-center border-b-2 border-surface-muted pb-2'>
+            <h2 className="inline-block font-bold text-2xl mb-2 text-highlight">{item.displayName}</h2>
+            <span className='p-2 rounded-md border-2 border-surface-muted uppercase text-[10px]'>{item.category}</span>
+          </header>
+        <div className='h-25 flex flex-col justify-between'>
+          <p>{item.description!}</p>
+        </div>
+      </section>
+      {/* Tags */}
+      <section className="[grid-area:tags] flex flex-col gap-4 self-start pt-4">
+        <h2 className="font-bold text-xl">Tags:</h2>
+        <div className='flex flex-row gap-2 flex-wrap'>
+          {item.tags!.length > 0 && tagElements}
+        </div>
       </section>
       {/* Details */}
-      <section className="details-section [grid-area:details] gap-4 w-full">
+      <section className="details-section [grid-area:details] gap-4 w-full shadow-black/40 shadow-2xl">
         {/* <h2 className="font-bold text-2xl">Item Details</h2> */}
-        <ul className='grid md:grid-cols-2 grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-2'>
+        <ul className='rounded-2xl bg-surface-strong p-4 border-2 border-surface-muted'>
+          <DetailItem label="Item Properties" />
           <DetailItem label="ID" value={item.id} />
           <DetailItem label="Name" value={item.name} />
           <DetailItem label="Stackable" value={item.stackSize! > 1 ? "Yes" : "No"} />
@@ -96,29 +126,41 @@ export default function ItemPage() {
         </ul>
       </section>
       {/* Craftings */}
-      {item.recipes && item.recipes.length > 0 && (
-        <section className="craftings-section [grid-area:craftings] flex flex-col items-center gap-4">
-          <div className="possible-craftings flex flex-row gap-8 overflow-x-auto p-2">
-            <div className='flex'>
-              <Crafting key={`crafting-${item.id}`} crafting={item.recipes!} />
-            </div>
+        <section className="craftings-section [grid-area:craftings] flex flex-col items-center gap-4 relative md:mt-0 mt-8">
+          <h2 className="font-bold text-2xl absolute -top-5 bg-surface-base px-1">Crafting Recipe</h2>
+          <div className="possible-craftings flex flex-row items-center justify-center gap-2 pt-6 p-4 border-2 border-surface-muted rounded-2xl w-full">
+            {item.recipes && item.recipes.length > 0 ? (
+              <>
+                <div className='flex'>
+                  <Crafting key={`crafting-${item.id}`} crafting={item.recipes!} />
+                </div>
+                <TbArrowBigRightFilled className='text-4xl md:text-2xl'/>
+                <div className="block-square">
+                  <img
+                    src={`./items/${item.name}.png`}
+                    alt={item.displayName}
+                    className="block size-9/10 object-contain select-none pointer-events-none"
+                    />
+                </div>
+              </>
+            ) : (
+              <NoCrafting />
+            )}
           </div>
-          <h2 className="font-bold text-2xl">Crafting Recipe</h2>
         </section>
-      )}
     </main>
   )
 }
 
 interface DetailItemProps {
   label: string;
-  value: string | number;
+  value?: string | number;
 }
 
 function DetailItem({ label, value }: DetailItemProps) {
   return (
-    <li className='p-2 rounded-2xl bg-highlight text-surface-muted flex flex-col items-center justify-center gap-2 h-20 overflow-hidden'>
-      <strong>{label}:</strong>
+    <li className='flex flex-row justify-between gap-8 items-center p-2 border-b-2 border-surface-muted last:border-0'>
+      <strong className='text-highlight'>{label}{value ? ":" : ""}</strong>
       <span className='whitespace-nowrap text-ellipsis inline-block max-w-full overflow-hidden h-4.5'>{value}</span>
     </li>
   )

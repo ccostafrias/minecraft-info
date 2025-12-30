@@ -10,6 +10,7 @@ import { Item } from "../components/Item";
 import { CraftingSlot } from "../components/CraftingSlot";
 import { PossibleCrafting } from "../components/PossibleCrafting";
 import { defaultCrafting } from "@shared/utils";
+import { NoCrafting } from "../components/NoCrafting";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -235,7 +236,8 @@ export default function Home() {
           {possibleCraftingsElements && possibleCraftingsElements.length > 0 ? (
             possibleCraftingsElements
           ) : (
-            <p className="p-4">No possible craftings</p>
+            // <p className="p-4">No possible craftings</p>
+            <NoCrafting title="No possible craftings" subtitle="Try adjusting your search or crafting table."/>
           )}
         </div>
       </section>

@@ -75,7 +75,7 @@ img {
 }
 
 main {
-  @apply h-full grid w-9/10 max-w-200 m-auto p-4 ; 
+  @apply h-full grid w-9/10 max-w-200 m-auto p-4 mb-10 ; 
 }
 
 /* Crafting */
@@ -91,25 +91,31 @@ main {
 
 /* ItemPage */
 
-.items-main.has-recipe {
-  grid-template-columns: 240px 1fr 240px;
-  grid-template-rows: auto 1fr;
+.items-main {
+  grid-template-columns: 200px minmax(0, 1fr) 320px;
+  grid-template-rows: auto auto 1fr;
 
-  grid-template-areas: 
+  /* grid-template-areas: 
     'title title title'
-    'item details craftings';
+    'item details craftings'; */
+
+  grid-template-areas:
+    'title title title'
+    'item description tags'
+    'details  details craftings';
 
 }
 
-.items-main.no-recipe {
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: auto 1fr;
+/* .items-main.no-recipe {
+  grid-template-columns: 200px 1fr 350px;
+  grid-template-rows: auto 1fr 1fr;
 
-  grid-template-areas: 
-    'title title'
-    'item details';
+  grid-template-areas:
+    'title title title'
+    'item description description'
+    'tags details details';
 
-}
+} */
 
 /* Entities */
 
@@ -139,25 +145,44 @@ main {
       'possible-craftings';
   }
 
-  .items-main.has-recipe {
+  .items-main {
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+
+    grid-template-areas: 
+      'title title'
+      'item details'
+      'tags tags'
+      'description description'
+      /* 'details details' */
+      'craftings craftings';
+  }
+
+  /* .items-main.no-recipe {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
 
     grid-template-areas: 
       'title'
       'item'
-      'details'
-      'craftings';
-  }
+      'tags'
+      'description'
+      'details';
+  } */
+}
 
-  .items-main.no-recipe {
+@media (max-width: 580px) {
+.items-main {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
 
     grid-template-areas: 
       'title'
       'item'
-      'details';
+      'tags'
+      'description'
+      'details'
+      'craftings'
   }
 }
 
@@ -167,6 +192,10 @@ main {
 
 .item {
   @apply relative rounded-xl flex items-center p-2 flex-col justify-between 
+}
+
+.block-square {
+  @apply md:size-12 size-16 rounded-[10px] bg-highlight grid place-items-center
 }
 
 .shimmer {

@@ -80,7 +80,7 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: It
           className="block size-9/10 object-contain select-none pointer-events-none"
         />
       </motion.div>
-      <span className={`text-center text-surface-muted ${holdingItem?.id === item.id ? 'font-bold' : 'font-medium'}`}>
+      <span className={`text-center text-surface-muted line-clamp-2 ${holdingItem?.id === item.id ? 'font-bold' : 'font-medium'}`}>
         {item.displayName}
       </span>
     </>

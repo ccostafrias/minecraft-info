@@ -11,6 +11,9 @@ interface Tool {
 }
 
 export interface MinecraftItem extends ItemName, Partial<Tool> {
+  category?: string;
+  description?: string;
+  tags?: string[];
   stackSize?: number;
   recipes?: Matrix3x3<ItemName>[];
 }

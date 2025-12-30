@@ -3,6 +3,7 @@ import cors from 'cors'
 import minecraftData from 'minecraft-data'
 import { normalizeMatrix, containsSubmatrix, toMatrix2D, normalizeRecipe, transformRecipe } from '@shared/utils'
 import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, Recipe } from '@shared/types'
+import { getAllItems, getItemById, getAllTags } from './services/items.service'
 
 const app = express()
 const mcData = minecraftData('1.20')
@@ -24,10 +25,10 @@ function getMinMaxID(items: MinecraftItem[]): { minId: number; maxId: number } {
   return { minId, maxId }
 }
 
-const getRecipe = (id: number | null) => id ? mcData.items[id] : undefined
+const getRecipe = (id: number | null) => id ? getItemById(id) : undefined
 
 for (const recipe in mcData.recipes) {
-  mcData.recipes[recipe].map((r: any) => {
+  mcData.recipes[recipe] = mcData.recipes[recipe].map((r: any) => {
       if (!r.inShape) {
         const ingredients = r.ingredients || []
         r.inShape = toMatrix2D(ingredients, 3)
@@ -38,12 +39,11 @@ for (const recipe in mcData.recipes) {
 }
 
 const recipeValues = Object.values(mcData.recipes).flat() as Recipe<Id>[]
-const itemValues = Object.values(mcData.items) as MinecraftItem[]
 
 app.get('/api/itemsMeta', (req, res) => {
-  const { minId, maxId } = getMinMaxID(itemValues)
+  const { minId, maxId } = getMinMaxID(getAllItems())
   res.json({
-    count: itemValues.length,
+    count: getAllItems().length,
     minId,
     maxId
   })
@@ -67,8 +67,8 @@ app.get('/api/possibleRecipes', (req, res) => {
       if (!matches[recipe.result.id]) {
         matches[recipe.result.id] = {
           id,
-          name: mcData.items[id].name,
-          displayName: mcData.items[id].displayName,
+          name: getItemById(id)?.name,
+          displayName: getItemById(id)?.displayName,
           recipes: [] as Matrix3x3<ItemName>[]
         }
       }
@@ -86,7 +86,7 @@ app.get('/api/recipes', (req, res) => {
   const search = (req.query.search ?? '').toString().toLowerCase()
   const recipes = recipeValues
     .filter((r: any) => {
-      const resultItem = mcData.items[r.result.id]
+      const resultItem = getItemById(r.result.id)
       return resultItem.displayName.toLowerCase().includes(search) ||
              resultItem.name.toLowerCase().includes(search)
     })
@@ -103,7 +103,7 @@ app.get('/api/recipe/:itemId', (req, res) => {
 
 const handleItemRequest = (identifier: string, res: express.Response) => {
   const numeric = !isNaN(Number(identifier))
-  const item = (numeric ? mcData.items[Number(identifier)] : mcData.itemsByName[identifier]) as MinecraftItem | undefined
+  const item = (numeric ? getItemById(Number(identifier)) : mcData.itemsByName[identifier]) as MinecraftItem | undefined
 
   if (!item) {
     return res.status(404).json({ error: "Item não encontrado!" })
@@ -128,7 +128,7 @@ app.get('/api/items', (req, res) => {
   const limit = Number(req.query.limit ?? 50)
   const search = (req.query.search ?? '').toString().toLowerCase()
 
-  let items = itemValues
+  let items = getAllItems()
 
   if (search) {
     items = items.filter(item =>
@@ -142,6 +142,16 @@ app.get('/api/items', (req, res) => {
     nextOffset: offset + limit,
     hasMore: offset + limit < items.length
   })
+})
+
+app.get('/api/itemsRaw', (req, res) => {
+  res.json({
+    items: mcData.items,
+  })
+})
+
+app.get('/api/tags', (req, res) => {
+  res.json(getAllTags())
 })
 
 const port = 3000

@@ -37,7 +37,7 @@ export default function GltfModel({ url, scale = 1, rotate = true, rotation = [0
   return (
     <group 
       ref={groupRef} 
-      rotation={[Math.atan(Math.sqrt(2))/2 + rotation[0], Math.PI / 4 + rotation[1], rotation[2]]} 
+      rotation={[Math.atan(Math.sqrt(2))/2 + rotation[0], 3*Math.PI/4 + rotation[1], rotation[2]]} 
       scale={scale}
     >
       <primitive object={gltf.scene} />
