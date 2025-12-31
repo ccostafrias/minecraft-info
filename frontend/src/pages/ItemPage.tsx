@@ -14,19 +14,21 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
   try {
     const metaKey = 'itemsMeta';
-    let meta = sessionStorage.getItem(metaKey);
+    const meta = sessionStorage.getItem(metaKey);
+    let metaResult
 
     if (!meta) {
       const metaResponse = await fetch('/api/itemsMeta');
+
       if (!metaResponse.ok) {
-        meta = JSON.stringify({ minId: 0, maxId: 1300 }); // Default fallback values  
+        metaResult = { minId: 0, maxId: 1300 } 
       } else {
-        const metaData = await metaResponse.json()
-        meta = JSON.stringify(metaData);
+        metaResult = await metaResponse.json()
       }
-      sessionStorage.setItem(metaKey, meta);
+
+      sessionStorage.setItem(metaKey, JSON.stringify(metaResult));
     } else {
-      meta = JSON.parse(meta);
+      metaResult = JSON.parse(meta);
     }
 
     const item = await fetch(`/api/item/${itemId}`)
@@ -38,7 +40,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     const uniqueTags = await fetch('/api/tags');
     const tagsData = await uniqueTags.json();
 
-    return { item: itemData, meta, tags: tagsData };
+    return { item: itemData, meta: metaResult, tags: tagsData };
   } catch (error) {
     throw error;
   }
@@ -48,6 +50,8 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default function ItemPage() {
   const { item, meta, tags } = useLoaderData() as { item: MinecraftItem, meta: Meta, tags: string[] };
 
+  console.log("meta: ", meta);
+
   useDocumentTitle(`${item.displayName} - Minecraft Recipes`);
 
   useEffect(() => {
@@ -56,9 +60,9 @@ export default function ItemPage() {
 
   console.log('unique tags: ', tags);
 
-  const tagElements = item.tags!.map((tag) => {
+  const tagElements = item.tags!.sort().map((tag) => {
     return (
-      <span key={tag} className='inline-block text-[16px] capitalize p-2 rounded-md bg-highlight text-surface-muted shadow-black shadow-2xl'>{tag}</span>
+      <span key={tag} className='inline-block text-[16px] capitalize cursor-default p-2 rounded-md bg-highlight text-surface-muted shadow-black shadow-2xl'>{tag}</span>
     )
   })
 
@@ -68,7 +72,7 @@ export default function ItemPage() {
       <header className="item-header [grid-area:title] border-b-2 pb-4 grid grid-cols-[1fr_auto_1fr] items-center">
         {/* Previne usuário de ir além do primeiro item */}
         {item.id > meta.minId && (
-          <Link to={`/item/${item.id - 1}`} className='p-2 flex flex-row items-center gap-2' >
+          <Link to={`/item/${item.id - 1}`} className='p-2 flex flex-row items-center gap-2 hover:opacity-75' >
             <GrFormPrevious className='text-4xl md:text-xl' />
             <span className='hidden md:inline'>Previous item</span>
           </Link>
@@ -78,7 +82,7 @@ export default function ItemPage() {
 
         {/* Previnir usuário de ir além do último item */}
         {item.id < meta.maxId && (
-          <Link to={`/item/${item.id + 1}`} className='p-2 flex flex-row items-center gap-2 justify-self-end' >
+          <Link to={`/item/${item.id + 1}`} className='p-2 flex flex-row items-center gap-2 justify-self-end hover:opacity-75' >
             <span className='hidden md:inline'>Next item</span>
             <GrFormPrevious className='rotate-180 text-4xl md:text-xl'/>
           </Link>
@@ -86,7 +90,7 @@ export default function ItemPage() {
       </header>
       {/* Item */}
       <section className="item-section [grid-area:item] flex flex-col items-center justify-center py-4">
-        <div className='p-4 rounded-2xl bg-highlight'>
+        <div className='p-4 rounded-2xl bg-highlight shadow-black/40 shadow-2xl'>
           <img
             src={`./items/${item.name}.png`}
             alt={item.displayName}
@@ -96,16 +100,16 @@ export default function ItemPage() {
       </section>
       {/* Description */}
       <section className="[grid-area:description] flex flex-col gap-4">
-          <header className='flex flex-row gap-x-4 items-center border-b-2 border-surface-muted pb-2'>
+          <header className='flex flex-row flex-wrap gap-x-4 items-center border-b-2 border-surface-muted pb-2'>
             <h2 className="inline-block font-bold text-2xl mb-2 text-highlight">{item.displayName}</h2>
-            <span className='p-2 rounded-md border-2 border-surface-muted uppercase text-[10px]'>{item.category}</span>
+            <span className='p-2 rounded-md border-2 border-surface-muted uppercase text-[10px] cursor-default'>{item.category}</span>
           </header>
-        <div className='h-25 flex flex-col justify-between'>
+        <div className='md:h-25 h-15 flex flex-col justify-between'>
           <p>{item.description!}</p>
         </div>
       </section>
       {/* Tags */}
-      <section className="[grid-area:tags] flex flex-col gap-4 self-start pt-4">
+      <section className="[grid-area:tags] flex flex-col gap-4 py-4 md:h-50 h-fit">
         <h2 className="font-bold text-xl">Tags:</h2>
         <div className='flex flex-row gap-2 flex-wrap'>
           {item.tags!.length > 0 && tagElements}

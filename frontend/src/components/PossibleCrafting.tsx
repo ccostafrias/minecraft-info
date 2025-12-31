@@ -13,10 +13,10 @@ export const PossibleCrafting = memo(function PossibleCrafting({ item, index }: 
 
   return (
     <div
-      className="possible-crafting flex flex-col gap-2 items-center"
+      className="possible-crafting grid grid-rows-[auto_auto] gap-2"
       key={`possible-crafting-${index}`}
     >
-      <Link to={`/item/${item.id}`} className="flex flex-row items-center gap-2 self-start">
+      <Link to={`/item/${item.id}`} className="grid grid-cols-[auto_1fr] items-center gap-2">
         <div className="bg-highlight rounded-lg p-1">
           <img
             src={`./items/${item.name}.png`}

@@ -1,11 +1,13 @@
+import { lazy } from 'react';
 import { RouterProvider, Route, Navigate, Outlet, createHashRouter, createRoutesFromElements } from 'react-router-dom';
-
 import Home from './pages/Home';
 import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
 import ItemNotFound from './pages/ItemNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Entities from './pages/Entities';
+
+// import Entities from './pages/Entities';
+const Entities = lazy(() => import('./pages/Entities'));
 
 function getLastVisitedItemId() {
   const raw = sessionStorage.getItem('lastVisitedItem')

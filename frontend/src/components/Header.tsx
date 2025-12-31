@@ -40,9 +40,9 @@ export default function Header() {
     <header className="p-4 flex justify-between">
       <nav>
         <ul className='flex gap-4'>
-          <NavLink to="/" className={({isActive}) => isActive ? 'underline' : ''}>Recipes</NavLink>
-          <NavLink to="/item" className={({isActive}) => isActive ? 'underline' : ''} >Items</NavLink>
-          <NavLink to="/entity" className={({isActive}) => isActive ? 'underline' : ''} >Entities</NavLink>
+          <NavLink to="/" className={({isActive}) => isActive ? 'opacity-75' : ''}>Recipes</NavLink>
+          <NavLink to="/item" className={({isActive}) => isActive ? 'opacity-75' : ''} >Items</NavLink>
+          <NavLink to="/entity" className={({isActive}) => isActive ? 'opacity-75' : ''} >Entities</NavLink>
           {/* <NavLink to="/potions" className={({isActive}) => isActive ? 'underline' : ''} >Potions</NavLink> */}
         </ul>
       </nav>
