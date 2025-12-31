@@ -36,7 +36,6 @@
     "tags": [
       "building",
       "overworld",
-      "decoration",
       "stone"
     ]
   },
@@ -63,7 +62,6 @@
     "tags": [
       "building",
       "overworld",
-      "decoration",
       "stone"
     ]
   },
@@ -90,7 +88,6 @@
     "tags": [
       "building",
       "overworld",
-      "decoration",
       "stone"
     ]
   },
@@ -130,7 +127,6 @@
     "tags": [
       "building",
       "overworld",
-      "crafting",
       "stone"
     ]
   },
@@ -156,7 +152,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "stone"
     ]
@@ -170,7 +165,8 @@
     "category": "block",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "13": {
@@ -183,7 +179,6 @@
     "tags": [
       "building",
       "overworld",
-      "decoration",
       "stone"
     ]
   },
@@ -248,8 +243,7 @@
     "category": "block",
     "tags": [
       "building",
-      "overworld",
-      "decoration"
+      "overworld"
     ]
   },
   "19": {
@@ -641,7 +635,8 @@
       "desert",
       "building",
       "overworld",
-      "crafting"
+      "crafting",
+      "colored"
     ]
   },
   "48": {
@@ -666,7 +661,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "50": {
@@ -678,7 +674,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "51": {
@@ -690,7 +687,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "52": {
@@ -702,7 +700,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "53": {
@@ -714,7 +713,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "54": {
@@ -726,7 +726,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "55": {
@@ -738,7 +739,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "56": {
@@ -750,7 +752,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "57": {
@@ -790,7 +793,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "60": {
@@ -802,7 +806,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "61": {
@@ -814,7 +819,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "62": {
@@ -826,7 +832,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "63": {
@@ -838,7 +845,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "64": {
@@ -850,7 +858,8 @@
     "category": "block",
     "tags": [
       "mining",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "65": {
@@ -900,7 +909,6 @@
     "tags": [
       "storage",
       "crafting",
-      "fuel",
       "overworld"
     ]
   },
@@ -952,7 +960,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld"
     ]
   },
@@ -964,7 +971,6 @@
     "description": "Block that grows amethyst clusters.",
     "category": "block",
     "tags": [
-      "decoration",
       "overworld"
     ]
   },
@@ -1028,9 +1034,9 @@
     "description": "Solid storage block of netherite.",
     "category": "block",
     "tags": [
-      "storage",
       "crafting",
-      "building"
+      "building",
+      "nether"
     ]
   },
   "79": {
@@ -1042,7 +1048,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld"
     ]
   },
@@ -1055,8 +1060,8 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
-      "overworld"
+      "overworld",
+      "colored"
     ]
   },
   "81": {
@@ -1068,7 +1073,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld"
     ]
   },
@@ -1105,7 +1109,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "colored"
     ]
   },
   "85": {
@@ -1153,7 +1158,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "colored"
     ]
   },
   "89": {
@@ -1201,7 +1207,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "colored"
     ]
   },
   "93": {
@@ -1225,8 +1232,8 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "95": {
@@ -1238,8 +1245,8 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "96": {
@@ -1251,8 +1258,9 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
-      "overworld"
+      "overworld",
+      "wax",
+      "colored"
     ]
   },
   "97": {
@@ -1264,8 +1272,8 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "98": {
@@ -1277,7 +1285,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "99": {
@@ -1289,7 +1298,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "100": {
@@ -1301,7 +1311,9 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax",
+      "colored"
     ]
   },
   "101": {
@@ -1313,7 +1325,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "102": {
@@ -1325,7 +1338,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "103": {
@@ -1337,7 +1351,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "104": {
@@ -1349,7 +1364,9 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax",
+      "colored"
     ]
   },
   "105": {
@@ -1361,7 +1378,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "106": {
@@ -1373,7 +1391,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "107": {
@@ -1385,7 +1404,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "108": {
@@ -1397,7 +1417,9 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax",
+      "colored"
     ]
   },
   "109": {
@@ -1409,7 +1431,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "wax"
     ]
   },
   "110": {
@@ -1533,8 +1556,7 @@
     "category": "block",
     "tags": [
       "building",
-      "overworld",
-      "decoration"
+      "overworld"
     ]
   },
   "119": {
@@ -1546,8 +1568,7 @@
     "category": "block",
     "tags": [
       "building",
-      "overworld",
-      "decoration"
+      "overworld"
     ]
   },
   "120": {
@@ -2034,8 +2055,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "155": {
@@ -2048,8 +2068,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "156": {
@@ -2062,8 +2081,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "157": {
@@ -2076,8 +2094,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "158": {
@@ -2090,8 +2107,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "159": {
@@ -2104,8 +2120,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "160": {
@@ -2118,8 +2133,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "161": {
@@ -2132,8 +2146,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "162": {
@@ -2146,8 +2159,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "163": {
@@ -2160,8 +2172,7 @@
     "tags": [
       "building",
       "overworld",
-      "plant",
-      "decoration"
+      "plant"
     ]
   },
   "164": {
@@ -2198,7 +2209,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld"
     ]
   },
@@ -2211,7 +2221,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld"
     ]
   },
@@ -2238,7 +2247,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "desert",
       "stone"
@@ -2281,7 +2289,6 @@
     "category": "block",
     "tags": [
       "overworld",
-      "decoration",
       "cave"
     ]
   },
@@ -2290,7 +2297,7 @@
     "name": "grass",
     "displayName": "Grass",
     "stackSize": 64,
-    "description": "Tall grass plant found on soil.",
+    "description": "Short grass plant found on soil.",
     "category": "decoration",
     "tags": [
       "overworld",
@@ -2379,7 +2386,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2393,7 +2399,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2407,7 +2412,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2421,7 +2425,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2435,7 +2438,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2449,7 +2451,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2463,7 +2464,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2477,7 +2477,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2491,7 +2490,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2505,7 +2503,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2519,7 +2516,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2533,7 +2529,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2547,7 +2542,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2561,7 +2555,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2575,7 +2568,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2589,7 +2581,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "colored"
     ]
@@ -2630,7 +2621,8 @@
     "tags": [
       "overworld",
       "flower",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "199": {
@@ -2656,7 +2648,8 @@
     "tags": [
       "overworld",
       "flower",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "201": {
@@ -2669,7 +2662,8 @@
     "tags": [
       "overworld",
       "flower",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "202": {
@@ -2682,7 +2676,8 @@
     "tags": [
       "overworld",
       "flower",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "203": {
@@ -2695,7 +2690,8 @@
     "tags": [
       "overworld",
       "flower",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "204": {
@@ -2708,7 +2704,8 @@
     "tags": [
       "overworld",
       "flower",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "205": {
@@ -2733,7 +2730,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "plant"
+      "plant",
+      "flower"
     ]
   },
   "207": {
@@ -2757,7 +2755,7 @@
     "description": "Dark flower dropped by mobs harmed by the Wither.",
     "category": "decoration",
     "tags": [
-      "mob_drop",
+      "mob",
       "flower",
       "plant",
       "nether"
@@ -2773,6 +2771,7 @@
     "tags": [
       "overworld",
       "plant",
+      "flower",
       "archaeology"
     ]
   },
@@ -2785,7 +2784,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "archaeology"
+      "archaeology",
+      "plant"
     ]
   },
   "211": {
@@ -2810,7 +2810,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "213": {
@@ -2822,7 +2823,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "plant"
+      "plant",
+      "colored"
     ]
   },
   "214": {
@@ -2960,7 +2962,8 @@
     "tags": [
       "overworld",
       "plant",
-      "flower"
+      "flower",
+      "colored"
     ]
   },
   "225": {
@@ -2972,7 +2975,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld"
     ]
   },
@@ -3321,7 +3323,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "nether"
     ]
   },
   "253": {
@@ -3335,7 +3338,8 @@
       "building",
       "overworld",
       "desert",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "254": {
@@ -3349,7 +3353,8 @@
       "building",
       "overworld",
       "desert",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "255": {
@@ -3409,8 +3414,8 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
-      "overworld"
+      "overworld",
+      "nether"
     ]
   },
   "260": {
@@ -3422,10 +3427,10 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "desert",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "261": {
@@ -3437,7 +3442,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "desert",
       "stone"
@@ -3452,7 +3456,6 @@
     "category": "block",
     "tags": [
       "building",
-      "decoration",
       "overworld",
       "stone"
     ]
@@ -3555,9 +3558,9 @@
     "description": "Slim End rod block that emits bright light.",
     "category": "utility",
     "tags": [
+      "end",
       "light",
-      "building",
-      "decoration"
+      "building"
     ]
   },
   "271": {
@@ -3568,6 +3571,7 @@
     "description": "Branching End plant that grows from chorus flowers.",
     "category": "decoration",
     "tags": [
+      "plant",
       "end"
     ]
   },
@@ -3580,7 +3584,8 @@
     "category": "decoration",
     "tags": [
       "end",
-      "plant"
+      "plant",
+      "flower"
     ]
   },
   "273": {
@@ -3664,7 +3669,6 @@
     "category": "utility",
     "tags": [
       "farming",
-      "crop",
       "overworld"
     ]
   },
@@ -3676,7 +3680,6 @@
     "description": "Smelts ores and cooks items using fuel.",
     "category": "utility",
     "tags": [
-      "fuel",
       "overworld",
       "stone"
     ]
@@ -3775,7 +3778,6 @@
     "description": "Plays music discs and can output redstone signals.",
     "category": "utility",
     "tags": [
-      "record",
       "redstone",
       "overworld"
     ]
@@ -3931,8 +3933,7 @@
     "category": "material",
     "tags": [
       "farming",
-      "overworld",
-      "crop"
+      "overworld"
     ]
   },
   "301": {
@@ -3947,8 +3948,7 @@
     "description": "Pumpkin carved with a face; can be worn as a helmet.",
     "category": "utility",
     "tags": [
-      "overworld",
-      "decoration"
+      "overworld"
     ]
   },
   "302": {
@@ -3960,8 +3960,7 @@
     "category": "utility",
     "tags": [
       "light",
-      "overworld",
-      "decoration"
+      "overworld"
     ]
   },
   "303": {
@@ -3973,7 +3972,8 @@
     "category": "block",
     "tags": [
       "stone",
-      "building"
+      "building",
+      "nether"
     ]
   },
   "304": {
@@ -4019,7 +4019,8 @@
     "category": "decoration",
     "tags": [
       "nether",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "308": {
@@ -4031,7 +4032,8 @@
     "category": "block",
     "tags": [
       "overworld",
-      "stone"
+      "stone",
+      "nether"
     ]
   },
   "309": {
@@ -4093,7 +4095,8 @@
     "category": "block",
     "tags": [
       "mob",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "314": {
@@ -4105,7 +4108,8 @@
     "category": "block",
     "tags": [
       "mob",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "315": {
@@ -4117,7 +4121,8 @@
     "category": "block",
     "tags": [
       "mob",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "316": {
@@ -4129,7 +4134,8 @@
     "category": "block",
     "tags": [
       "mob",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "317": {
@@ -4166,7 +4172,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "320": {
@@ -4178,7 +4185,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "321": {
@@ -4190,7 +4198,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "322": {
@@ -4226,7 +4235,8 @@
     "category": "block",
     "tags": [
       "overworld",
-      "building"
+      "building",
+      "stone"
     ]
   },
   "325": {
@@ -4237,7 +4247,9 @@
     "description": "Weathered deepslate bricks with cracked texture.",
     "category": "decoration",
     "tags": [
-      "overworld"
+      "overworld",
+      "stone",
+      "building"
     ]
   },
   "326": {
@@ -4249,7 +4261,8 @@
     "category": "block",
     "tags": [
       "overworld",
-      "building"
+      "building",
+      "stone"
     ]
   },
   "327": {
@@ -4260,7 +4273,8 @@
     "description": "Weathered deepslate tiles with cracked texture.",
     "category": "decoration",
     "tags": [
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "328": {
@@ -4271,7 +4285,8 @@
     "description": "Decorative deepslate with carved pattern.",
     "category": "decoration",
     "tags": [
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "329": {
@@ -4282,7 +4297,8 @@
     "description": "Extremely tough deepslate block found near ancient cities.",
     "category": "block",
     "tags": [
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "330": {
@@ -4294,7 +4310,8 @@
     "category": "block",
     "tags": [
       "overworld",
-      "building"
+      "building",
+      "colored"
     ]
   },
   "331": {
@@ -4306,7 +4323,8 @@
     "category": "block",
     "tags": [
       "overworld",
-      "building"
+      "building",
+      "colored"
     ]
   },
   "332": {
@@ -4329,8 +4347,7 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld",
-      "metal"
+      "overworld"
     ]
   },
   "334": {
@@ -4342,8 +4359,7 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld",
-      "metal"
+      "overworld"
     ]
   },
   "335": {
@@ -4355,7 +4371,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld"
     ]
   },
@@ -4368,8 +4383,7 @@
     "category": "material",
     "tags": [
       "farming",
-      "overworld",
-      "crop"
+      "overworld"
     ]
   },
   "337": {
@@ -4606,7 +4620,8 @@
     "category": "block",
     "tags": [
       "end",
-      "stone"
+      "stone",
+      "building"
     ]
   },
   "357": {
@@ -4895,7 +4910,8 @@
     "tags": [
       "building",
       "overworld",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "380": {
@@ -4920,7 +4936,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "382": {
@@ -4981,7 +4998,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "nether"
+      "nether",
+      "colored"
     ]
   },
   "387": {
@@ -5005,6 +5023,7 @@
     "description": "Wall variant made from end stone bricks for builds.",
     "category": "decoration",
     "tags": [
+      "end",
       "building",
       "stone"
     ]
@@ -5018,7 +5037,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "390": {
@@ -5031,7 +5051,8 @@
     "tags": [
       "building",
       "nether",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "391": {
@@ -5044,7 +5065,8 @@
     "tags": [
       "building",
       "nether",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "392": {
@@ -5057,7 +5079,8 @@
     "tags": [
       "building",
       "nether",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "393": {
@@ -5069,7 +5092,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "394": {
@@ -5081,7 +5105,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "395": {
@@ -5093,7 +5118,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "396": {
@@ -5105,7 +5131,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "overworld"
+      "overworld",
+      "stone"
     ]
   },
   "397": {
@@ -5116,8 +5143,7 @@
     "description": "Workstation block used to repair and rename items.",
     "category": "utility",
     "tags": [
-      "overworld",
-      "metal"
+      "overworld"
     ]
   },
   "398": {
@@ -5128,8 +5154,7 @@
     "description": "Slightly worn anvil used to repair and rename items.",
     "category": "utility",
     "tags": [
-      "overworld",
-      "metal"
+      "overworld"
     ]
   },
   "399": {
@@ -5140,8 +5165,7 @@
     "description": "Heavily worn anvil used to repair and rename items.",
     "category": "utility",
     "tags": [
-      "overworld",
-      "metal"
+      "overworld"
     ]
   },
   "400": {
@@ -5175,7 +5199,8 @@
     "description": "Brick variant of quartz for decorative structures.",
     "category": "block",
     "tags": [
-      "nether"
+      "nether",
+      "building"
     ]
   },
   "403": {
@@ -5680,7 +5705,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "plant"
+      "plant",
+      "flower"
     ]
   },
   "444": {
@@ -5755,7 +5781,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5769,7 +5794,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5783,7 +5807,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5797,7 +5820,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5811,7 +5833,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5825,7 +5846,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5839,7 +5859,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5853,7 +5872,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5867,7 +5885,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5881,7 +5898,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5895,7 +5911,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5909,7 +5924,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5923,7 +5937,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5937,7 +5950,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5951,7 +5963,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5965,7 +5976,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "overworld",
       "colored"
     ]
@@ -5979,7 +5989,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -5992,7 +6001,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6005,7 +6013,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6018,7 +6025,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6031,7 +6037,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6044,7 +6049,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6057,7 +6061,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6070,7 +6073,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6083,7 +6085,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6096,7 +6097,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6109,7 +6109,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6122,7 +6121,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6135,7 +6133,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6148,7 +6145,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6161,7 +6157,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6174,7 +6169,6 @@
     "category": "decoration",
     "tags": [
       "building",
-      "window",
       "colored"
     ]
   },
@@ -6199,7 +6193,8 @@
     "description": "Brick variant of prismarine used for ocean builds.",
     "category": "block",
     "tags": [
-      "ocean"
+      "ocean",
+      "building"
     ]
   },
   "483": {
@@ -6273,7 +6268,8 @@
       "desert",
       "overworld",
       "building",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "489": {
@@ -6285,7 +6281,8 @@
     "category": "decoration",
     "tags": [
       "overworld",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "490": {
@@ -6298,7 +6295,8 @@
     "tags": [
       "overworld",
       "building",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "491": {
@@ -6311,7 +6309,8 @@
     "tags": [
       "building",
       "overworld",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "492": {
@@ -6382,7 +6381,8 @@
     "category": "block",
     "tags": [
       "building",
-      "nether"
+      "nether",
+      "colored"
     ]
   },
   "498": {
@@ -7581,7 +7581,8 @@
     "category": "block",
     "tags": [
       "building",
-      "water"
+      "water",
+      "colored"
     ]
   },
   "598": {
@@ -7603,7 +7604,8 @@
     "description": "Stair block made from polished granite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "600": {
@@ -7615,7 +7617,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "601": {
@@ -7638,7 +7641,8 @@
     "description": "Stair block made from polished diorite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "603": {
@@ -7661,6 +7665,7 @@
     "description": "Stair block made from end stone bricks for builds.",
     "category": "decoration",
     "tags": [
+      "end",
       "building",
       "stone"
     ]
@@ -7697,7 +7702,8 @@
     "description": "Stair block made from smooth quartz for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "nether"
     ]
   },
   "608": {
@@ -7708,7 +7714,8 @@
     "description": "Stair block made from granite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "609": {
@@ -7731,7 +7738,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "nether"
+      "nether",
+      "colored"
     ]
   },
   "611": {
@@ -7753,7 +7761,8 @@
     "description": "Stair block made from diorite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "613": {
@@ -7764,7 +7773,8 @@
     "description": "Stair block made from cobbled deepslate for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "614": {
@@ -7775,7 +7785,8 @@
     "description": "Stair block made from polished deepslate for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "615": {
@@ -7786,7 +7797,8 @@
     "description": "Stair block made from deepslate bricks for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "616": {
@@ -7797,7 +7809,8 @@
     "description": "Stair block made from deepslate tiles for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "617": {
@@ -7808,7 +7821,8 @@
     "description": "Slab made from polished granite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "618": {
@@ -7820,7 +7834,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "619": {
@@ -7843,7 +7858,8 @@
     "description": "Slab made from polished diorite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "621": {
@@ -7866,6 +7882,7 @@
     "description": "Slab made from end stone bricks for builds.",
     "category": "decoration",
     "tags": [
+      "end",
       "building",
       "stone"
     ]
@@ -7890,7 +7907,8 @@
     "description": "Slab made from smooth quartz for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "nether"
     ]
   },
   "625": {
@@ -7901,7 +7919,8 @@
     "description": "Slab made from granite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "626": {
@@ -7924,7 +7943,8 @@
     "category": "decoration",
     "tags": [
       "building",
-      "nether"
+      "nether",
+      "colored"
     ]
   },
   "628": {
@@ -7946,7 +7966,8 @@
     "description": "Slab made from diorite for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "630": {
@@ -7957,7 +7978,8 @@
     "description": "Slab made from cobbled deepslate for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "631": {
@@ -7968,7 +7990,8 @@
     "description": "Slab made from polished deepslate for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "632": {
@@ -7979,7 +8002,8 @@
     "description": "Slab made from deepslate bricks for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "633": {
@@ -7990,7 +8014,8 @@
     "description": "Slab made from deepslate tiles for builds.",
     "category": "decoration",
     "tags": [
-      "building"
+      "building",
+      "stone"
     ]
   },
   "634": {
@@ -8012,7 +8037,7 @@
     "description": "Wiring dust used to power and connect redstone devices.",
     "category": "utility",
     "tags": [
-      "stone"
+      "redstone"
     ]
   },
   "636": {
@@ -8023,7 +8048,7 @@
     "description": "Low-power redstone source used for logic circuits.",
     "category": "utility",
     "tags": [
-      "stone"
+      "redstone"
     ]
   },
   "637": {
@@ -8034,7 +8059,7 @@
     "description": "Solid power source block for redstone mechanisms.",
     "category": "utility",
     "tags": [
-      "stone"
+      "redstone"
     ]
   },
   "638": {
@@ -8089,7 +8114,8 @@
     "description": "Bouncy block that moves adjacent blocks with pistons.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "colored"
     ]
   },
   "643": {
@@ -8123,7 +8149,8 @@
     "category": "utility",
     "tags": [
       "storage",
-      "transport"
+      "transport",
+      "redstone"
     ]
   },
   "646": {
@@ -8134,7 +8161,8 @@
     "description": "Dispenses items with effects when powered.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "storage"
     ]
   },
   "647": {
@@ -8145,7 +8173,8 @@
     "description": "Drops items into containers or the world when powered.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "storage"
     ]
   },
   "648": {
@@ -8268,7 +8297,7 @@
     "category": "utility",
     "tags": [
       "light",
-      "stone"
+      "redstone"
     ]
   },
   "659": {
@@ -8304,7 +8333,9 @@
     "tags": [
       "redstone",
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "662": {
@@ -8414,7 +8445,8 @@
     "description": "Crimson button that emits a slightly longer redstone pulse.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "nether"
     ]
   },
   "672": {
@@ -8425,7 +8457,8 @@
     "description": "Warped button that emits a slightly longer redstone pulse.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "nether"
     ]
   },
   "673": {
@@ -8450,7 +8483,9 @@
     "tags": [
       "redstone",
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "675": {
@@ -8582,7 +8617,8 @@
     "description": "Crimson pressure plate triggering redstone by entities.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "nether"
     ]
   },
   "687": {
@@ -8593,7 +8629,8 @@
     "description": "Warped pressure plate triggering redstone by entities.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "nether"
     ]
   },
   "688": {
@@ -8989,7 +9026,8 @@
     "description": "Crimson fence gate that opens for players, mobs, or redstone.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "nether"
     ]
   },
   "722": {
@@ -9000,7 +9038,8 @@
     "description": "Warped fence gate that opens for players, mobs, or redstone.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "nether"
     ]
   },
   "723": {
@@ -9011,7 +9050,8 @@
     "description": "Rail that accelerates minecarts when powered.",
     "category": "utility",
     "tags": [
-      "redstone"
+      "redstone",
+      "colored"
     ]
   },
   "724": {
@@ -9089,7 +9129,6 @@
     "description": "Minecart that uses fuel to push itself and other carts.",
     "category": "utility",
     "tags": [
-      "fuel",
       "transport"
     ]
   },
@@ -9127,7 +9166,9 @@
     "maxDurability": 25,
     "description": "Item used to control pigs while riding.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "farming"
+    ]
   },
   "734": {
     "id": 734,
@@ -9141,7 +9182,9 @@
     "maxDurability": 100,
     "description": "Item used to control striders while riding in lava.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "735": {
     "id": 735,
@@ -9387,8 +9430,7 @@
     "description": "Admin block for saving, loading, and manipulating structures.",
     "category": "utility",
     "tags": [
-      "admin",
-      "tool"
+      "admin"
     ]
   },
   "755": {
@@ -9447,9 +9489,8 @@
     ],
     "maxDurability": 64,
     "description": "Creates fire and ignites blocks like TNT and portals.",
-    "category": "utility",
+    "category": "tool",
     "tags": [
-      "tool"
     ]
   },
   "759": {
@@ -9476,9 +9517,7 @@
     "maxDurability": 384,
     "description": "Ranged weapon that shoots arrows with chargeable power.",
     "category": "utility",
-    "tags": [
-      "ranged"
-    ]
+    "tags": []
   },
   "761": {
     "id": 761,
@@ -9497,7 +9536,6 @@
     "description": "Basic fuel used to smelt and craft torches.",
     "category": "material",
     "tags": [
-      "fuel",
       "resource"
     ]
   },
@@ -9509,7 +9547,6 @@
     "description": "Fuel obtained from smelting logs; used like coal.",
     "category": "material",
     "tags": [
-      "fuel",
       "resource"
     ]
   },
@@ -9531,7 +9568,9 @@
     "stackSize": 64,
     "description": "Villager currency and crafting gem found in mountains.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "resource"
+    ]
   },
   "766": {
     "id": 766,
@@ -9641,7 +9680,9 @@
     "stackSize": 64,
     "description": "Top-tier ingot that upgrades diamond gear to netherite.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "776": {
     "id": 776,
@@ -9651,7 +9692,8 @@
     "description": "Ancient debris product used to craft netherite ingots.",
     "category": "material",
     "tags": [
-      "resource"
+      "resource",
+      "nether"
     ]
   },
   "777": {
@@ -9679,10 +9721,8 @@
     ],
     "maxDurability": 59,
     "description": "Basic melee weapon with low durability and damage.",
-    "category": "utility",
-    "tags": [
-      "melee"
-    ]
+    "category": "weapon",
+    "tags": []
   },
   "778": {
     "id": 778,
@@ -9815,7 +9855,6 @@
     "description": "Melee weapon made of stone with moderate durability.",
     "category": "weapon",
     "tags": [
-      "melee",
       "stone"
     ]
   },
@@ -9923,9 +9962,7 @@
     "maxDurability": 32,
     "description": "Melee weapon made of gold with very low durability.",
     "category": "weapon",
-    "tags": [
-      "melee"
-    ]
+    "tags": []
   },
   "788": {
     "id": 788,
@@ -10015,9 +10052,7 @@
     "maxDurability": 250,
     "description": "Melee weapon made of iron with good durability.",
     "category": "weapon",
-    "tags": [
-      "melee"
-    ]
+    "tags": []
   },
   "793": {
     "id": 793,
@@ -10107,9 +10142,7 @@
     "maxDurability": 1561,
     "description": "Melee weapon made of diamond with high durability.",
     "category": "weapon",
-    "tags": [
-      "melee"
-    ]
+    "tags": []
   },
   "798": {
     "id": 798,
@@ -10200,7 +10233,7 @@
     "description": "Melee weapon made of netherite with very high durability.",
     "category": "weapon",
     "tags": [
-      "melee"
+      "nether"
     ]
   },
   "803": {
@@ -10219,7 +10252,9 @@
     "maxDurability": 2031,
     "description": "Digging tool made of netherite with very high durability.",
     "category": "tool",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "804": {
     "id": 804,
@@ -10237,7 +10272,9 @@
     "maxDurability": 2031,
     "description": "Mining tool made of netherite with very high durability.",
     "category": "tool",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "805": {
     "id": 805,
@@ -10255,7 +10292,9 @@
     "maxDurability": 2031,
     "description": "Chopping tool made of netherite with very high durability.",
     "category": "tool",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "806": {
     "id": 806,
@@ -10273,7 +10312,9 @@
     "maxDurability": 2031,
     "description": "Farming tool made of netherite with very high durability.",
     "category": "tool",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "807": {
     "id": 807,
@@ -10317,7 +10358,7 @@
     "category": "material",
     "tags": [
       "crafting",
-      "mob_drop"
+      "mob"
     ]
   },
   "811": {
@@ -10329,7 +10370,7 @@
     "category": "material",
     "tags": [
       "crafting",
-      "mob_drop"
+      "mob"
     ]
   },
   "812": {
@@ -10340,6 +10381,7 @@
     "description": "Explosive powder used in TNT, fireworks, and potions.",
     "category": "material",
     "tags": [
+      "mob",
       "crafting"
     ]
   },
@@ -10351,8 +10393,7 @@
     "description": "Seeds planted to grow wheat crops.",
     "category": "material",
     "tags": [
-      "farming",
-      "crop"
+      "farming"
     ]
   },
   "814": {
@@ -10363,8 +10404,8 @@
     "description": "Crop item used for breeding and crafting food.",
     "category": "material",
     "tags": [
+      "ingredient",
       "farming",
-      "crop",
       "crafting"
     ]
   },
@@ -10797,7 +10838,10 @@
     "maxDurability": 407,
     "description": "Helmet made of netherite offering very high protection.",
     "category": "armor",
-    "tags": []
+    "tags": [
+      "resource",
+      "nether"
+    ]
   },
   "837": {
     "id": 837,
@@ -10817,7 +10861,9 @@
     "maxDurability": 592,
     "description": "Chest armor made of netherite offering very high protection.",
     "category": "armor",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "838": {
     "id": 838,
@@ -10837,7 +10883,9 @@
     "maxDurability": 555,
     "description": "Leg armor made of netherite offering very high protection.",
     "category": "armor",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "839": {
     "id": 839,
@@ -10857,7 +10905,9 @@
     "maxDurability": 481,
     "description": "Boots made of netherite offering very high protection.",
     "category": "armor",
-    "tags": []
+    "tags": [
+      "nether"
+    ]
   },
   "840": {
     "id": 840,
@@ -11027,7 +11077,8 @@
     "description": "Placeable sign that displays player-written text.",
     "category": "utility",
     "tags": [
-      "wood"
+      "wood",
+      "nether"
     ]
   },
   "856": {
@@ -11038,7 +11089,8 @@
     "description": "Placeable sign that displays player-written text.",
     "category": "utility",
     "tags": [
-      "wood"
+      "wood",
+      "nether"
     ]
   },
   "857": {
@@ -11148,7 +11200,8 @@
     "description": "Hanging sign that displays player-written text.",
     "category": "utility",
     "tags": [
-      "wood"
+      "wood",
+      "nether"
     ]
   },
   "867": {
@@ -11159,7 +11212,8 @@
     "description": "Hanging sign that displays player-written text.",
     "category": "utility",
     "tags": [
-      "wood"
+      "wood",
+      "nether"
     ]
   },
   "868": {
@@ -11170,7 +11224,8 @@
     "description": "Reusable container that scoops and carries fluids.",
     "category": "tool",
     "tags": [
-      "fluid"
+      "water",
+      "transport"
     ]
   },
   "869": {
@@ -11181,7 +11236,8 @@
     "description": "Bucket containing water used to transport and place water.",
     "category": "utility",
     "tags": [
-      "fluid"
+      "water",
+      "transport"
     ]
   },
   "870": {
@@ -11192,7 +11248,7 @@
     "description": "Bucket containing lava used to transport and place lava.",
     "category": "utility",
     "tags": [
-      "fluid"
+      "transport"
     ]
   },
   "871": {
@@ -11203,7 +11259,7 @@
     "description": "Bucket containing powder snow for transport and placement.",
     "category": "utility",
     "tags": [
-      "fluid"
+      "transport"
     ]
   },
   "872": {
@@ -11226,7 +11282,7 @@
     "category": "material",
     "tags": [
       "crafting",
-      "mob_drop"
+      "mob"
     ]
   },
   "874": {
@@ -11248,7 +11304,8 @@
     "description": "Bucket containing a pufferfish for transport.",
     "category": "utility",
     "tags": [
-      "water"
+      "water",
+      "ocean"
     ]
   },
   "876": {
@@ -11259,7 +11316,8 @@
     "description": "Bucket containing a salmon for transport.",
     "category": "utility",
     "tags": [
-      "water"
+      "water",
+      "ocean"
     ]
   },
   "877": {
@@ -11270,7 +11328,8 @@
     "description": "Bucket containing a cod for transport.",
     "category": "utility",
     "tags": [
-      "water"
+      "water",
+      "ocean"
     ]
   },
   "878": {
@@ -11281,7 +11340,8 @@
     "description": "Bucket containing a tropical fish for transport.",
     "category": "utility",
     "tags": [
-      "water"
+      "water",
+      "ocean"
     ]
   },
   "879": {
@@ -11338,7 +11398,6 @@
     "description": "Block of dried kelp used as a fuel source.",
     "category": "block",
     "tags": [
-      "fuel"
     ]
   },
   "884": {
@@ -11373,7 +11432,8 @@
     "category": "material",
     "tags": [
       "crafting",
-      "resource"
+      "resource",
+      "colored"
     ]
   },
   "887": {
@@ -11397,10 +11457,9 @@
       "vanishable"
     ],
     "description": "Navigation tool that points toward world spawn.",
-    "category": "utility",
+    "category": "tool",
     "tags": [
-      "navigation",
-      "tool"
+      "navigation"
     ]
   },
   "889": {
@@ -11409,10 +11468,9 @@
     "displayName": "Recovery Compass",
     "stackSize": 64,
     "description": "Compass that points to the player's last death location.",
-    "category": "utility",
+    "category": "tool",
     "tags": [
-      "navigation",
-      "tool"
+      "navigation"
     ]
   },
   "890": {
@@ -11438,9 +11496,9 @@
     ],
     "maxDurability": 64,
     "description": "Tool used to catch fish from water bodies.",
-    "category": "utility",
+    "category": "tool",
     "tags": [
-      "tool"
+      "ocean"
     ]
   },
   "892": {
@@ -11449,9 +11507,8 @@
     "displayName": "Clock",
     "stackSize": 64,
     "description": "Device that shows time of day in the overworld.",
-    "category": "utility",
+    "category": "tool",
     "tags": [
-      "tool",
       "overworld"
     ]
   },
@@ -11461,9 +11518,8 @@
     "displayName": "Spyglass",
     "stackSize": 1,
     "description": "Optical tool that magnifies distant objects.",
-    "category": "utility",
+    "category": "tool",
     "tags": [
-      "tool"
     ]
   },
   "894": {
@@ -11488,8 +11544,7 @@
     "description": "Raw fish item commonly found in oceans.",
     "category": "food",
     "tags": [
-      "ocean",
-      "raw"
+      "ocean"
     ]
   },
   "896": {
@@ -11500,8 +11555,7 @@
     "description": "Raw fish item commonly found in rivers.",
     "category": "food",
     "tags": [
-      "ocean",
-      "raw"
+      "ocean"
     ]
   },
   "897": {
@@ -11512,8 +11566,7 @@
     "description": "Colorful fish item found in warm oceans.",
     "category": "food",
     "tags": [
-      "ocean",
-      "raw"
+      "ocean"
     ]
   },
   "898": {
@@ -11535,7 +11588,9 @@
     "stackSize": 64,
     "description": "Cooked fish prepared from raw cod.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "ocean"
+    ]
   },
   "900": {
     "id": 900,
@@ -11544,7 +11599,9 @@
     "stackSize": 64,
     "description": "Cooked fish prepared from raw salmon.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "ocean"
+    ]
   },
   "901": {
     "id": 901,
@@ -11555,7 +11612,7 @@
     "category": "material",
     "tags": [
       "dye",
-      "mob_drop"
+      "mob"
     ]
   },
   "902": {
@@ -11567,7 +11624,7 @@
     "category": "material",
     "tags": [
       "dye",
-      "mob_drop"
+      "mob"
     ]
   },
   "903": {
@@ -11590,7 +11647,8 @@
     "description": "Dye item that colors materials white.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "905": {
@@ -11601,7 +11659,8 @@
     "description": "Dye item that colors materials orange.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "906": {
@@ -11612,7 +11671,8 @@
     "description": "Dye item that colors materials magenta.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "907": {
@@ -11623,7 +11683,8 @@
     "description": "Dye item that colors materials light blue.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "908": {
@@ -11634,7 +11695,8 @@
     "description": "Dye item that colors materials yellow.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "909": {
@@ -11645,7 +11707,8 @@
     "description": "Dye item that colors materials lime.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "910": {
@@ -11656,7 +11719,8 @@
     "description": "Dye item that colors materials pink.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "911": {
@@ -11667,7 +11731,8 @@
     "description": "Dye item that colors materials gray.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "912": {
@@ -11678,7 +11743,8 @@
     "description": "Dye item that colors materials light gray.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "913": {
@@ -11689,7 +11755,8 @@
     "description": "Dye item that colors materials cyan.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "914": {
@@ -11700,7 +11767,8 @@
     "description": "Dye item that colors materials purple.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "915": {
@@ -11711,7 +11779,8 @@
     "description": "Dye item that colors materials blue.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "916": {
@@ -11722,7 +11791,8 @@
     "description": "Dye item that colors materials brown.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "917": {
@@ -11733,7 +11803,8 @@
     "description": "Dye item that colors materials green.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "918": {
@@ -11744,7 +11815,8 @@
     "description": "Dye item that colors materials red.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "919": {
@@ -11755,7 +11827,8 @@
     "description": "Dye item that colors materials black.",
     "category": "material",
     "tags": [
-      "dye"
+      "dye",
+      "colored"
     ]
   },
   "920": {
@@ -11777,7 +11850,7 @@
     "description": "Mob drop used to craft bone meal and taming wolves.",
     "category": "material",
     "tags": [
-      "mob_drop",
+      "mob",
       "crafting"
     ]
   },
@@ -12039,8 +12112,7 @@
     "description": "Seeds planted to grow pumpkins.",
     "category": "material",
     "tags": [
-      "farming",
-      "crop"
+      "farming"
     ]
   },
   "946": {
@@ -12051,8 +12123,7 @@
     "description": "Seeds planted to grow melons.",
     "category": "material",
     "tags": [
-      "farming",
-      "crop"
+      "farming"
     ]
   },
   "947": {
@@ -12063,8 +12134,7 @@
     "description": "Raw beef item obtained from cows.",
     "category": "food",
     "tags": [
-      "meat",
-      "raw"
+      "meat"
     ]
   },
   "948": {
@@ -12086,8 +12156,7 @@
     "description": "Raw chicken item obtained from chickens.",
     "category": "food",
     "tags": [
-      "meat",
-      "raw"
+      "meat"
     ]
   },
   "950": {
@@ -12107,9 +12176,9 @@
     "displayName": "Rotten Flesh",
     "stackSize": 64,
     "description": "Rotten meat item dropped by undead mobs.",
-    "category": "material",
+    "category": "food",
     "tags": [
-      "mob_drop"
+      "mob"
     ]
   },
   "952": {
@@ -12119,7 +12188,10 @@
     "stackSize": 16,
     "description": "Pearl used for short-distance teleportation.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "end",
+      "mob"
+    ]
   },
   "953": {
     "id": 953,
@@ -12131,7 +12203,7 @@
     "tags": [
       "nether",
       "brewing",
-      "mob_drop"
+      "mob"
     ]
   },
   "954": {
@@ -12144,7 +12216,7 @@
     "tags": [
       "nether",
       "brewing",
-      "mob_drop"
+      "mob"
     ]
   },
   "955": {
@@ -12202,7 +12274,7 @@
     "description": "Mob drop used in brewing and crafting fermented eyes.",
     "category": "material",
     "tags": [
-      "mob_drop",
+      "mob",
       "brewing"
     ]
   },
@@ -12260,8 +12332,7 @@
     "description": "Utility block that holds fluids and is used in brewing.",
     "category": "utility",
     "tags": [
-      "brewing",
-      "fluid"
+      "brewing"
     ]
   },
   "965": {
@@ -12381,7 +12452,8 @@
     "description": "Spawn egg that summons a chicken when used.",
     "category": "spawn_egg",
     "tags": [
-      "overworld"
+      "overworld",
+      "meat"
     ]
   },
   "976": {
@@ -12769,7 +12841,8 @@
     "description": "Spawn egg that summons a rabbit when used.",
     "category": "spawn_egg",
     "tags": [
-      "overworld"
+      "overworld",
+      "meat"
     ]
   },
   "1012": {
@@ -12824,7 +12897,8 @@
     "description": "Spawn egg that summons a silverfish when used.",
     "category": "spawn_egg",
     "tags": [
-      "overworld"
+      "overworld",
+      "ocean"
     ]
   },
   "1017": {
@@ -12857,7 +12931,8 @@
     "description": "Spawn egg that summons a slime when used.",
     "category": "spawn_egg",
     "tags": [
-      "overworld"
+      "overworld",
+      "colored"
     ]
   },
   "1020": {
@@ -13137,8 +13212,7 @@
     "description": "Fire-starting item used as furnace fuel and ignition.",
     "category": "material",
     "tags": [
-      "crafting",
-      "fuel"
+      "crafting"
     ]
   },
   "1046": {
@@ -13148,9 +13222,7 @@
     "stackSize": 1,
     "description": "Writable book used to record text with a feather quill.",
     "category": "utility",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1047": {
     "id": 1047,
@@ -13159,9 +13231,7 @@
     "stackSize": 16,
     "description": "Signed book that stores player-written text.",
     "category": "utility",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1048": {
     "id": 1048,
@@ -13189,6 +13259,7 @@
     "description": "Small pot used to display plants and saplings.",
     "category": "decoration",
     "tags": [
+      "flower",
       "plant"
     ]
   },
@@ -13200,8 +13271,7 @@
     "description": "Edible crop item harvested from farmland.",
     "category": "food",
     "tags": [
-      "crop",
-      "raw"
+      "farming"
     ]
   },
   "1052": {
@@ -13212,8 +13282,7 @@
     "description": "Edible crop item that can be cooked into a baked potato.",
     "category": "food",
     "tags": [
-      "crop",
-      "raw"
+      "farming"
     ]
   },
   "1053": {
@@ -13223,7 +13292,9 @@
     "stackSize": 64,
     "description": "Cooked potato prepared from raw potatoes.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "farming"
+    ]
   },
   "1054": {
     "id": 1054,
@@ -13232,7 +13303,9 @@
     "stackSize": 64,
     "description": "Rare potato variant that may poison when eaten.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "farming"
+    ]
   },
   "1055": {
     "id": 1055,
@@ -13253,7 +13326,9 @@
     "stackSize": 64,
     "description": "Food item crafted with gold nuggets.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "farming"
+    ]
   },
   "1057": {
     "id": 1057,
@@ -13309,7 +13384,9 @@
     ],
     "description": "Decorative head item representing a zombie.",
     "category": "decoration",
-    "tags": []
+    "tags": [
+      "mob"
+    ]
   },
   "1061": {
     "id": 1061,
@@ -13322,7 +13399,9 @@
     ],
     "description": "Decorative head item representing a creeper.",
     "category": "decoration",
-    "tags": []
+    "tags": [
+      "mob"
+    ]
   },
   "1062": {
     "id": 1062,
@@ -13336,6 +13415,7 @@
     "description": "Decorative head item representing the ender dragon.",
     "category": "decoration",
     "tags": [
+      "mob",
       "end"
     ]
   },
@@ -13351,6 +13431,7 @@
     "description": "Decorative head item representing a piglin.",
     "category": "decoration",
     "tags": [
+      "mob",
       "nether"
     ]
   },
@@ -13362,7 +13443,7 @@
     "description": "Rare nether item dropped by the wither.",
     "category": "material",
     "tags": [
-      "mob_drop",
+      "mob",
       "resource",
       "nether"
     ]
@@ -13416,7 +13497,8 @@
     "category": "material",
     "tags": [
       "crafting",
-      "nether"
+      "nether",
+      "building"
     ]
   },
   "1070": {
@@ -13450,8 +13532,7 @@
     "description": "Raw rabbit meat item obtained from rabbits.",
     "category": "food",
     "tags": [
-      "meat",
-      "raw"
+      "meat"
     ]
   },
   "1073": {
@@ -13472,7 +13553,9 @@
     "stackSize": 1,
     "description": "Prepared stew made from rabbit and vegetables.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "meat"
+    ]
   },
   "1075": {
     "id": 1075,
@@ -13483,7 +13566,8 @@
     "category": "material",
     "tags": [
       "brewing",
-      "mob_drop"
+      "mob",
+      "meat"
     ]
   },
   "1076": {
@@ -13494,7 +13578,8 @@
     "description": "Rabbit drop used in crafting and leather production.",
     "category": "material",
     "tags": [
-      "crafting"
+      "crafting",
+      "meat"
     ]
   },
   "1077": {
@@ -13583,8 +13668,7 @@
     "description": "Raw mutton item obtained from sheep.",
     "category": "food",
     "tags": [
-      "meat",
-      "raw"
+      "meat"
     ]
   },
   "1086": {
@@ -13606,7 +13690,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1088": {
@@ -13617,7 +13702,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1089": {
@@ -13628,7 +13714,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1090": {
@@ -13639,7 +13726,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1091": {
@@ -13650,7 +13738,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1092": {
@@ -13661,7 +13750,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1093": {
@@ -13672,7 +13762,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1094": {
@@ -13683,7 +13774,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1095": {
@@ -13694,7 +13786,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1096": {
@@ -13705,7 +13798,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1097": {
@@ -13716,7 +13810,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1098": {
@@ -13727,7 +13822,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1099": {
@@ -13738,7 +13834,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1100": {
@@ -13749,7 +13846,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1101": {
@@ -13760,7 +13858,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1102": {
@@ -13771,7 +13870,8 @@
     "description": "Banner used for decoration and pattern designs.",
     "category": "decoration",
     "tags": [
-      "pattern"
+      "pattern",
+      "colored"
     ]
   },
   "1103": {
@@ -13781,7 +13881,9 @@
     "stackSize": 64,
     "description": "Constructed end crystal used to heal the ender dragon.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "end"
+    ]
   },
   "1104": {
     "id": 1104,
@@ -13814,7 +13916,9 @@
     "description": "Seeds planted to grow torchflower plants.",
     "category": "material",
     "tags": [
-      "farming"
+      "farming",
+      "plant",
+      "flower"
     ]
   },
   "1107": {
@@ -13837,8 +13941,7 @@
     "description": "Edible crop item harvested from beetroot plants.",
     "category": "food",
     "tags": [
-      "crop",
-      "raw"
+      "farming"
     ]
   },
   "1109": {
@@ -13849,8 +13952,7 @@
     "description": "Seeds planted to grow beetroot plants.",
     "category": "material",
     "tags": [
-      "farming",
-      "crop"
+      "farming"
     ]
   },
   "1110": {
@@ -13860,7 +13962,9 @@
     "stackSize": 1,
     "description": "Hearty soup made from beetroots.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "farming"
+    ]
   },
   "1111": {
     "id": 1111,
@@ -13892,9 +13996,7 @@
     "stackSize": 64,
     "description": "Arrow that highlights targets with a glowing outline.",
     "category": "weapon",
-    "tags": [
-      "ranged"
-    ]
+    "tags": []
   },
   "1114": {
     "id": 1114,
@@ -13903,9 +14005,7 @@
     "stackSize": 64,
     "description": "Arrow infused with potion effects when shot.",
     "category": "weapon",
-    "tags": [
-      "ranged"
-    ]
+    "tags": []
   },
   "1115": {
     "id": 1115,
@@ -13953,7 +14053,9 @@
     "stackSize": 1,
     "description": "Magical item that prevents death once when held.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "mob"
+    ]
   },
   "1118": {
     "id": 1118,
@@ -13963,7 +14065,7 @@
     "description": "Shell dropped by shulkers, used to craft shulker boxes.",
     "category": "material",
     "tags": [
-      "mob_drop",
+      "mob",
       "end",
       "crafting"
     ]
@@ -13976,7 +14078,6 @@
     "description": "Small piece of iron used for crafting.",
     "category": "material",
     "tags": [
-      "metal",
       "crafting",
       "resource"
     ]
@@ -14010,9 +14111,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1123": {
     "id": 1123,
@@ -14021,9 +14120,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1124": {
     "id": 1124,
@@ -14032,9 +14129,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1125": {
     "id": 1125,
@@ -14043,9 +14138,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1126": {
     "id": 1126,
@@ -14054,9 +14147,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1127": {
     "id": 1127,
@@ -14065,9 +14156,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1128": {
     "id": 1128,
@@ -14076,9 +14165,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1129": {
     "id": 1129,
@@ -14087,9 +14174,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1130": {
     "id": 1130,
@@ -14098,9 +14183,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1131": {
     "id": 1131,
@@ -14109,9 +14192,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1132": {
     "id": 1132,
@@ -14120,9 +14201,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1133": {
     "id": 1133,
@@ -14131,9 +14210,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1134": {
     "id": 1134,
@@ -14142,9 +14219,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1135": {
     "id": 1135,
@@ -14153,9 +14228,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1136": {
     "id": 1136,
@@ -14164,9 +14237,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1137": {
     "id": 1137,
@@ -14175,9 +14246,7 @@
     "stackSize": 1,
     "description": "Music disc playable in a jukebox.",
     "category": "miscellaneous",
-    "tags": [
-      "record"
-    ]
+    "tags": []
   },
   "1138": {
     "id": 1138,
@@ -14203,10 +14272,7 @@
     "maxDurability": 250,
     "description": "Three-pronged weapon usable in melee or thrown.",
     "category": "weapon",
-    "tags": [
-      "melee",
-      "ranged"
-    ]
+    "tags": []
   },
   "1140": {
     "id": 1140,
@@ -14216,7 +14282,7 @@
     "description": "Membrane dropped by phantoms used in brewing and repairs.",
     "category": "material",
     "tags": [
-      "mob_drop",
+      "mob",
       "brewing"
     ]
   },
@@ -14228,7 +14294,8 @@
     "description": "Shell used to craft conduits for underwater breathing.",
     "category": "material",
     "tags": [
-      "ocean"
+      "ocean",
+      "crafting"
     ]
   },
   "1142": {
@@ -14256,9 +14323,7 @@
     "maxDurability": 465,
     "description": "Ranged weapon that fires arrows or fireworks.",
     "category": "weapon",
-    "tags": [
-      "ranged"
-    ]
+    "tags": []
   },
   "1144": {
     "id": 1144,
@@ -14287,7 +14352,9 @@
     "stackSize": 1,
     "description": "Template that adds a flower banner pattern.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1147": {
     "id": 1147,
@@ -14296,7 +14363,9 @@
     "stackSize": 1,
     "description": "Template that adds a creeper banner pattern.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1148": {
     "id": 1148,
@@ -14305,7 +14374,9 @@
     "stackSize": 1,
     "description": "Template that adds a skull banner pattern.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1149": {
     "id": 1149,
@@ -14314,7 +14385,9 @@
     "stackSize": 1,
     "description": "Template that adds the Mojang logo banner pattern.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1150": {
     "id": 1150,
@@ -14323,7 +14396,9 @@
     "stackSize": 1,
     "description": "Template that adds a globe banner pattern.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1151": {
     "id": 1151,
@@ -14332,7 +14407,9 @@
     "stackSize": 1,
     "description": "Template that adds a piglin banner pattern.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1152": {
     "id": 1152,
@@ -14390,7 +14467,9 @@
     "stackSize": 64,
     "description": "Station for editing, cloning, and locking maps.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "navigation"
+    ]
   },
   "1158": {
     "id": 1158,
@@ -14472,9 +14551,7 @@
     "stackSize": 64,
     "description": "Edible berries harvested from bushes.",
     "category": "food",
-    "tags": [
-      "raw"
-    ]
+    "tags": []
   },
   "1166": {
     "id": 1166,
@@ -14493,7 +14570,8 @@
     "description": "Light source and cooking block that produces smoke.",
     "category": "utility",
     "tags": [
-      "light"
+      "light",
+      "wood"
     ]
   },
   "1168": {
@@ -14504,7 +14582,8 @@
     "description": "Blue light and cooking block fueled by soul fire.",
     "category": "utility",
     "tags": [
-      "light"
+      "light",
+      "wood"
     ]
   },
   "1169": {
@@ -14537,7 +14616,9 @@
     "stackSize": 64,
     "description": "Naturally generated bee home that stores honey.",
     "category": "block",
-    "tags": []
+    "tags": [
+      "wax"
+    ]
   },
   "1172": {
     "id": 1172,
@@ -14546,7 +14627,9 @@
     "stackSize": 64,
     "description": "Crafted bee home used to house bees and honey.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "wax"
+    ]
   },
   "1173": {
     "id": 1173,
@@ -14555,7 +14638,9 @@
     "stackSize": 16,
     "description": "Sweet drink that restores hunger and cures poison.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "wax"
+    ]
   },
   "1174": {
     "id": 1174,
@@ -14601,7 +14686,8 @@
     "tags": [
       "nether",
       "building",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "1178": {
@@ -14613,7 +14699,9 @@
     "category": "block",
     "tags": [
       "nether",
-      "stone"
+      "stone",
+      "building",
+      "colored"
     ]
   },
   "1179": {
@@ -14625,7 +14713,9 @@
     "category": "block",
     "tags": [
       "nether",
-      "stone"
+      "stone",
+      "building",
+      "colored"
     ]
   },
   "1180": {
@@ -14637,7 +14727,8 @@
     "category": "block",
     "tags": [
       "nether",
-      "stone"
+      "stone",
+      "colored"
     ]
   },
   "1181": {
@@ -14649,7 +14740,9 @@
     "category": "block",
     "tags": [
       "nether",
-      "stone"
+      "stone",
+      "building",
+      "colored"
     ]
   },
   "1182": {
@@ -14661,7 +14754,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1183": {
@@ -14673,7 +14768,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1184": {
@@ -14685,7 +14782,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1185": {
@@ -14697,7 +14796,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1186": {
@@ -14709,7 +14810,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1187": {
@@ -14721,7 +14824,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1188": {
@@ -14733,7 +14838,9 @@
     "category": "block",
     "tags": [
       "stone",
-      "nether"
+      "nether",
+      "building",
+      "colored"
     ]
   },
   "1189": {
@@ -14768,7 +14875,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1192": {
@@ -14780,7 +14888,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1193": {
@@ -14792,7 +14901,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1194": {
@@ -14803,7 +14913,9 @@
     "description": "Light blue colored candle used for lighting and decor.",
     "category": "decoration",
     "tags": [
-      "wax"
+      "light",
+      "wax",
+      "colored"
     ]
   },
   "1195": {
@@ -14815,7 +14927,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1196": {
@@ -14827,7 +14940,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1197": {
@@ -14839,7 +14953,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1198": {
@@ -14851,7 +14966,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1199": {
@@ -14862,7 +14978,9 @@
     "description": "Light gray colored candle used for lighting and decor.",
     "category": "decoration",
     "tags": [
-      "wax"
+      "light",
+      "wax",
+      "colored"
     ]
   },
   "1200": {
@@ -14874,7 +14992,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1201": {
@@ -14886,7 +15005,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1202": {
@@ -14898,7 +15018,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1203": {
@@ -14910,7 +15031,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1204": {
@@ -14922,7 +15044,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1205": {
@@ -14934,7 +15057,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1206": {
@@ -14946,7 +15070,8 @@
     "category": "decoration",
     "tags": [
       "light",
-      "wax"
+      "wax",
+      "colored"
     ]
   },
   "1207": {
@@ -15056,7 +15181,10 @@
     "stackSize": 64,
     "description": "Shard found in ancient cities used to craft a recovery compass.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "resource",
+      "crafting"
+    ]
   },
   "1217": {
     "id": 1217,
@@ -15081,7 +15209,10 @@
     "stackSize": 64,
     "description": "Template used in smithing to upgrade gear to netherite.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "nether",
+      "pattern"
+    ]
   },
   "1219": {
     "id": 1219,
@@ -15090,7 +15221,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1220": {
     "id": 1220,
@@ -15099,7 +15232,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1221": {
     "id": 1221,
@@ -15108,7 +15243,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1222": {
     "id": 1222,
@@ -15117,7 +15254,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1223": {
     "id": 1223,
@@ -15126,7 +15265,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1224": {
     "id": 1224,
@@ -15135,7 +15276,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1225": {
     "id": 1225,
@@ -15144,7 +15287,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1226": {
     "id": 1226,
@@ -15153,7 +15298,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1227": {
     "id": 1227,
@@ -15162,7 +15309,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1228": {
     "id": 1228,
@@ -15171,7 +15320,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1229": {
     "id": 1229,
@@ -15180,7 +15331,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1230": {
     "id": 1230,
@@ -15189,7 +15342,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1231": {
     "id": 1231,
@@ -15198,7 +15353,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1232": {
     "id": 1232,
@@ -15207,7 +15364,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1233": {
     "id": 1233,
@@ -15216,7 +15375,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1234": {
     "id": 1234,
@@ -15225,7 +15386,9 @@
     "stackSize": 64,
     "description": "Template used in smithing to apply armor trims.",
     "category": "material",
-    "tags": []
+    "tags": [
+      "pattern"
+    ]
   },
   "1235": {
     "id": 1235,

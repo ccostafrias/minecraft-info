@@ -24,12 +24,12 @@ export interface ItemsInfo {
   hasMore: boolean;
 }
 
-export interface Recipe<T> {
+export interface Recipe {
   result: {
     id: number;
     count: number;
   };
-  inShape: Matrix3x3<T>;
+  inShape: Matrix3x3<ItemName>;
 }
 
 export interface RecipeMap {

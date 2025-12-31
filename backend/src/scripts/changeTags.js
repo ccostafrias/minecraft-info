@@ -5,10 +5,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// const tagsToRemove = ['window', 'fish']
+const tagsToRemove = ['decoration']
 const tagsToAdd = { 
-  'wax': [ 'wax' ],
-  'stone': [ 'deepslate', 'granite', 'diorite' ]
+
 };
 
 const inputPath = path.resolve(__dirname, '../data/items.json');
@@ -40,11 +39,12 @@ function main() {
     }
   }
 
-  const sortedTags = Object.entries(tagsCount).sort((a, b) => b[1] - a[1]);
+  const sortedTags = Object.entries(tagsCount).sort((a, b) => a[1] - b[1]);
+  const k = 40
   console.log('Less common tags: \n');
 
-  for (let i = 0; i < 20; i++) {
-    const [tag, count] = sortedTags[sortedTags.length - 20 + i];
+  for (let i = 0; i < sortedTags.length; i++) {
+    const [tag, count] = sortedTags[i];
     console.log(`${tag} (${count})`);
   }
   

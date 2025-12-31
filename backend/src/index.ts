@@ -1,47 +1,20 @@
 import express from 'express'
 import cors from 'cors'
 import minecraftData from 'minecraft-data'
-import { normalizeMatrix, containsSubmatrix, toMatrix2D, normalizeRecipe, transformRecipe } from '@shared/utils'
-import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, Recipe } from '@shared/types'
-import { getAllItems, getItemById, getAllTags } from './services/items.service'
+import { normalizeMatrix, containsSubmatrix, toMatrix2D } from '@shared/utils'
+import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName } from '@shared/types'
+import { getAllItems, getItemById, getAllTags, getMinMaxID, getAllRecipes, getRecipesById } from './services/items.service'
 
 const app = express()
-const mcData = minecraftData('1.20')
+// const mcData = minecraftData('1.20')
 
 app.use(cors())
 app.use(express.json())
 
 // API
 
-function getMinMaxID(items: MinecraftItem[]): { minId: number; maxId: number } {
-  let minId = Infinity
-  let maxId = -Infinity
-
-  for (const item of items) {
-    if (item.id < minId) minId = item.id
-    if (item.id > maxId) maxId = item.id
-  }
-
-  return { minId, maxId }
-}
-
-const getRecipe = (id: number | null) => id ? getItemById(id) : undefined
-
-for (const recipe in mcData.recipes) {
-  mcData.recipes[recipe] = mcData.recipes[recipe].map((r: any) => {
-      if (!r.inShape) {
-        const ingredients = r.ingredients || []
-        r.inShape = toMatrix2D(ingredients, 3)
-      }
-      r.inShape = normalizeMatrix(r.inShape)
-      return r
-    })
-}
-
-const recipeValues = Object.values(mcData.recipes).flat() as Recipe<Id>[]
-
 app.get('/api/itemsMeta', (req, res) => {
-  const { minId, maxId } = getMinMaxID(getAllItems())
+  const { minId, maxId } = getMinMaxID()
   res.json({
     count: getAllItems().length,
     minId,
@@ -49,106 +22,119 @@ app.get('/api/itemsMeta', (req, res) => {
   })
 })
 
+// possible recipes for a given crafting matrix (with caching)
+const possibleRecipesCache = new Map<string, MinecraftItem[]>()
+
 app.get('/api/possibleRecipes', (req, res) => {
   if (!req.query.recipe) {
     return res.status(400).json({ error: "Faltando parâmetro 'recipe'!" })
   }
-
+  const search = (req.query.search ?? '').toString().toLowerCase()
+  const offset = Number(req.query.offset ?? 0)
+  const limit = Number(req.query.limit ?? 30)
+  
   const flat = JSON.parse(req.query.recipe as string) as Id[]
   const matrix = toMatrix2D(flat, 3) as Matrix3x3<Id>
   
   const normalizedInput = normalizeMatrix(matrix) as Id[][]
-  const matches: RecipeMap = {}
+  const cacheKey = JSON.stringify(normalizedInput)
 
-  for (const recipe of recipeValues) {
-    if (containsSubmatrix(recipe.inShape, normalizedInput)) {
-      const id = recipe.result.id
-      
-      if (!matches[recipe.result.id]) {
-        matches[recipe.result.id] = {
-          id,
-          name: getItemById(id)?.name,
-          displayName: getItemById(id)?.displayName,
-          recipes: [] as Matrix3x3<ItemName>[]
+  let results = possibleRecipesCache.get(cacheKey)
+
+  if (!results) {
+    const matches: RecipeMap = {}
+
+    const recipeValues = getAllRecipes()
+
+    for (const recipe of recipeValues) {
+      if (containsSubmatrix(recipe.inShape.map(r => r.map(id => id.id)), normalizedInput)) {
+        const id = recipe.result.id
+        
+        if (!matches[recipe.result.id]) {
+          matches[recipe.result.id] = {
+            id,
+            name: getItemById(id)?.name,
+            displayName: getItemById(id)?.displayName,
+            recipes: [] as Matrix3x3<ItemName>[]
+          }
         }
+        
+        matches[id].recipes!.push(recipe.inShape)
       }
-      
-      const newShape = normalizeRecipe(transformRecipe(recipe.inShape, getRecipe))
-      matches[id].recipes!.push(newShape)
     }
+  
+    results = Object.values(matches) as MinecraftItem[]
+    possibleRecipesCache.set(cacheKey, results)
   }
 
-  const finalMatches = Object.values(matches) as MinecraftItem[]
-  return res.json(finalMatches.length ? finalMatches : null)
+  const filteredResults = search ? results.filter(item =>
+    item.displayName.toLowerCase().includes(search) ||
+    item.name.toLowerCase().includes(search)
+  ) : results
+
+  return res.json({
+    items: filteredResults.slice(offset, offset + limit),
+    nextOffset: offset + limit,
+    hasMore: offset + limit < filteredResults.length
+  })
 })
 
-app.get('/api/recipes', (req, res) => {
-  const search = (req.query.search ?? '').toString().toLowerCase()
-  const recipes = recipeValues
-    .filter((r: any) => {
-      const resultItem = getItemById(r.result.id)
-      return resultItem.displayName.toLowerCase().includes(search) ||
-             resultItem.name.toLowerCase().includes(search)
-    })
-
-  res.json(recipes)
-})
-
-app.get('/api/recipe/:itemId', (req, res) => {
-  const itemId = Number(req.params.itemId)
-  const recipes = mcData.recipes[itemId] || []
-
-  res.json(recipes)
-})
-
-const handleItemRequest = (identifier: string, res: express.Response) => {
+// individual item (by ID or name)
+app.get('/api/item/:identifier', (req, res) => {
+  const { identifier } = req.params
   const numeric = !isNaN(Number(identifier))
-  const item = (numeric ? getItemById(Number(identifier)) : mcData.itemsByName[identifier]) as MinecraftItem | undefined
+  if (!numeric) {
+    throw new Error('Fetching by name is not supported yet.')
+  }
+
+  const item = getItemById(Number(identifier)) as MinecraftItem | undefined
 
   if (!item) {
     return res.status(404).json({ error: "Item não encontrado!" })
   }
 
-  const recipes = mcData.recipes[item.id] || []
-  const recipesFiltered = recipes
-    .filter((r: any) => r?.inShape)
-    .map((recipe: any) => (
-      normalizeRecipe(transformRecipe(recipe.inShape, getRecipe))
-    )) as Matrix3x3<ItemName>[]
+  const recipes = getRecipesById(item.id)
 
-  res.json({ ...item, recipes: recipesFiltered })
-}
-
-app.get('/api/item/:identifier', (req, res) => {
-  handleItemRequest(req.params.identifier, res)
+  res.json({ ...item, recipes })
 })
+
+// all items (with search, pagination and caching)
+const itemsCache = new Map<string, MinecraftItem[]>()
 
 app.get('/api/items', (req, res) => {
   const offset = Number(req.query.offset ?? 0)
-  const limit = Number(req.query.limit ?? 50)
+  const limit = Number(req.query.limit ?? 20)
   const search = (req.query.search ?? '').toString().toLowerCase()
 
-  let items = getAllItems()
+  let filteredItems: MinecraftItem[]
 
-  if (search) {
-    items = items.filter(item =>
+  if (itemsCache.has(search)) {
+    filteredItems = itemsCache.get(search)!
+  } else {
+    const allItems = getAllItems()
+
+    filteredItems = search ? allItems.filter(item =>
       item.displayName.toLowerCase().includes(search) ||
       item.name.toLowerCase().includes(search)
     )
+    : allItems
+
+    itemsCache.set(search, filteredItems)
+  }
+
+  if (search) {
   }
 
   res.json({
-    items: items.slice(offset, offset + limit),
+    items: filteredItems.slice(offset, offset + limit),
     nextOffset: offset + limit,
-    hasMore: offset + limit < items.length
+    hasMore: offset + limit < filteredItems.length
   })
 })
 
-app.get('/api/itemsRaw', (req, res) => {
-  res.json({
-    items: mcData.items,
-  })
-})
+// app.get('/api/recipes', (req, res) => {
+//   res.json(mcData.recipes)
+// })
 
 app.get('/api/tags', (req, res) => {
   res.json(getAllTags())

@@ -90,6 +90,38 @@ export function toMatrix2D(arr: Id[], width: number): Id[][] {
   return matrix
 }
 
+const isColEmpty = (matrix: Matrix3x3<ItemName>, col: number) => {
+  for (let i = 0; i < 3; i++) {
+    if (matrix[i][col].id !== -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const isRowEmpty = (matrix: Matrix3x3<ItemName>, row: number) => {
+  for (let j = 0; j < 3; j++) {
+    if (matrix[row][j].id !== -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const swapRows = (matrix: Matrix3x3<ItemName>, row1: number, row2: number) => {
+  const temp = matrix[row1];
+  matrix[row1] = matrix[row2];
+  matrix[row2] = temp;
+}
+
+const swapCols = (matrix: Matrix3x3<ItemName>, col1: number, col2: number) => {
+  for (let i = 0; i < 3; i++) {
+    const temp = matrix[i][col1];
+    matrix[i][col1] = matrix[i][col2];
+    matrix[i][col2] = temp;
+  }
+}
+
 // Normaliza uma receita para uma matriz 3x3, preenchendo com itens vazios quando necessário
 export const normalizeRecipe = (inShape: ItemName[][]): Matrix3x3<ItemName> => {
   const normalized = Array.from({ length: 3 }, (_, i) =>
@@ -98,6 +130,14 @@ export const normalizeRecipe = (inShape: ItemName[][]): Matrix3x3<ItemName> => {
       (_, j) => (inShape[i] && inShape[i][j] ? inShape[i][j] : defaultItemName())
     )
   ) as Matrix3x3<ItemName>;
+
+  if (isRowEmpty(normalized, 1) && isRowEmpty(normalized, 2)) {
+    swapRows(normalized, 0, 1);
+  }
+
+  if (isColEmpty(normalized, 1) && isColEmpty(normalized, 2)) {
+    swapCols(normalized, 0, 1);
+  }
 
   return normalized;
 };
