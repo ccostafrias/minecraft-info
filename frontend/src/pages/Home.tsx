@@ -9,7 +9,7 @@ import { SearchBar } from "../components/SearchBar";
 import { Item } from "../components/Item";
 import { CraftingSlot } from "../components/CraftingSlot";
 import { PossibleCrafting } from "../components/PossibleCrafting";
-import { defaultCrafting } from "@shared/utils";
+import { defaultCrafting, defaultItemName } from "@shared/utils";
 import { NoCrafting } from "../components/NoCrafting";
 
 const fetchItems = async (
@@ -39,11 +39,14 @@ export default function Home() {
   // Holding
   const [holdingItem, setHoldingItem] = useState<ItemName | null>(null)
   const holdingItemRef = useRef<ItemName | null>(null);
+  const [dragItem, setDragItem] = useState(defaultItemName());
+  const isDraggingItem = useRef(false);
 
   // Search
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [possibleSearchTerm, setPossibleSearchTerm] = useState<string>("")
 
+  // Infinite Scroll Items
   const { ref: itemsTrackingRef } = useInView({
     threshold: 0,
     triggerOnce: false,
@@ -70,6 +73,7 @@ export default function Home() {
     }
   })
 
+  // Infinite Scroll Possible Craftings
   const { ref: craftingTrackingRef } = useInView({
     threshold: 0,
     triggerOnce: false,
@@ -165,6 +169,10 @@ export default function Home() {
     holdingItemRef.current = holdingItem;
   }, [holdingItem])
 
+  useEffect(() => {
+    isDraggingItem.current = dragItem.id !== -1;
+  }, [dragItem])
+
   // Click outside to drop holding item
   useEffect(() => {
     const onDocumentClick = (e: MouseEvent) => {
@@ -201,7 +209,7 @@ export default function Home() {
   const craftingElements = crafting.map((item, index: number) => {
     return (
       <div key={`crafting-slot-${index}`} className="rounded-xl size-20 bg-highlight cursor-pointer hover:outline-4">
-        <CraftingSlot index={index} item={item} holdingItemRef={holdingItemRef} setHoldingItem={setHoldingItem} setCrafting={setCrafting} />
+        <CraftingSlot index={index} item={item} holdingItemRef={holdingItemRef} setHoldingItem={setHoldingItem} setCrafting={setCrafting} isDraggingRef={isDraggingItem} setDragItem={setDragItem} />
       </div>
     )
   })
@@ -218,7 +226,7 @@ export default function Home() {
         >
           <FaCircleInfo/>
         </div>
-        <Item item={item} holdingItem={holdingItem} setHoldingItem={setHoldingItem} />
+        <Item item={item} holdingItem={holdingItem} setHoldingItem={setHoldingItem} dragItem={dragItem} setDragItem={setDragItem} />
       </div>
     )
   })
@@ -259,7 +267,7 @@ export default function Home() {
       {/* Items */}
       <section className="items-section grid grid-rows-[auto_1fr] gap-4 [grid-area:items]">
         {/* <h2 className="font-bold text-2xl">Items</h2> */}
-        <div className="flex flex-row justify-between w-full">
+        <div className="flex flex-row justify-between w-full gap-4">
           <h2 className="font-bold text-2xl">Items</h2>
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Search items" />
         </div>
@@ -274,7 +282,7 @@ export default function Home() {
       </section>
       {/* Possible Craftings */}
       <section className="possible-craftings-section [grid-area:possible-craftings] border-t-2 pt-4">
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center gap-4">
           <h2 className="font-bold text-2xl">Craftings</h2>
           <SearchBar searchTerm={possibleSearchTerm} setSearchTerm={setPossibleSearchTerm} placeholder="Search craftings" />
         </div>

@@ -1,19 +1,22 @@
 import React, { memo, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import type { ItemName, MinecraftItem } from "@shared/types";
+import { defaultItemName } from "@shared/utils";
 
 interface ItemProps {
   item: MinecraftItem;
   holdingItem: ItemName | null;
   setHoldingItem: React.Dispatch<React.SetStateAction<ItemName | null>>;
+  dragItem: ItemName;
+  setDragItem: React.Dispatch<React.SetStateAction<ItemName>>;
 }
 
-export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: ItemProps) {
+export const Item = memo(function Item({ item, holdingItem, setHoldingItem, dragItem, setDragItem }: ItemProps) {
   console.log("rendering item", item.name);
 
-  const animationControls = useAnimationControls();
-  const [dragAnimation, setDragAnimation] = useState(false);
   const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
+  const [dragAnimation, setDragAnimation] = useState(false);
+  const animationControls = useAnimationControls();
   const elementRef = React.useRef<HTMLDivElement>(null);
 
   // Disable drag on mobile/coarse pointer devices using window.matchMedia
@@ -27,6 +30,7 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: It
       setInitialPosition({ x: rect.left, y: rect.top });
     }
 
+    setDragItem(item);
     setDragAnimation(true);
   };
 
@@ -35,6 +39,7 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: It
       x: 0,
       y: 0,
     });
+    setDragItem(defaultItemName());
     setDragAnimation(false);
     setHoldingItem(null);
   }
@@ -49,14 +54,19 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: It
     })
   }
 
+  const isDragging = (dragAnimation && dragItem.id === item.id);
+
   return (
     <>
+      {isDragging && (
+        <div className="size-20" aria-hidden="true"/>
+      )}
       <motion.div
         ref={elementRef}
         className='aspect-square size-20 grid place-items-center'
         drag={!isMobileCoarsePointer}
         style={
-          dragAnimation
+          isDragging
             ? {
                 zIndex: 300,
                 cursor: "grabbing",
@@ -88,9 +98,12 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem }: It
 }, (prevProps, nextProps) => {
   const prevHolding = prevProps.holdingItem?.id === prevProps.item.id;
   const nextHolding = nextProps.holdingItem?.id === nextProps.item.id;
+  const prevDrag = prevProps.dragItem?.id === prevProps.item.id;
+  const nextDrag = nextProps.dragItem?.id === nextProps.item.id;
 
   return (
     prevHolding === nextHolding &&
-    prevProps.item === nextProps.item
+    prevProps.item === nextProps.item &&
+    prevDrag === nextDrag
   )
 });
