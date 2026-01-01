@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 
 interface Props {
   url: string
@@ -16,17 +16,29 @@ export default function GltfModel({ url, scale = 1, rotate = true, rotation = [0
   const gltf = useLoader(GLTFLoader, url)
   const groupRef = useRef<THREE.Group>(null)
 
-  gltf.scene.traverse(obj => {
-    if ((obj as THREE.Mesh).isMesh) {
-      const mesh = obj as THREE.Mesh
-      const mat = mesh.material
-      if (Array.isArray(mat)) {
-        mat.forEach(m => { m.side = THREE.DoubleSide })
-      } else if (mat) {
-        mat.side = THREE.DoubleSide
-      }
-    }
-  })
+  useEffect(() => {
+    const scene = gltf.scene
+
+    // Bounding box
+    const box = new THREE.Box3().setFromObject(scene)
+    const center = box.getCenter(new THREE.Vector3())
+
+    // Move o modelo para o centro
+    scene.position.sub(center)
+
+    // Opcional: corrigir materiais
+    // scene.traverse(obj => {
+    //   if ((obj as THREE.Mesh).isMesh) {
+    //     const mesh = obj as THREE.Mesh
+    //     const mat = mesh.material
+    //     if (Array.isArray(mat)) {
+    //       mat.forEach(m => (m.side = THREE.DoubleSide))
+    //     } else if (mat) {
+    //       mat.side = THREE.DoubleSide
+    //     }
+    //   }
+    // })
+  }, [gltf])
 
   useFrame((_, delta) => {
     if (groupRef.current && rotate && !isDragging) {
@@ -37,7 +49,7 @@ export default function GltfModel({ url, scale = 1, rotate = true, rotation = [0
   return (
     <group 
       ref={groupRef} 
-      rotation={[Math.atan(Math.sqrt(2))/2 + rotation[0], 3*Math.PI/4 + rotation[1], rotation[2]]} 
+      rotation={[Math.atan(Math.sqrt(2))/2 + rotation[0], -3*Math.PI/4 + rotation[1], rotation[2]]} 
       scale={scale}
     >
       <primitive object={gltf.scene} />

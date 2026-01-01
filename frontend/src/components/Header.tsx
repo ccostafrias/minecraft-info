@@ -43,12 +43,11 @@ export default function Header() {
           <NavLink to="/" className={({isActive}) => isActive ? 'opacity-75' : ''}>Recipes</NavLink>
           <NavLink to="/item" className={({isActive}) => isActive ? 'opacity-75' : ''} >Items</NavLink>
           <NavLink to="/entity" className={({isActive}) => isActive ? 'opacity-75' : ''} >Entities</NavLink>
+          <NavLink to="/stats" className={({isActive}) => isActive ? 'opacity-75' : ''} >Stats</NavLink>
           {/* <NavLink to="/potions" className={({isActive}) => isActive ? 'underline' : ''} >Potions</NavLink> */}
         </ul>
       </nav>
-      <div>
-        <ThemeChanger theme={theme} toggleTheme={toggleTheme} />
-      </div>
+      <ThemeChanger theme={theme} toggleTheme={toggleTheme} />
     </header>
   )
 }
@@ -64,7 +63,7 @@ function ThemeChanger({ theme , toggleTheme }: ThemeChangerProps) {
     return (
       <button
         onClick={toggleTheme} 
-        aria-label="Mudar para tema escuro" 
+        aria-label="Change to dark theme" 
         className="theme-toggle cursor-pointer"
         tabIndex={0}
       >
@@ -76,7 +75,7 @@ function ThemeChanger({ theme , toggleTheme }: ThemeChangerProps) {
   return (
     <button 
       onClick={toggleTheme} 
-      aria-label="Mudar para tema claro" 
+      aria-label="Change to light theme" 
       className="theme-toggle cursor-pointer"
       tabIndex={0}
     >

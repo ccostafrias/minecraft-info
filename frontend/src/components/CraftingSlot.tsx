@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from "react";
+import React, { memo, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import type { ItemName } from "@shared/types";
 import { defaultItemName } from "@shared/utils";
@@ -12,6 +12,7 @@ interface CraftingSlotProps {
   setCrafting: React.Dispatch<React.SetStateAction<ItemName[]>>;
   isDraggingRef: React.RefObject<boolean>;
   setDragItem: React.Dispatch<React.SetStateAction<ItemName>>;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const CraftingSlot = memo(function CraftingSlot({
@@ -21,7 +22,8 @@ export const CraftingSlot = memo(function CraftingSlot({
   setHoldingItem,
   setCrafting,
   isDraggingRef,
-  setDragItem
+  setDragItem,
+  setSearchTerm,
 }: CraftingSlotProps) {
 
   const [dragAnimation, setDragAnimation] = useState(false);
@@ -82,7 +84,15 @@ export const CraftingSlot = memo(function CraftingSlot({
 
   const handleClick = () => {
     const holdingItem = holdingItemRef.current;
-    if (!holdingItem || item?.id == holdingItem?.id) return;
+    if (item.id == holdingItem?.id) return; // ja esta o mesmo item
+
+    if (!holdingItem) {
+      if (item.id !== -1) {
+        setSearchTerm(item.displayName.toLocaleLowerCase())
+      }
+      
+      return; 
+    }
 
     changeCrafting(holdingItem);
   }

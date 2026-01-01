@@ -26,6 +26,11 @@ html {
   box-sizing: inherit;
 }
 
+::selection {
+  background: var(--color-surface-muted);
+  color: var(--color-highlight);
+}
+
 .transitions-activated {
   transition: background-color .1s, border-color .1s, color .1s, fill .1s, stroke .1s;
 }
@@ -37,7 +42,7 @@ html {
   --color-text-primary: #383a42;
   --color-accent-danger: #bd3030;
   --color-accent-success: #2bb32b;
-  --color-highlight: #acacac;
+  --color-highlight: #868686;
 }
 
 html.dark {

@@ -179,7 +179,7 @@ export default function Home() {
       const target = e.target;
 
       if (target instanceof Element) {
-        const clickInside = target.closest('.items-grid, .crafting-grid')
+        const clickInside = target.closest('.items-grid, .crafting-grid');
         if (!clickInside) {
           setHoldingItem(null);
         }
@@ -209,7 +209,16 @@ export default function Home() {
   const craftingElements = crafting.map((item, index: number) => {
     return (
       <div key={`crafting-slot-${index}`} className="rounded-xl size-20 bg-highlight cursor-pointer hover:outline-4">
-        <CraftingSlot index={index} item={item} holdingItemRef={holdingItemRef} setHoldingItem={setHoldingItem} setCrafting={setCrafting} isDraggingRef={isDraggingItem} setDragItem={setDragItem} />
+        <CraftingSlot 
+          index={index} 
+          item={item} 
+          holdingItemRef={holdingItemRef} 
+          setHoldingItem={setHoldingItem} 
+          setCrafting={setCrafting} 
+          isDraggingRef={isDraggingItem} 
+          setDragItem={setDragItem} 
+          setSearchTerm={setSearchTerm}
+        />
       </div>
     )
   })

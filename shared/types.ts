@@ -24,6 +24,44 @@ export interface ItemsInfo {
   hasMore: boolean;
 }
 
+export interface UniqueTag {
+  tag: string;
+  count: number;
+}
+
+export interface UniqueCategory {
+  category: string;
+  count: number;
+}
+
+export interface Graph {
+  [key: string]: ItemName[];
+}
+
+export interface GraphNode {
+  id: string;
+  image: string;
+  size?: number;
+}
+
+export interface GraphEdge {
+  from: string;
+  to: string;
+}
+
+export interface StatsInterface {
+  mostUsedItems: ItemCount[],
+  itemsWithMostRecipes: ItemCount[],
+  graph: {  nodes: GraphNode[]; edges: GraphEdge[] };
+  uniqueTags?: UniqueTag[];
+  uniqueCategories?: UniqueCategory[];
+}
+
+export interface ItemCount {
+  item: ItemName;
+  count: number;
+}
+
 export interface Recipe {
   result: {
     id: number;

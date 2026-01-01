@@ -6,7 +6,8 @@
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register src/index.ts",
     "build": "tsc",
     "start": "node dist/src/index.js",
-    "export:recipes": "ts-node-dev -r tsconfig-paths/register src/scripts/exportRecipes.ts"
+    "export:recipes": "ts-node-dev -r tsconfig-paths/register src/scripts/exportRecipes.ts",
+    "write:stats": "ts-node-dev -r tsconfig-paths/register src/scripts/writeStats.ts"
   },
   "keywords": [],
   "author": "",

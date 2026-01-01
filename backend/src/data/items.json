@@ -12322,7 +12322,9 @@
     "stackSize": 64,
     "description": "Utility block used to brew potions using ingredients and fuel.",
     "category": "utility",
-    "tags": []
+    "tags": [
+      "brewing"
+    ]
   },
   "964": {
     "id": 964,
@@ -13485,7 +13487,7 @@
     "displayName": "Enchanted Book",
     "stackSize": 1,
     "description": "Book storing an enchantment for applying to items.",
-    "category": "enchantment",
+    "category": "miscellaneous",
     "tags": []
   },
   "1069": {

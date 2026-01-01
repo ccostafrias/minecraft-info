@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { RouterProvider, Route, Navigate, Outlet, createHashRouter, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home';
 import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
+import Stats, { loader as statsPageLoader } from './pages/Stats';
 import ItemNotFound from './pages/ItemNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -36,6 +37,12 @@ const router = createHashRouter(createRoutesFromElements(
 
     <Route path="/item" element={<RedirectToLastItem />} />
     <Route path="/entity" element={<Navigate to={`/entity/2`} replace />} />
+
+    <Route 
+      path="/stats" 
+      element={<Stats />} 
+      loader={statsPageLoader}
+    />
 
     <Route 
       path="/entity/:entityId" 

@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Canvas } from '@react-three/fiber'
-import { OrthographicCamera } from '@react-three/drei'
 import { GrFormPrevious } from 'react-icons/gr'
 
-import beeModelUrl from '../assets/bee.gltf?url'
+import OrthoCamera from '../components/OrthoCamera'
 import GltfModel from '../components/GltfModel'
+
+import beeModelUrl from '../assets/bee.gltf?url'
 import type { MouseStatus, Vec2 } from '@shared/types'
 
 export default function Entities() {
@@ -20,6 +21,8 @@ export default function Entities() {
   const [rotation, setRotation] = useState<Vec2>({ x: 0, y: 0 });
 
   useEffect(() => {
+    if (!mouseStatus.isDown) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (mouseStatus.isDown) {
         const deltaX = e.clientX - mouseStatus.x;
@@ -68,12 +71,7 @@ export default function Entities() {
           onMouseDown={handleMouseDown}
         >
           <Canvas>
-            {/* Câmera isométrica */}
-            <OrthographicCamera
-              makeDefault
-              zoom={20}
-              position={[0, 3, 10]}
-            />
+            <OrthoCamera />
             <ambientLight intensity={1.0} />
             <directionalLight position={[10, 20, 10]} intensity={1} />
             <GltfModel url={beeModelUrl} scale={10} rotation={[rotation.x, rotation.y, 0]} isDragging={mouseStatus.isDown} />

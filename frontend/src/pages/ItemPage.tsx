@@ -37,10 +37,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     }
     const itemData = await item.json()
 
-    const uniqueTags = await fetch('/api/tags');
-    const tagsData = await uniqueTags.json();
-
-    return { item: itemData, meta: metaResult, tags: tagsData };
+    return { item: itemData, meta: metaResult };
   } catch (error) {
     throw error;
   }
@@ -48,17 +45,13 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export default function ItemPage() {
-  const { item, meta, tags } = useLoaderData() as { item: MinecraftItem, meta: Meta, tags: string[] };
-
-  console.log("meta: ", meta);
+  const { item, meta } = useLoaderData() as { item: MinecraftItem, meta: Meta };
 
   useDocumentTitle(`${item.displayName} - Minecraft Recipes`);
 
   useEffect(() => {
     sessionStorage.setItem('lastVisitedItem', item.id.toString());
   }, [item])
-
-  console.log('unique tags: ', tags);
 
   const tagElements = item.tags!.sort().map((tag) => {
     return (
@@ -90,7 +83,7 @@ export default function ItemPage() {
       </header>
       {/* Item */}
       <section className="item-section [grid-area:item] flex flex-col items-center justify-center py-4">
-        <div className='p-4 rounded-2xl bg-highlight shadow-black/40 shadow-2xl'>
+        <div className='p-4 rounded-2xl bg-highlight border-2 border-surface-muted shadow-black/40 shadow-2xl'>
           <img
             src={`./items/${item.name}.png`}
             alt={item.displayName}
@@ -116,9 +109,9 @@ export default function ItemPage() {
         </div>
       </section>
       {/* Details */}
-      <section className="details-section [grid-area:details] gap-4 w-full shadow-black/40 shadow-2xl">
+      <section className="details-section [grid-area:details] bg-surface-strong gap-4 w-full rounded-2xl border-2 border-surface-muted shadow-black/40 shadow-2xl">
         {/* <h2 className="font-bold text-2xl">Item Details</h2> */}
-        <ul className='rounded-2xl bg-surface-strong p-4 border-2 border-surface-muted'>
+        <ul className=' p-4'>
           <DetailItem label="Item Properties" />
           <DetailItem label="ID" value={item.id} />
           <DetailItem label="Name" value={item.name} />

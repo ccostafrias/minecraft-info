@@ -1,15 +1,53 @@
 import express from 'express'
 import cors from 'cors'
-import minecraftData from 'minecraft-data'
 import { normalizeMatrix, containsSubmatrix, toMatrix2D } from '@shared/utils'
-import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName } from '@shared/types'
-import { getAllItems, getItemById, getAllTags, getMinMaxID, getAllRecipes, getRecipesById } from './services/items.service'
+import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, UniqueCategory, UniqueTag } from '@shared/types'
+import { getAllItems, getItemById, getMinMaxID, getAllRecipes, getRecipesById, getAllStats } from './services/items.service'
 
 const app = express()
-// const mcData = minecraftData('1.20')
-
 app.use(cors())
 app.use(express.json())
+
+// TAGS
+
+const tagsCount = {} as Record<string, UniqueTag>;
+
+for (const item of getAllItems()) {
+  if (item.tags) {
+    for (const tag of item.tags) {
+      if (!tagsCount[tag]) {
+        tagsCount[tag] = { 
+          tag,
+          count: 0 
+        };
+      }
+      tagsCount[tag].count++;
+    }
+  }
+}
+
+const tagsCountValue = Object.values(tagsCount)
+  .sort((a, b) => b.count - a.count);
+
+// CATEGORIES
+
+const categoriesCount = {} as Record<string, UniqueCategory>;
+
+for (const item of getAllItems()) {
+  if (item.category) {
+    const category = item.category;
+
+    if (!categoriesCount[category]) {
+      categoriesCount[category] = {
+        category,
+        count: 0
+      };
+    }
+    categoriesCount[category].count++;
+  }
+}
+const categoriesCountValue = Object.values(categoriesCount)
+  .sort((a, b) => b.count - a.count);
 
 // API
 
@@ -132,12 +170,18 @@ app.get('/api/items', (req, res) => {
   })
 })
 
-// app.get('/api/recipes', (req, res) => {
-//   res.json(mcData.recipes)
+// all unique tags
+// app.get('/api/tags', (req, res) => {
+//   res.json(getAllTags())
 // })
 
-app.get('/api/tags', (req, res) => {
-  res.json(getAllTags())
+// all stats
+app.get('/api/stats', (req, res) => {
+  res.json({ 
+    ...getAllStats(), 
+    uniqueTags: tagsCountValue,
+    uniqueCategories: categoriesCountValue
+  })
 })
 
 const port = 3000
