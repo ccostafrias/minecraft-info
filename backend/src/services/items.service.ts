@@ -21,6 +21,14 @@ const recipeValues = Object.values(recipes).flat()
 const rawStats = fs.readFileSync(statsPath, 'utf-8')
 const stats: StatsInterface = JSON.parse(rawStats)
 
+const potionsPath = path.resolve('src/data/potions_ingredients.json')
+const rawPotions = fs.readFileSync(potionsPath, 'utf-8')
+const potions = JSON.parse(rawPotions)
+
+export function getPotionsIngredients() {
+  return potions
+}
+
 // export function getAllTags() {
 //   return Array.from(tags).sort()
 // }

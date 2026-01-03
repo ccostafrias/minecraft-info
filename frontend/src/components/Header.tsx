@@ -44,7 +44,7 @@ export default function Header() {
           <NavLink to="/item" className={({isActive}) => isActive ? 'opacity-75' : ''} >Items</NavLink>
           <NavLink to="/entity" className={({isActive}) => isActive ? 'opacity-75' : ''} >Entities</NavLink>
           <NavLink to="/stats" className={({isActive}) => isActive ? 'opacity-75' : ''} >Stats</NavLink>
-          {/* <NavLink to="/potions" className={({isActive}) => isActive ? 'underline' : ''} >Potions</NavLink> */}
+          <NavLink to="/potions" className={({isActive}) => isActive ? 'underline' : ''} >Potions</NavLink>
         </ul>
       </nav>
       <ThemeChanger theme={theme} toggleTheme={toggleTheme} />

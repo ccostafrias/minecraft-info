@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { normalizeMatrix, containsSubmatrix, toMatrix2D } from '@shared/utils'
 import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, UniqueCategory, UniqueTag } from '@shared/types'
-import { getAllItems, getItemById, getMinMaxID, getAllRecipes, getRecipesById, getAllStats } from './services/items.service'
+import { getAllItems, getItemById, getMinMaxID, getAllRecipes, getRecipesById, getAllStats, getPotionsIngredients } from './services/items.service'
 
 const app = express()
 app.use(cors())
@@ -85,7 +85,7 @@ app.get('/api/possibleRecipes', (req, res) => {
     const recipeValues = getAllRecipes()
 
     for (const recipe of recipeValues) {
-      if (containsSubmatrix(recipe.inShape.map(r => r.map(id => id.id)), normalizedInput)) {
+      if (containsSubmatrix(recipe.inShape.map(r => r.map(id => id.id!)), normalizedInput)) {
         const id = recipe.result.id
         
         if (!matches[recipe.result.id]) {
@@ -131,7 +131,7 @@ app.get('/api/item/:identifier', (req, res) => {
     return res.status(404).json({ error: "Item não encontrado!" })
   }
 
-  const recipes = getRecipesById(item.id)
+  const recipes = getRecipesById(item.id!)
 
   res.json({ ...item, recipes })
 })
@@ -182,6 +182,11 @@ app.get('/api/stats', (req, res) => {
     uniqueTags: tagsCountValue,
     uniqueCategories: categoriesCountValue
   })
+})
+
+// potions
+app.get('/api/potionsIngredients', (req, res) => {
+  res.json(getPotionsIngredients())
 })
 
 const port = 3000

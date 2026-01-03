@@ -1,0 +1,363 @@
+[
+  {
+    "id": "water_bottle",
+    "name": "Water Bottle",
+    "color": "#385DC6",
+    "type": "base"
+  },
+  {
+    "id": "awkward",
+    "name": "Awkward Potion",
+    "color": "#385DC6",
+    "type": "base"
+  },
+  {
+    "id": "mundane",
+    "name": "Mundane Potion",
+    "color": "#385DC6",
+    "type": "base"
+  },
+  {
+    "id": "thick",
+    "name": "Thick Potion",
+    "color": "#385DC6",
+    "type": "base"
+  },
+  {
+    "id": "healing",
+    "name": "Potion of Healing",
+    "color": "#F82423",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 0,
+        "description": "Instant Health I",
+        "applies": [{ "id": "instant_health", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 0,
+        "description": "Instant Health II",
+        "applies": [{ "id": "instant_health", "level": 2 }]
+      }
+    },
+    "corrupt_to": "harming"
+  },
+  {
+    "id": "fire_resistance",
+    "name": "Potion of Fire Resistance",
+    "color": "#FF9900",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Fire Resistance",
+        "applies": [{ "id": "fire_resistance", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Fire Resistance",
+        "applies": [{ "id": "fire_resistance", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "invisibility",
+    "name": "Potion of Invisibility",
+    "color": "#F6F6F6",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Invisibility",
+        "applies": [{ "id": "invisibility", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Invisibility",
+        "applies": [{ "id": "invisibility", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "night_vision",
+    "name": "Potion of Night Vision",
+    "color": "#C2FF66",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Night Vision",
+        "applies": [{ "id": "night_vision", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Night Vision",
+        "applies": [{ "id": "night_vision", "level": 1 }]
+      }
+    },
+    "corrupt_to": "invisibility"
+  },
+  {
+    "id": "leaping",
+    "name": "Potion of Leaping",
+    "color": "#FDFF84",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Jump Boost I",
+        "applies": [{ "id": "jump_boost", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Jump Boost I",
+        "applies": [{ "id": "jump_boost", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 90,
+        "description": "Jump Boost II",
+        "applies": [{ "id": "jump_boost", "level": 2 }]
+      }
+    },
+    "corrupt_to": "slowness"
+  },
+  {
+    "id": "swiftness",
+    "name": "Potion of Swiftness",
+    "color": "#33EBFF",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Speed I",
+        "applies": [{ "id": "speed", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Speed I",
+        "applies": [{ "id": "speed", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 90,
+        "description": "Speed II",
+        "applies": [{ "id": "speed", "level": 2 }]
+      }
+    },
+    "corrupt_to": "slowness"
+  },
+  {
+    "id": "slowness",
+    "name": "Potion of Slowness",
+    "color": "#8BAFE0"
+  },
+  {
+    "id": "strength",
+    "name": "Potion of Strength",
+    "color": "#FFC700",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Strength I",
+        "applies": [{ "id": "strength", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Strength I",
+        "applies": [{ "id": "strength", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 90,
+        "description": "Strength II",
+        "applies": [{ "id": "strength", "level": 2 }]
+      }
+    }
+  },
+  {
+    "id": "poison",
+    "name": "Potion of Poison",
+    "color": "#87A363",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 45,
+        "description": "Poison I",
+        "applies": [{ "id": "poison", "level": 1 }]
+      },
+      "longer": {
+        "duration": 90,
+        "description": "Extended Poison I",
+        "applies": [{ "id": "poison", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 22,
+        "description": "Poison II",
+        "applies": [{ "id": "poison", "level": 2 }]
+      }
+    },
+    "corrupt_to": "harming"
+  },
+  {
+    "id": "harming",
+    "name": "Potion of Harming",
+    "color": "#A9656A",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 0,
+        "description": "Harming I",
+        "applies": [{ "id": "instant_damage", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 0,
+        "description": "Harming II",
+        "applies": [{ "id": "instant_damage", "level": 2 }]
+      }
+    }
+  },
+  {
+    "id": "weakness",
+    "name": "Potion of Weakness",
+    "color": "#484D48",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 90,
+        "description": "Weakness",
+        "applies": [{ "id": "weakness", "level": 1 }]
+      },
+      "longer": {
+        "duration": 240,
+        "description": "Extended Weakness",
+        "applies": [{ "id": "weakness", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "water_breathing",
+    "name": "Potion of Water Breathing",
+    "color": "#98DAC0",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Water Breathing",
+        "applies": [{ "id": "water_breathing", "level": 1 }]
+      },
+      "longer": {
+        "duration": 480,
+        "description": "Extended Water Breathing",
+        "applies": [{ "id": "water_breathing", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "regeneration",
+    "name": "Potion of Regeneration",
+    "color": "#CD5CAB",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 45,
+        "description": "Regeneration I",
+        "applies": [{ "id": "regeneration", "level": 1 }]
+      },
+      "longer": {
+        "duration": 120,
+        "description": "Extended Regeneration I",
+        "applies": [{ "id": "regeneration", "level": 1 }]
+      },
+      "stronger": {
+        "duration": 22,
+        "description": "Regeneration II",
+        "applies": [{ "id": "regeneration", "level": 2 }]
+      }
+    }
+  },
+  {
+    "id": "slow_falling",
+    "name": "Potion of Slow Falling",
+    "color": "#F3CFB9",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 90,
+        "description": "Slow Falling",
+        "applies": [{ "id": "slow_falling", "level": 1 }]
+      },
+      "longer": {
+        "duration": 240,
+        "description": "Extended Slow Falling",
+        "applies": [{ "id": "slow_falling", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "turtle_master",
+    "name": "Potion of the Turtle Master",
+    "color": "#8B80E3",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 20,
+        "description": "Turtle Master",
+        "applies": [
+          { "id": "slowness", "level": 4 },
+          { "id": "resistance", "level": 3 }
+        ]
+      },
+      "longer": {
+        "duration": 40,
+        "description": "Extended Turtle Master",
+        "applies": [
+          { "id": "slowness", "level": 4 },
+          { "id": "resistance", "level": 3 }
+        ]
+      },
+      "stronger": {
+        "duration": 20,
+        "description": "Enhanced Turtle Master",
+        "applies": [
+          { "id": "slowness", "level": 6 },
+          { "id": "resistance", "level": 4 }
+        ]
+      }
+    }
+  },
+  {
+    "id": "weaving",
+    "name": "Potion of Weaving",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Weaving",
+        "applies": [{ "id": "weaving", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "Oozing",
+    "name": "Potion of Oozing",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Oozing",
+        "applies": [{ "id": "oozing", "level": 1 }]
+      }
+    }
+  },
+  {
+    "id": "Infestation",
+    "name": "Potion of Infestation",
+    "type": "effect",
+    "variants": {
+      "base": {
+        "duration": 180,
+        "description": "Infestation",
+        "applies": [{ "id": "infestation", "level": 1 }]
+      }
+    }
+  }
+]

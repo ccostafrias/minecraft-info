@@ -6,14 +6,16 @@ interface SearchBarProps {
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   placeholder?: string;
+  width?: string;
 }
-export function SearchBar({ searchTerm, setSearchTerm, placeholder }: SearchBarProps) {
+export function SearchBar({ searchTerm, setSearchTerm, placeholder, width }: SearchBarProps) {
   return (
-    <div className="input-wrapper flex gap-4 items-center bg-highlight py-2 px-3 rounded-4xl w-fit">
+    <div className="input-wrapper flex gap-4 items-center bg-highlight py-2 px-3 rounded-4xl w-fit" >
       <IoIosSearch size={20} className="text-surface-base" />
       <input
         type="text"
         className="outline-none bg-transparent inline-block w-full max-w-40 text-surface-muted placeholder-surface-muted/50"
+        style={{ width }}
         placeholder={`${placeholder ?? "Search"}...`}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)} 

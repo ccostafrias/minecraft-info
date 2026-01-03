@@ -1,0 +1,188 @@
+[
+  {
+    "ingredienteId": "nether_wart",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "spider_eye",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "magma_cream",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "glistering_melon",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "ghast_tear",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "sugar",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "rabbit_foot",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "ghast_tear",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "blaze_powder",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "glowstone_dust",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "thick", "form": "normal", "variant": "base" },
+    "type": "create_base"
+  },
+  {
+    "ingredienteId": "glistering_melon",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "healing", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "glistering_melon",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "healing", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "ghast_tear",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "regeneration", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "blaze_powder",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "strength", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "sugar",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "swiftness", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "rabbit_foot",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "leaping", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "golden_carrot",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "night_vision", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "pufferfish",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "water_breathing", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "magma_cream",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "fire_resistance", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "phantom_membrane",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "slow_falling", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "spider_eye",
+    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "output": { "potionId": "poison", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "fermented_spider_eye",
+    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
+    "output": { "potionId": "weakness", "form": "normal", "variant": "base" },
+    "type": "create_effect"
+  },
+  {
+    "ingredienteId": "fermented_spider_eye",
+    "input": { "potionId": "poison", "form": "normal", "variant": "base" },
+    "output": { "potionId": "harming", "form": "normal", "variant": "base" },
+    "type": "corrupt"
+  },
+  {
+    "ingredienteId": "fermented_spider_eye",
+    "input": { "potionId": "healing", "form": "normal", "variant": "base" },
+    "output": { "potionId": "harming", "form": "normal", "variant": "base" },
+    "type": "corrupt"
+  },
+  {
+    "ingredienteId": "fermented_spider_eye",
+    "input": { "potionId": "swiftness", "form": "normal", "variant": "base" },
+    "output": { "potionId": "slowness", "form": "normal", "variant": "base" },
+    "type": "corrupt"
+  },
+  {
+    "ingredienteId": "fermented_spider_eye",
+    "input": { "potionId": "leaping", "form": "normal", "variant": "base" },
+    "output": { "potionId": "slowness", "form": "normal", "variant": "base" },
+    "type": "corrupt"
+  },
+  {
+    "ingredienteId": "fermented_spider_eye",
+    "input": { "potionId": "night_vision", "form": "normal", "variant": "base" },
+    "output": { "potionId": "invisibility", "form": "normal", "variant": "base" },
+    "type": "corrupt"
+  },
+  {
+    "ingredienteId": "redstone",
+    "input": { "form": "normal" },
+    "output": { "variant": "longer" },
+    "type": "extend_duration"
+  },
+  {
+    "ingredienteId": "glowstone_dust",
+    "input": { "form": "normal" },
+    "output": { "variant": "stronger" },
+    "type": "increase_power"
+  },
+  {
+    "ingredienteId": "gunpowder",
+    "input": { "form": "normal" },
+    "output": { "form": "splash" },
+    "type": "convert_form"
+  },
+  {
+    "ingredienteId": "dragon_breath",
+    "input": { "form": "splash" },
+    "output": { "form": "lingering" },
+    "type": "convert_form"
+  }
+]

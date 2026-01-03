@@ -9,9 +9,11 @@ interface ItemProps {
   setHoldingItem: React.Dispatch<React.SetStateAction<ItemName | null>>;
   dragItem: ItemName;
   setDragItem: React.Dispatch<React.SetStateAction<ItemName>>;
+  showLabel?: boolean;
+  size?: number;
 }
 
-export const Item = memo(function Item({ item, holdingItem, setHoldingItem, dragItem, setDragItem }: ItemProps) {
+export const Item = memo(function Item({ item, holdingItem, setHoldingItem, dragItem, setDragItem, showLabel = true, size = 20 }: ItemProps) {
   console.log("rendering item", item.name);
 
   const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
@@ -35,13 +37,16 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem, drag
   };
 
   const handleDragEnd = () => {
-    animationControls.start({
-      x: 0,
-      y: 0,
-    });
-    setDragItem(defaultItemName());
-    setDragAnimation(false);
-    setHoldingItem(null);
+    animationControls
+      .start({
+        x: 0,
+        y: 0,
+      })
+      .then(() => {
+        setDragItem(defaultItemName());
+        setDragAnimation(false);
+        setHoldingItem(null);
+      })
   }
 
   const handleClick = () => {
@@ -55,15 +60,16 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem, drag
   }
 
   const isDragging = (dragAnimation && dragItem.id === item.id);
+  const sizePx = `${size*4}px`
 
   return (
     <>
       {isDragging && (
-        <div className="size-20" aria-hidden="true"/>
+        <div style={{ width: sizePx, height: sizePx }} aria-hidden="true"/>
       )}
       <motion.div
         ref={elementRef}
-        className='aspect-square size-20 grid place-items-center'
+        className='aspect-square grid place-items-center'
         drag={!isMobileCoarsePointer}
         style={
           isDragging
@@ -74,8 +80,13 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem, drag
                 pointerEvents: "none",
                 left: initialPosition.x,
                 top: initialPosition.y,
+                width: sizePx,
+                height: sizePx,
               }
-            : {}
+            : {
+                width: sizePx,
+                height: sizePx,
+            }
         }
         dragMomentum={false}
         dragElastic={0.05}
@@ -90,9 +101,11 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem, drag
           className="block size-9/10 object-contain select-none pointer-events-none"
         />
       </motion.div>
-      <span className={`text-center text-surface-muted line-clamp-2 ${holdingItem?.id === item.id ? 'font-bold' : 'font-medium'}`}>
-        {item.displayName}
-      </span>
+      {showLabel && (
+        <span className={`text-center text-surface-muted line-clamp-2 ${holdingItem?.id === item.id ? 'font-bold' : 'font-medium'}`}>
+          {item.displayName}
+        </span>
+      )}
     </>
   );
 }, (prevProps, nextProps) => {

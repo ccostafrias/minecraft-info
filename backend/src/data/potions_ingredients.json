@@ -1,0 +1,62 @@
+[
+  {
+      "id": 894,
+      "name": "glowstone_dust",
+      "displayName": "Glowstone Dust"
+  },
+  {
+      "id": 898,
+      "name": "pufferfish",
+      "displayName": "Pufferfish"
+  },
+  {
+      "id": 954,
+      "name": "ghast_tear",
+      "displayName": "Ghast Tear"
+  },
+  {
+      "id": 956,
+      "name": "nether_wart",
+      "displayName": "Nether Wart"
+  },
+  {
+      "id": 959,
+      "name": "spider_eye",
+      "displayName": "Spider Eye"
+  },
+  {
+      "id": 960,
+      "name": "fermented_spider_eye",
+      "displayName": "Fermented Spider Eye"
+  },
+  {
+      "id": 961,
+      "name": "blaze_powder",
+      "displayName": "Blaze Powder"
+  },
+  {
+      "id": 962,
+      "name": "magma_cream",
+      "displayName": "Magma Cream"
+  },
+  {
+      "id": 966,
+      "name": "glistering_melon_slice",
+      "displayName": "Glistering Melon Slice"
+  },
+  {
+      "id": 1075,
+      "name": "rabbit_foot",
+      "displayName": "Rabbit's Foot"
+  },
+  {
+      "id": 1111,
+      "name": "dragon_breath",
+      "displayName": "Dragon's Breath"
+  },
+  {
+      "id": 1140,
+      "name": "phantom_membrane",
+      "displayName": "Phantom Membrane"
+  }
+]

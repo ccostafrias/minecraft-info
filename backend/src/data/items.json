@@ -11532,6 +11532,7 @@
     "tags": [
       "nether",
       "brewing",
+      "ingredient",
       "crafting",
       "stone"
     ]
@@ -11578,7 +11579,8 @@
     "category": "food",
     "tags": [
       "ocean",
-      "brewing"
+      "brewing",
+      "ingredient"
     ]
   },
   "899": {
@@ -12216,6 +12218,7 @@
     "tags": [
       "nether",
       "brewing",
+      "ingredient",
       "mob"
     ]
   },
@@ -12240,6 +12243,7 @@
     "category": "material",
     "tags": [
       "brewing",
+      "ingredient",
       "farming",
       "nether"
     ]
@@ -12250,9 +12254,10 @@
     "displayName": "Potion",
     "stackSize": 1,
     "description": "Brewed drink that grants various status effects.",
-    "category": "potion",
+    "category": "material",
     "tags": [
-      "brewing"
+      "brewing",
+      "ingredient"
     ]
   },
   "958": {
@@ -12275,7 +12280,8 @@
     "category": "material",
     "tags": [
       "mob",
-      "brewing"
+      "brewing",
+      "ingredient"
     ]
   },
   "960": {
@@ -12299,7 +12305,8 @@
     "category": "material",
     "tags": [
       "nether",
-      "brewing"
+      "brewing",
+      "ingredient"
     ]
   },
   "962": {
@@ -12444,7 +12451,10 @@
     "stackSize": 64,
     "description": "Spawn egg that summons a cave spider when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "overworld",
+      "cave"
+    ]
   },
   "975": {
     "id": 975,
@@ -12542,7 +12552,9 @@
     "stackSize": 64,
     "description": "Spawn egg that summons an ender dragon when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "end"
+    ]
   },
   "984": {
     "id": 984,
@@ -12551,7 +12563,9 @@
     "stackSize": 64,
     "description": "Spawn egg that summons an enderman when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "end"
+    ]
   },
   "985": {
     "id": 985,
@@ -12560,7 +12574,9 @@
     "stackSize": 64,
     "description": "Spawn egg that summons an endermite when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "end"
+    ]
   },
   "986": {
     "id": 986,
@@ -12756,7 +12772,9 @@
     "stackSize": 64,
     "description": "Spawn egg that summons a parrot when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "overworld"
+    ]
   },
   "1004": {
     "id": 1004,
@@ -12988,7 +13006,9 @@
     "stackSize": 64,
     "description": "Spawn egg that summons a stray when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "overworld"
+    ]
   },
   "1025": {
     "id": 1025,
@@ -13096,7 +13116,9 @@
     "stackSize": 64,
     "description": "Spawn egg that summons a warden when used.",
     "category": "spawn_egg",
-    "tags": []
+    "tags": [
+      "overworld"
+    ]
   },
   "1035": {
     "id": 1035,
@@ -13568,8 +13590,8 @@
     "category": "material",
     "tags": [
       "brewing",
-      "mob",
-      "meat"
+      "ingredient",
+      "mob"
     ]
   },
   "1076": {
@@ -13977,6 +13999,7 @@
     "category": "material",
     "tags": [
       "brewing",
+      "ingredient",
       "end"
     ]
   },
@@ -14285,7 +14308,8 @@
     "category": "material",
     "tags": [
       "mob",
-      "brewing"
+      "brewing",
+      "ingredient"
     ]
   },
   "1141": {
@@ -14562,7 +14586,9 @@
     "stackSize": 64,
     "description": "Edible berries that glow in caves.",
     "category": "food",
-    "tags": []
+    "tags": [
+      "cave"
+    ]
   },
   "1167": {
     "id": 1167,

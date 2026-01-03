@@ -7,7 +7,6 @@ import ItemNotFound from './pages/ItemNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// import Entities from './pages/Entities';
 const Entities = lazy(() => import('./pages/Entities'));
 
 function getLastVisitedItemId() {
@@ -37,6 +36,17 @@ const router = createHashRouter(createRoutesFromElements(
 
     <Route path="/item" element={<RedirectToLastItem />} />
     <Route path="/entity" element={<Navigate to={`/entity/2`} replace />} />
+    <Route 
+      path="/potions"
+      lazy={async () => {
+        const module = await import('./pages/Potions')
+
+        return {
+          Component: module.default,
+          loader: module.loader
+        }
+      }}
+    />
 
     <Route 
       path="/stats" 
