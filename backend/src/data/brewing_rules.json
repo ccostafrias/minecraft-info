@@ -1,186 +1,198 @@
 [
   {
-    "ingredienteId": "nether_wart",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "awkward", "form": "normal", "variant": "base" },
+    "ingredientId": "nether_wart",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "awkward" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "spider_eye",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "spider_eye",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "magma_cream",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "magma_cream",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "glistering_melon",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "glistering_melon_slice",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "ghast_tear",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "ghast_tear",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "sugar",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "sugar",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "rabbit_foot",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "rabbit_foot",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "ghast_tear",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "blaze_powder",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "mundane" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "blaze_powder",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "mundane", "form": "normal", "variant": "base" },
+    "ingredientId": "glowstone_dust",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "thick" },
     "type": "create_base"
   },
   {
-    "ingredienteId": "glowstone_dust",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "thick", "form": "normal", "variant": "base" },
-    "type": "create_base"
-  },
-  {
-    "ingredienteId": "glistering_melon",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "healing", "form": "normal", "variant": "base" },
+    "ingredientId": "glistering_melon_slice",
+    "input": { "name": "awkward" },
+    "output": { "name": "healing" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "glistering_melon",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "healing", "form": "normal", "variant": "base" },
+    "ingredientId": "ghast_tear",
+    "input": { "name": "awkward" },
+    "output": { "name": "regeneration" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "ghast_tear",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "regeneration", "form": "normal", "variant": "base" },
+    "ingredientId": "blaze_powder",
+    "input": { "name": "awkward" },
+    "output": { "name": "strength" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "blaze_powder",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "strength", "form": "normal", "variant": "base" },
+    "ingredientId": "sugar",
+    "input": { "name": "awkward" },
+    "output": { "name": "swiftness" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "sugar",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "swiftness", "form": "normal", "variant": "base" },
+    "ingredientId": "rabbit_foot",
+    "input": { "name": "awkward" },
+    "output": { "name": "leaping" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "rabbit_foot",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "leaping", "form": "normal", "variant": "base" },
+    "ingredientId": "golden_carrot",
+    "input": { "name": "awkward" },
+    "output": { "name": "night_vision" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "golden_carrot",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "night_vision", "form": "normal", "variant": "base" },
+    "ingredientId": "pufferfish",
+    "input": { "name": "awkward" },
+    "output": { "name": "water_breathing" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "pufferfish",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "water_breathing", "form": "normal", "variant": "base" },
+    "ingredientId": "magma_cream",
+    "input": { "name": "awkward" },
+    "output": { "name": "fire_resistance" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "magma_cream",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "fire_resistance", "form": "normal", "variant": "base" },
+    "ingredientId": "phantom_membrane",
+    "input": { "name": "awkward" },
+    "output": { "name": "slow_falling" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "phantom_membrane",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "slow_falling", "form": "normal", "variant": "base" },
+    "ingredientId": "spider_eye",
+    "input": { "name": "awkward" },
+    "output": { "name": "poison" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "spider_eye",
-    "input": { "potionId": "awkward", "form": "normal", "variant": "base" },
-    "output": { "potionId": "poison", "form": "normal", "variant": "base" },
+    "ingredientId": "turtle_helmet",
+    "input": { "name": "awkward" },
+    "output": { "name": "turtle_master" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "fermented_spider_eye",
-    "input": { "potionId": "water_bottle", "form": "normal", "variant": "base" },
-    "output": { "potionId": "weakness", "form": "normal", "variant": "base" },
+    "ingredientId": "cobweb",
+    "input": { "name": "awkward" },
+    "output": { "name": "weaving" },
     "type": "create_effect"
   },
   {
-    "ingredienteId": "fermented_spider_eye",
-    "input": { "potionId": "poison", "form": "normal", "variant": "base" },
-    "output": { "potionId": "harming", "form": "normal", "variant": "base" },
+    "ingredientId": "stone",
+    "input": { "name": "awkward" },
+    "output": { "name": "infestation" },
+    "type": "create_effect"
+  },
+  {
+    "ingredientId": "slime_block",
+    "input": { "name": "awkward" },
+    "output": { "name": "oozing" },
+    "type": "create_effect"
+  },
+  {
+    "ingredientId": "fermented_spider_eye",
+    "input": { "name": "water_bottle" },
+    "output": { "name": "weakness" },
+    "type": "create_effect"
+  },
+  {
+    "ingredientId": "fermented_spider_eye",
+    "input": { "name": "poison" },
+    "output": { "name": "harming" },
     "type": "corrupt"
   },
   {
-    "ingredienteId": "fermented_spider_eye",
-    "input": { "potionId": "healing", "form": "normal", "variant": "base" },
-    "output": { "potionId": "harming", "form": "normal", "variant": "base" },
+    "ingredientId": "fermented_spider_eye",
+    "input": { "name": "healing" },
+    "output": { "name": "harming" },
     "type": "corrupt"
   },
   {
-    "ingredienteId": "fermented_spider_eye",
-    "input": { "potionId": "swiftness", "form": "normal", "variant": "base" },
-    "output": { "potionId": "slowness", "form": "normal", "variant": "base" },
+    "ingredientId": "fermented_spider_eye",
+    "input": { "name": "swiftness" },
+    "output": { "name": "slowness" },
     "type": "corrupt"
   },
   {
-    "ingredienteId": "fermented_spider_eye",
-    "input": { "potionId": "leaping", "form": "normal", "variant": "base" },
-    "output": { "potionId": "slowness", "form": "normal", "variant": "base" },
+    "ingredientId": "fermented_spider_eye",
+    "input": { "name": "leaping" },
+    "output": { "name": "slowness" },
     "type": "corrupt"
   },
   {
-    "ingredienteId": "fermented_spider_eye",
-    "input": { "potionId": "night_vision", "form": "normal", "variant": "base" },
-    "output": { "potionId": "invisibility", "form": "normal", "variant": "base" },
+    "ingredientId": "fermented_spider_eye",
+    "input": { "name": "night_vision" },
+    "output": { "name": "invisibility" },
     "type": "corrupt"
   },
   {
-    "ingredienteId": "redstone",
-    "input": { "form": "normal" },
+    "ingredientId": "redstone",
+    "input": { "variant": "base" },
     "output": { "variant": "longer" },
     "type": "extend_duration"
   },
   {
-    "ingredienteId": "glowstone_dust",
-    "input": { "form": "normal" },
+    "ingredientId": "glowstone_dust",
+    "input": { "variant": "base" },
     "output": { "variant": "stronger" },
     "type": "increase_power"
   },
   {
-    "ingredienteId": "gunpowder",
+    "ingredientId": "gunpowder",
     "input": { "form": "normal" },
     "output": { "form": "splash" },
     "type": "convert_form"
   },
   {
-    "ingredienteId": "dragon_breath",
+    "ingredientId": "dragon_breath",
     "input": { "form": "splash" },
     "output": { "form": "lingering" },
     "type": "convert_form"

@@ -1,13 +1,9 @@
-import { lazy } from 'react';
 import { RouterProvider, Route, Navigate, Outlet, createHashRouter, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home';
 import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
-import Stats, { loader as statsPageLoader } from './pages/Stats';
 import ItemNotFound from './pages/ItemNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-const Entities = lazy(() => import('./pages/Entities'));
 
 function getLastVisitedItemId() {
   const raw = sessionStorage.getItem('lastVisitedItem')
@@ -36,6 +32,7 @@ const router = createHashRouter(createRoutesFromElements(
 
     <Route path="/item" element={<RedirectToLastItem />} />
     <Route path="/entity" element={<Navigate to={`/entity/2`} replace />} />
+
     <Route 
       path="/potions"
       lazy={async () => {
@@ -48,16 +45,30 @@ const router = createHashRouter(createRoutesFromElements(
       }}
     />
 
-    <Route 
+    {/* <Route 
       path="/stats" 
-      element={<Stats />} 
-      loader={statsPageLoader}
-    />
+      lazy={async () => {
+        const module = await import('./pages/Stats')
 
-    <Route 
+        return {
+          Component: module.default,
+          loader: module.loader
+        }
+      }}
+    /> */}
+
+    {/* <Route 
       path="/entity/:entityId" 
-      element={<Entities />}
-    />
+      lazy={async () => {
+        const module = await import('./pages/Entities')
+
+        return {
+          Component: module.default,
+          loader: module.loader
+        }
+      }}
+    /> */}
+
     <Route 
       path="/item/:itemId" 
       element={<ItemPage />}

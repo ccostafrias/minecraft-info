@@ -9461,15 +9461,15 @@
     ],
     "maxDurability": 275,
     "description": "Helmet that grants brief water breathing when worn.",
-    "category": "utility",
+    "category": "armor",
     "tags": [
       "water"
     ]
   },
   "757": {
     "id": 757,
-    "name": "scute",
-    "displayName": "Scute",
+    "name": "turtle_scute",
+    "displayName": "Turtle Scute",
     "stackSize": 64,
     "description": "Turtle scale used to craft the turtle shell helmet.",
     "category": "material",
@@ -9499,7 +9499,7 @@
     "displayName": "Apple",
     "stackSize": 64,
     "description": "Basic food item that restores hunger when eaten.",
-    "category": "material",
+    "category": "food",
     "tags": [
       "overworld"
     ]

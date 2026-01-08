@@ -5,11 +5,12 @@ import { useInView } from "react-intersection-observer";
 import { FaTrash } from "react-icons/fa6";
 
 import type { ItemsInfo, ItemName } from "@shared/types";
+import { defaultCrafting, defaultItemName, shortify } from "@shared/utils";
+import { ItemIcon } from "../components/ItemIcon";
 import { SearchBar } from "../components/SearchBar";
 import { Item } from "../components/Item";
-import { CraftingSlot } from "../components/CraftingSlot";
+import { Slot as CraftingSlot } from "../components/Slot";
 import { PossibleCrafting } from "../components/PossibleCrafting";
-import { defaultCrafting, defaultItemName } from "@shared/utils";
 import { NoCrafting } from "../components/NoCrafting";
 
 const fetchItems = async (
@@ -18,7 +19,7 @@ const fetchItems = async (
   signal?: AbortSignal
 ) => {
   const res = await fetch(
-    `/api/items?search=${encodeURIComponent(search)}&offset=${offset}`,
+    `/api/items?search=${shortify(search)}&offset=${offset}`,
     { signal }
   )
   return res.json()
@@ -85,7 +86,7 @@ export default function Home() {
 
         try {
           const raw = await fetch(
-            `/api/possibleRecipes?search=${encodeURIComponent(possibleSearchTerm)}&recipe=${encodeURIComponent(JSON.stringify(formatedCrafting(crafting)))}&offset=${possibleCraftings.nextOffset}`
+            `/api/possibleRecipes?search=${shortify(possibleSearchTerm)}&recipe=${shortify(formatedCrafting(crafting))}&offset=${possibleCraftings.nextOffset}`
           )
           const data = await raw.json()
 
@@ -141,7 +142,7 @@ export default function Home() {
 
     const timeout = setTimeout(() => { 
       fetch(
-        `/api/possibleRecipes?search=${encodeURIComponent(possibleSearchTerm)}&recipe=${encodeURIComponent(JSON.stringify(formatedCrafting(crafting)))}`, 
+        `/api/possibleRecipes?search=${shortify(possibleSearchTerm)}&recipe=${shortify(formatedCrafting(crafting))}`, 
         { signal: controller.signal }
       )
         .then(res => res.json())
@@ -170,7 +171,7 @@ export default function Home() {
   }, [holdingItem])
 
   useEffect(() => {
-    isDraggingItem.current = dragItem.id !== -1;
+    isDraggingItem.current = dragItem.id !== defaultItemName().id;
   }, [dragItem])
 
   // Click outside to drop holding item
@@ -206,6 +207,14 @@ export default function Home() {
     setCrafting(defaultCrafting());
   }
 
+  const changeSlot = (index: number, newItem: ItemName) => {
+    setCrafting((prev) => {
+      const newCrafting = [...prev];
+      newCrafting[index] = newItem;
+      return newCrafting;
+    });
+  }
+
   const craftingElements = crafting.map((item, index: number) => {
     return (
       <div key={`crafting-slot-${index}`} className="rounded-xl size-20 bg-highlight cursor-pointer hover:outline-4">
@@ -214,11 +223,15 @@ export default function Home() {
           item={item} 
           holdingItemRef={holdingItemRef} 
           setHoldingItem={setHoldingItem} 
-          setCrafting={setCrafting} 
+          changeSlot={changeSlot}
           isDraggingRef={isDraggingItem} 
           setDragItem={setDragItem} 
           setSearchTerm={setSearchTerm}
-        />
+        >
+          {(renderItem, { isHoldingInside, isSameItemAsHolding }) => (
+            <ItemIcon item={renderItem} opacity={isHoldingInside && !isSameItemAsHolding ? 50 : undefined} />
+          )}
+        </CraftingSlot>
       </div>
     )
   })
@@ -235,7 +248,17 @@ export default function Home() {
         >
           <FaCircleInfo/>
         </div>
-        <Item item={item} holdingItem={holdingItem} setHoldingItem={setHoldingItem} dragItem={dragItem} setDragItem={setDragItem} />
+        <Item 
+          item={item} 
+          holdingItem={holdingItem} 
+          setHoldingItem={setHoldingItem} 
+          dragItem={dragItem} 
+          setDragItem={setDragItem} 
+        >
+          {(item: ItemName) => (
+            <ItemIcon item={item} />
+          )}
+        </Item>
       </div>
     )
   })
@@ -281,7 +304,7 @@ export default function Home() {
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} placeholder="Search items" />
         </div>
           {items.items.length > 0 ? (
-            <div className="items-grid p-2 grid grid-cols-[repeat(auto-fill,minmax(90px,1fr))] auto-rows-min gap-2 self-center h-80 overflow-y-auto overflow-x-hidden w-full">
+            <div className="items-grid scrollbar p-2 grid grid-cols-[repeat(auto-fill,minmax(90px,1fr))] auto-rows-min gap-2 self-center h-80 overflow-y-auto overflow-x-hidden w-full">
               {itemsElements}
               <ItemSkeleton count={items.hasMore ? 10 : 0} ref={itemsTrackingRef} />
             </div>
@@ -295,7 +318,7 @@ export default function Home() {
           <h2 className="font-bold text-2xl">Craftings</h2>
           <SearchBar searchTerm={possibleSearchTerm} setSearchTerm={setPossibleSearchTerm} placeholder="Search craftings" />
         </div>
-        <div className="possible-craftings flex flex-row gap-8 p-4 overflow-x-auto">
+        <div className="possible-craftings scrollbar flex flex-row gap-8 p-4 overflow-x-auto">
           {possibleCraftings.items.length > 0 ? (
             <>
               {possibleCraftingsElements}

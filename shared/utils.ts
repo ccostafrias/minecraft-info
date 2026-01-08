@@ -1,4 +1,4 @@
-import type { Id, ItemName, Matrix3x3, MinecraftItem } from './types'
+import type { Id, ItemName, Matrix3x3, MinecraftItem, PotionForm, PotionInstance, PotionVariant } from './types'
 
 export function normalizeMatrix(matrix: Id[][]): Id[][] {
   let top = 0
@@ -143,7 +143,15 @@ export const normalizeRecipe = (inShape: ItemName[][]): Matrix3x3<ItemName> => {
 };
 
 export function defaultItemName(): ItemName {
-  return { name: 'empty', displayName: '', id: -1 };
+  return { name: '', displayName: '', id: -1 };
+}
+
+export function defaultPotionInstance(): PotionInstance {
+  return {
+    ...defaultItemName(),
+    form: 'normal',
+    variant: 'base',
+  }
 }
 
 export function defaultCrafting(): ItemName[] {
@@ -158,4 +166,32 @@ export function transformRecipe(inShape: Id[][], callback: (id: number | null) =
       return itm ? { name: itm.name, displayName: itm.displayName, id: itm.id } : defaultItemName()
     })
   )
+}
+
+// Converte segundos em uma string no formato "mm:ss"
+export function convertSeconds(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Serializa um objeto para uma string codificada em URI
+export function shortify(p: any): string {
+  if (typeof p === 'object') {
+    p = JSON.stringify(p) as string;
+  } 
+
+  return encodeURIComponent(p);
+}
+
+export function potionKey(name: string, form: PotionForm, variant: PotionVariant): string {
+  return `${name}|${form}|${variant}`;
+}
+
+export function capitalize(string: string): string {
+  if (string.length === 0) {
+    return "";
+  }
+
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

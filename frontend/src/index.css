@@ -89,7 +89,7 @@ img {
 }
 
 main {
-  @apply h-full grid w-9/10 max-w-250 m-auto p-4 mb-10 ; 
+  @apply h-full grid w-9/10 max-w-220 m-auto p-4; 
 }
 
 /* Crafting */
@@ -141,12 +141,21 @@ main {
 
 .potions-main {
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 350px 290px;
 
   grid-template-areas: 
     'title title'
     'brewing results'
     'items results';
+}
+
+.potion-card {
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+
+  grid-template-areas: 
+    'icon title title'
+    'icon description time';
 }
 
 @media (max-width: 768px) {
@@ -172,6 +181,17 @@ main {
       /* 'details details' */
       'craftings craftings';
   }
+
+  .potions-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+
+    grid-template-areas: 
+      'title'
+      'brewing'
+      'items'
+      'results';
+  }
 }
 
 @media (max-width: 580px) {
@@ -189,7 +209,7 @@ main {
   }
 }
 
-.items-grid, .possible-craftings, .potions-items {
+.scrollbar {
   scrollbar-color: var(--color-highlight) transparent;
 }
 

@@ -1,19 +1,30 @@
 import React, { memo, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
-import type { ItemName, MinecraftItem } from "@shared/types";
+import type { ItemName } from "@shared/types";
 import { defaultItemName } from "@shared/utils";
 
 interface ItemProps {
-  item: MinecraftItem;
+  item: ItemName;
   holdingItem: ItemName | null;
   setHoldingItem: React.Dispatch<React.SetStateAction<ItemName | null>>;
   dragItem: ItemName;
   setDragItem: React.Dispatch<React.SetStateAction<ItemName>>;
   showLabel?: boolean;
   size?: number;
+  children: (item: any) => React.ReactNode;
 }
 
-export const Item = memo(function Item({ item, holdingItem, setHoldingItem, dragItem, setDragItem, showLabel = true, size = 20 }: ItemProps) {
+export const Item = memo(function Item({ 
+  item, 
+  holdingItem, 
+  setHoldingItem, 
+  dragItem, 
+  setDragItem, 
+  showLabel = true, 
+  size = 20,
+  children 
+}: ItemProps) {
+
   console.log("rendering item", item.name);
 
   const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });
@@ -95,11 +106,7 @@ export const Item = memo(function Item({ item, holdingItem, setHoldingItem, drag
         onDragEnd={isMobileCoarsePointer ? undefined : handleDragEnd}
         onClick={handleClick}
       >
-        <img
-          src={`./items/${item.name}.png`}
-          alt={item.displayName}
-          className="block size-9/10 object-contain select-none pointer-events-none"
-        />
+        {children(item)}
       </motion.div>
       {showLabel && (
         <span className={`text-center text-surface-muted line-clamp-2 ${holdingItem?.id === item.id ? 'font-bold' : 'font-medium'}`}>

@@ -1,8 +1,8 @@
 import express from 'express'
 import cors from 'cors'
-import { normalizeMatrix, containsSubmatrix, toMatrix2D } from '@shared/utils'
-import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, UniqueCategory, UniqueTag } from '@shared/types'
-import { getAllItems, getItemById, getMinMaxID, getAllRecipes, getRecipesById, getAllStats, getPotionsIngredients } from './services/items.service'
+import { normalizeMatrix, containsSubmatrix, toMatrix2D, potionKey } from '@shared/utils'
+import type { Id, Matrix3x3, RecipeMap, MinecraftItem, ItemName, UniqueCategory, UniqueTag, PotionInstance, BrewingRule, PotionForm, PotionVariant } from '@shared/types'
+import { getAllItems, getItemById, getMinMaxID, getAllRecipes, getRecipesById, getAllStats, getPotionsIngredients, getBrewingRules, getAllPotions } from './services/items.service'
 
 const app = express()
 app.use(cors())
@@ -85,7 +85,7 @@ app.get('/api/possibleRecipes', (req, res) => {
     const recipeValues = getAllRecipes()
 
     for (const recipe of recipeValues) {
-      if (containsSubmatrix(recipe.inShape.map(r => r.map(id => id.id!)), normalizedInput)) {
+      if (containsSubmatrix(recipe.inShape.map(r => r.map(id => Number(id.id!))), normalizedInput)) {
         const id = recipe.result.id
         
         if (!matches[recipe.result.id]) {
@@ -131,7 +131,7 @@ app.get('/api/item/:identifier', (req, res) => {
     return res.status(404).json({ error: "Item não encontrado!" })
   }
 
-  const recipes = getRecipesById(item.id!)
+  const recipes = getRecipesById(Number(item.id!))
 
   res.json({ ...item, recipes })
 })
@@ -184,9 +184,130 @@ app.get('/api/stats', (req, res) => {
   })
 })
 
-// potions
+// POTIONS
+
 app.get('/api/potionsIngredients', (req, res) => {
   res.json(getPotionsIngredients())
+})
+
+const forms = ['normal', 'splash', 'lingering'] as PotionForm[]
+
+app.get('/api/potionsInstances', (req, res) => {
+  const potions = getAllPotions()
+  const potionsAsItems: PotionInstance[] = []
+
+  for (const p in potions) {
+    const potion = potions[p]
+    if (potion.id === 'thick' || potion.id === 'mundane') continue;
+
+    // for (const variant in potion.variants) {
+      for (const form of forms) {
+        potionsAsItems.push({
+          id: potionKey(potion.id, form, "base"),
+          name: potion.id,
+          displayName: potion.name,
+          color: potion.color,
+          form,
+          variant: "base"
+        })
+      }
+    // }
+  }
+
+  res.json(potionsAsItems)
+})
+
+app.get('/api/potionResults', (req, res) => {
+  const ingredientName = req.query.ingredient as string | undefined
+  const potion = JSON.parse(req.query.potion as string || 'null') as PotionInstance
+
+  if (!ingredientName && !potion) {
+    return res.status(400).json({ error: "Missing 'ingredient' or 'potion' query parameter!" })
+  }
+
+  const allPotions = getAllPotions()
+  const brewingRules = getBrewingRules()
+  const resultsMap = new Map<string, PotionInstance>()
+  
+  const rulesResults = brewingRules.filter((rule: BrewingRule) => {
+    const matchPotion = potion.displayName && rule.input.name ? rule.input.name === potion.name : true
+    const matchVariant = potion.variant  && rule.input.variant ? rule.input.variant === potion.variant : true
+    const matchForm = potion.form  && rule.input.form ? rule.input.form === potion.form : true
+    const matchIngredient = (ingredientName && rule.ingredientId) ? rule.ingredientId === ingredientName : true
+
+    return matchPotion && matchIngredient && matchVariant && matchForm
+  })
+
+  rulesResults.forEach((rule: BrewingRule) => {
+    const { name, form, variant } = rule.output
+
+    if (name) {
+      const outPotion = allPotions[name]
+
+      if (outPotion && !form && !variant) {
+        const key = potionKey(outPotion.id, "normal", "base")
+        resultsMap.set(key, {
+        // results.push({
+          id: key,
+          name: outPotion.id,
+          displayName: outPotion.name,
+          color: outPotion.color,
+          form: "normal",
+          variant: "base",
+          effectVariant: outPotion.variants ? outPotion.variants.base : {
+            duration: 0,
+            description: "No effect",
+            applies: []
+          }
+        })
+      }
+    } else if (variant) {
+      for (const p in allPotions) {
+        const outPotion = allPotions[p]
+        const matchInputPotion = potion.id !== -1 ? outPotion.id === potion.name : true
+
+        if (outPotion.variants && outPotion.variants[variant] && matchInputPotion) {
+          const key = potionKey(outPotion.id, potion?.form || "normal", variant)
+          resultsMap.set(key, {
+          // results.push({
+            id: key,
+            name: outPotion.id,
+            displayName: outPotion.name,
+            color: outPotion.color,
+            form: potion?.form || "normal",
+            variant,
+            effectVariant: outPotion.variants[variant]!
+          })
+        }
+      }
+    } else if (form) {
+      for (const p in allPotions) {
+        const outPotion = allPotions[p]
+        const matchInputPotion = potion.id !== -1 ? outPotion.id === potion.name : true
+
+        if (matchInputPotion) {
+          const key = potionKey(outPotion.id, form, potion?.variant || "base")
+          resultsMap.set(key, {
+          // results.push({
+            id: key,
+            name: outPotion.id,
+            displayName: outPotion.name,
+            color: outPotion.color,
+            form,
+            variant: potion?.variant || "base",
+            effectVariant: outPotion.variants ? outPotion.variants[potion?.variant || "base"]! : {
+              duration: 0,
+              description: "No effect",
+              applies: []
+            }
+          })
+        }
+      }
+    }
+
+  })
+
+  res.json(Array.from(resultsMap.values()))
 })
 
 const port = 3000

@@ -4,41 +4,35 @@ import type { ItemName } from "@shared/types";
 import { defaultItemName } from "@shared/utils";
 import { useDoubleTap } from "use-double-tap";
 
-interface CraftingSlotProps {
+interface SlotProps {
   index: number;
   item: ItemName;
   holdingItemRef: React.RefObject<ItemName| null>;
   setHoldingItem: React.Dispatch<React.SetStateAction<ItemName | null>>;
-  setCrafting: React.Dispatch<React.SetStateAction<ItemName[]>>;
+  changeSlot: (index: number, newItem: any) => void;
   isDraggingRef: React.RefObject<boolean>;
   setDragItem: React.Dispatch<React.SetStateAction<ItemName>>;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  children: (item: any, state: { isHoldingInside: boolean; isSameItemAsHolding: boolean }) => React.ReactNode;
 }
 
-export const CraftingSlot = memo(function CraftingSlot({
+export const Slot = memo(function Slot({
   index,
   item,
   holdingItemRef,
   setHoldingItem,
-  setCrafting,
+  changeSlot,
   isDraggingRef,
   setDragItem,
   setSearchTerm,
-}: CraftingSlotProps) {
+  children
+}: SlotProps) {
 
   const [dragAnimation, setDragAnimation] = useState(false);
   const [isInside, setIsInside] = useState(false);
   const animationControls = useAnimationControls();
 
-  console.log("rendering crafting slot", index);
-
-  const changeCrafting = (newItem: ItemName) => {
-    setCrafting((prev) => {
-      const newCrafting = [...prev];
-      newCrafting[index] = newItem;
-      return newCrafting;
-    });
-  }
+  console.log(`rendering Slot ${index} with item ${item.displayName}`);
 
   const handleMouseEnter = () => {
     setIsInside(true);
@@ -48,11 +42,7 @@ export const CraftingSlot = memo(function CraftingSlot({
     if (!holdingItem || item.id == holdingItem.id) return; // nao ha item selecionado ou ja esta o mesmo item
     if (!isDragging && holdingItem) return; // item selecionado, mas nao esta arrastando
 
-    setCrafting((prev) => {
-      const newCrafting = [...prev];
-      newCrafting[index] = holdingItem;
-      return newCrafting;
-    });
+    changeSlot(index, holdingItem);
   };
 
   const handleMouseLeave = () => {
@@ -74,7 +64,7 @@ export const CraftingSlot = memo(function CraftingSlot({
 
     } else {
       setIsInside(false);
-      changeCrafting(defaultItemName());
+      changeSlot(index, defaultItemName());
     }
 
     setDragAnimation(false);
@@ -94,7 +84,7 @@ export const CraftingSlot = memo(function CraftingSlot({
       return; 
     }
 
-    changeCrafting(holdingItem);
+    changeSlot(index, holdingItem);
   }
 
   const handleRightClick = (e: React.MouseEvent) => {
@@ -107,7 +97,7 @@ export const CraftingSlot = memo(function CraftingSlot({
       setHoldingItem(null);
       return;
     }
-    changeCrafting(defaultItemName());
+    changeSlot(index, defaultItemName());
   }
 
   const handleDoubleClick = () => {
@@ -115,15 +105,15 @@ export const CraftingSlot = memo(function CraftingSlot({
 
     if (!item.displayName) return;
 
-    changeCrafting(defaultItemName());
+    changeSlot(index, defaultItemName());
   }
 
   const handleDoubleTap = useDoubleTap(handleDoubleClick, 200, {
     onSingleTap: handleClick,
   })
 
-  const isHoldingInside = isInside && holdingItemRef.current;
-  const isSameItemAsHolding = holdingItemRef.current && item.id === holdingItemRef.current.id;
+  const isHoldingInside = isInside && holdingItemRef.current !== null;
+  const isSameItemAsHolding = holdingItemRef.current !== null && item.id === holdingItemRef.current.id;
 
   return (
     <div
@@ -154,13 +144,17 @@ export const CraftingSlot = memo(function CraftingSlot({
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
-          <img
-            src={`./items/${isHoldingInside ? holdingItemRef.current!.name : item.name}.png`}
-            alt={isHoldingInside ? holdingItemRef.current!.displayName : item.displayName}
-            className={`block size-9/10 object-contain select-none pointer-events-none ${isHoldingInside && !isSameItemAsHolding ? "opacity-50" : ""}`}
-          />
+          {children(isHoldingInside && !isSameItemAsHolding ? holdingItemRef.current! : item, { isHoldingInside, isSameItemAsHolding })}
         </motion.div>
       )}
     </div>
   );
+}, (prevProps, nextProps) => {
+  const prevHolding = prevProps.holdingItemRef.current?.id === prevProps.item.id;
+  const nextHolding = nextProps.holdingItemRef.current?.id === nextProps.item.id;
+
+  return (
+    prevHolding === nextHolding &&
+    prevProps.item === nextProps.item
+  )
 });

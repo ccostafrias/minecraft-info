@@ -7,10 +7,11 @@ interface SearchBarProps {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   placeholder?: string;
   width?: string;
+  customClassName?: string;
 }
-export function SearchBar({ searchTerm, setSearchTerm, placeholder, width }: SearchBarProps) {
+export function SearchBar({ searchTerm, setSearchTerm, placeholder, width, customClassName }: SearchBarProps) {
   return (
-    <div className="input-wrapper flex gap-4 items-center bg-highlight py-2 px-3 rounded-4xl w-fit" >
+    <div className={`input-wrapper flex gap-4 items-center bg-highlight py-2 px-3 rounded-4xl w-fit ${customClassName}`} >
       <IoIosSearch size={20} className="text-surface-base" />
       <input
         type="text"
