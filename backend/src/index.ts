@@ -310,7 +310,8 @@ app.get('/api/potionResults', (req, res) => {
   res.json(Array.from(resultsMap.values()))
 })
 
+// export default app;
 const port = 3000
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+  console.log('Server is running on port 3000')
 })

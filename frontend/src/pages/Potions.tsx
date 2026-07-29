@@ -274,7 +274,7 @@ function PotionItem({ potion }: PotionItemProps) {
         {variantItem && (
           <img
             className='size-9/20 disable-blur object-cover absolute bottom-0 right-1'
-            src={`./items/${variantItem}.png`}
+            src={`/items/${variantItem}.png`}
           />
         )}
       </div>

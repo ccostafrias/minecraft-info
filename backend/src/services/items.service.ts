@@ -1,37 +1,22 @@
-import fs from 'fs'
-import path from 'path'
 import type { ItemName, Matrix3x3, MinecraftItem, Recipe, StatsInterface, Potion, BrewingRule } from '@shared/types'
 
 interface Items {
   [id: string]: MinecraftItem
 }
 
-const itemsPath = path.resolve('src/data/items.json')
-const recipesPath = path.resolve('src/data/recipes.json')
-const statsPath = path.resolve('src/data/stats.json')
-const potionsPath = path.resolve('src/data/potions.json')
-const potionsIngredientsPath = path.resolve('src/data/potions_ingredients.json')
-const brewingRulesPath = path.resolve('src/data/brewing_rules.json')
+import itemsJson from '../data/items.json'
+import recipesJson from '../data/recipes.json'
+import stats from '../data/stats.json'
+import potionsJson from '../data/potions.json'
+import potionsIngredients from '../data/potions_ingredients.json'
+import brewingRulesJson from '../data/brewing_rules.json'
 
-const rawItems = fs.readFileSync(itemsPath, 'utf-8')
-const items: Items = JSON.parse(rawItems)
+const recipes = recipesJson as unknown as Record<string, Recipe[]>
+const items = itemsJson as Items
+const potions = potionsJson as unknown as Record<string, Potion>
+const brewingRules = brewingRulesJson as BrewingRule[]
 const itemsValues = Object.values(items)
-
-const rawRecipes = fs.readFileSync(recipesPath, 'utf-8')
-const recipes: Record<string, Recipe[]> = JSON.parse(rawRecipes)
 const recipeValues = Object.values(recipes).flat()
-
-const rawStats = fs.readFileSync(statsPath, 'utf-8')
-const stats: StatsInterface = JSON.parse(rawStats)
-
-const rawPotions = fs.readFileSync(potionsPath, 'utf-8')
-const potions = JSON.parse(rawPotions) as Record<string, Potion>
-
-const rawPotionsIngredients = fs.readFileSync(potionsIngredientsPath, 'utf-8')
-const potionsIngredients: MinecraftItem[] = JSON.parse(rawPotionsIngredients)
-
-const rawBrewingRules = fs.readFileSync(brewingRulesPath, 'utf-8')
-const brewingRules = JSON.parse(rawBrewingRules) as BrewingRule[]
 
 export function getPotionsIngredients() {
   return potionsIngredients

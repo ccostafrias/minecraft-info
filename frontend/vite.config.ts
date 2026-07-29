@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: '/minecraft-recipes/',
+  // base: '/minecraft-recipes/',
   plugins: [
     react(),
     tailwindcss()

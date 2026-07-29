@@ -4,9 +4,10 @@
     "module": "CommonJS",
     "rootDir": "..",
     "outDir": "dist",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "strict": true,
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "paths": {
       "@shared/*": ["../shared/*"]
     }

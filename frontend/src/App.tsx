@@ -1,4 +1,4 @@
-import { RouterProvider, Route, Navigate, Outlet, createHashRouter, createRoutesFromElements } from 'react-router-dom';
+import { RouterProvider, Route, Navigate, Outlet, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home';
 import ItemPage, { loader as itemPageLoader } from './pages/ItemPage';
 import ItemNotFound from './pages/ItemNotFound';
@@ -26,7 +26,7 @@ function RootLayout() {
   )
 }
 
-const router = createHashRouter(createRoutesFromElements(
+const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<RootLayout />}>
     <Route index element={<Home />} />
 

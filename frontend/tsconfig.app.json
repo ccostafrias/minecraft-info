@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
 
     /* Path aliases */
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "paths": {
       "@shared/*": ["../shared/*"]
     },
@@ -30,5 +30,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "../shared"]
+  "include": ["src", "../shared"],
+  "exclude": [ "src/pages/Stats.tsx" ]
 }

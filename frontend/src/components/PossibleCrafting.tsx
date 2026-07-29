@@ -19,7 +19,7 @@ export const PossibleCrafting = memo(function PossibleCrafting({ item, index }: 
       <Link to={`/item/${item.id}`} className="grid grid-cols-[auto_1fr] items-center gap-2">
         <div className="bg-highlight rounded-lg p-1">
           <img
-            src={`./items/${item.name}.png`}
+            src={`/items/${item.name}.png`}
             alt={item.displayName}
             className="block size-6 object-contain select-none pointer-events-none"
           />

@@ -59,13 +59,15 @@ export default function ItemPage() {
     )
   })
 
+  const numItemId = Number.parseInt(item.id.toString());
+
   return (
     <main className={`items-main items-center gap-4 ${item.recipes!.length > 0 ? 'has-recipe' : 'no-recipe'}`}>
       {/* Title */}
       <header className="item-header [grid-area:title] border-b-2 pb-4 grid grid-cols-[1fr_auto_1fr] items-center">
         {/* Previne usuário de ir além do primeiro item */}
-        {item.id > meta.minId && (
-          <Link to={`/item/${item.id - 1}`} className='p-2 flex flex-row items-center gap-2 hover:opacity-75' >
+        {numItemId > meta.minId && (
+          <Link to={`/item/${numItemId - 1}`} className='p-2 flex flex-row items-center gap-2 hover:opacity-75' >
             <GrFormPrevious className='text-4xl md:text-xl' />
             <span className='hidden md:inline'>Previous item</span>
           </Link>
@@ -74,8 +76,8 @@ export default function ItemPage() {
         <h1 className='text-3xl font-bold text-center col-start-2'>Item Details</h1>
 
         {/* Previnir usuário de ir além do último item */}
-        {item.id < meta.maxId && (
-          <Link to={`/item/${item.id + 1}`} className='p-2 flex flex-row items-center gap-2 justify-self-end hover:opacity-75' >
+        {numItemId < meta.maxId && (
+          <Link to={`/item/${numItemId + 1}`} className='p-2 flex flex-row items-center gap-2 justify-self-end hover:opacity-75' >
             <span className='hidden md:inline'>Next item</span>
             <GrFormPrevious className='rotate-180 text-4xl md:text-xl'/>
           </Link>
@@ -85,7 +87,7 @@ export default function ItemPage() {
       <section className="item-section [grid-area:item] flex flex-col items-center justify-center py-4">
         <div className='p-4 rounded-2xl bg-highlight border-2 border-surface-muted shadow-black/40 shadow-2xl'>
           <img
-            src={`./items/${item.name}.png`}
+            src={`/items/${item.name}.png`}
             alt={item.displayName}
             className="block size-32 object-contain select-none pointer-events-none"
           />
@@ -134,7 +136,7 @@ export default function ItemPage() {
                 <TbArrowBigRightFilled className='text-4xl md:text-2xl'/>
                 <div className="block-square">
                   <img
-                    src={`./items/${item.name}.png`}
+                    src={`/items/${item.name}.png`}
                     alt={item.displayName}
                     className="block size-9/10 object-contain select-none pointer-events-none"
                     />

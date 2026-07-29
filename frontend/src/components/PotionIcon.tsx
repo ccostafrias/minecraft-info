@@ -8,7 +8,7 @@ export function PotionIcon({ potion, opacity }: { potion: PotionInstance, opacit
     <>
       <img 
         className='size-9/10 disable-blur object-cover absolute trans-center'
-        src={`./brewing/${prefix}potion.png`} 
+        src={`/brewing/${prefix}potion.png`} 
         alt={`${name} ${form}`}
         style={{
           opacity: `${opacity ?? 100}%`
@@ -16,7 +16,7 @@ export function PotionIcon({ potion, opacity }: { potion: PotionInstance, opacit
       />
       <img 
         className='size-9/10 disable-blur object-cover absolute trans-center'
-        src='./brewing/potion_overlay.png' 
+        src='/brewing/potion_overlay.png' 
         style={{
           opacity: `${opacity ?? 100}%`
         }}

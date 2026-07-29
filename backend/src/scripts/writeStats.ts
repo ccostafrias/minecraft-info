@@ -42,7 +42,7 @@ async function main() {
         for (let j = 0; j < 3; j++) {
           const itemId = recipe.inShape[i][j].id
           if (itemId !== -1) {
-            itemSet.add(itemId)
+            itemSet.add(Number.parseInt(itemId.toString()))
           }
         }
       }

@@ -39,7 +39,7 @@ export function Crafting({ crafting }: CraftingProps) {
       >
         {item.name !== 'empty' && (
           <img
-            src={`./items/${item.name}.png`}
+            src={`/items/${item.name}.png`}
             alt={item.displayName}
             className="block size-9/10 object-contain select-none pointer-events-none"
           />
