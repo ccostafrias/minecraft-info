@@ -111,8 +111,8 @@ export default function Potions() {
         <h1 className='text-3xl font-bold text-center col-start-2'>Potion Brewing</h1>
       </header>
       {/* Brewing */}
-      <section className='[grid-area:brewing] self-center grid place-items-center'>
-        {/* <h3 className='font-bold mb-2'>Ingredient</h3> */}
+      <section className='[grid-area:brewing] self-center grid place-items-center p-20'>
+        <h3 className='font-bold mb-2'>Ingredient</h3>
         <div className="rounded-xl size-20 bg-highlight cursor-pointer hover:outline-4">
           <PotionSlot
             index={0}
@@ -123,6 +123,7 @@ export default function Potions() {
             setDragItem={setDragItem}
             changeSlot={changeIngredient}
             setSearchTerm={setSearchTerm}
+            restrictionFunc={(item) => !item.displayName.includes("Potion")}
           >
             {(renderItem, { isHoldingInside, isSameItemAsHolding }) => (
               <ItemIcon item={renderItem} opacity={isHoldingInside && !isSameItemAsHolding ? 50 : undefined} />
@@ -148,6 +149,7 @@ export default function Potions() {
                   setDragItem={setDragItem}
                   changeSlot={changePotion}
                   setSearchTerm={setSearchTerm}
+                  restrictionFunc={(item) => item.displayName.includes("Potion")}
                 >
                   {(renderItem: PotionInstance, { isHoldingInside, isSameItemAsHolding }) => (
                     <div className='[grid-area:icon] size-18 grid place-items-center relative'>
@@ -156,13 +158,16 @@ export default function Potions() {
                     // <ItemIcon item={renderItem} opacity={isHoldingInside && !isSameItemAsHolding ? 50 : undefined} />
                   )}
                 </PotionSlot>
+                {index === 1 && (
+                  <h3 className='font-bold mt-2 text-center'>Potion</h3>
+                )}
               </div>
             )
           })}
         </div>
       </section>
       {/* Results */}
-      <section className='[grid-area:results] bg-surface-strong w-full p-4 rounded-2xl border-2 border-surface-muted shadow-black/40 shadow-2xl'>
+      <section className='[grid-area:results] bg-surface-strong w-full p-4 rounded-2xl border-2 border-surface-muted shadow-black/40 shadow-2xl max-h-100 md:max-h-full'>
         <div className='grid grid-rows-[auto_1fr] gap-4 h-full'>
           <h2 className='text-md font-bold'>Potion Results</h2>
           <ul className='overflow-y-auto scrollbar flex flex-col gap-4'>
@@ -186,7 +191,7 @@ export default function Potions() {
           <h2 className='text-md font-bold'>Selector</h2>
           <SearchBar placeholder='Filter ingredients' searchTerm={searchTerm} setSearchTerm={setSearchTerm} width='120px'/>
         </header>
-        <div className='scrollbar overflow-y-auto flex flex-col gap-4'>
+        <div className='scrollbar overflow-y-auto flex flex-col gap-4 max-h-70'>
           {ingredientsFiltered.length > 0 && (
             <div className='flex flex-col gap-2'>
               <h3 className=''>Ingredients</h3>

@@ -14,6 +14,7 @@ interface SlotProps {
   setDragItem: React.Dispatch<React.SetStateAction<ItemName>>;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   children: (item: any, state: { isHoldingInside: boolean; isSameItemAsHolding: boolean }) => React.ReactNode;
+  restrictionFunc?: (item: ItemName) => boolean;
 }
 
 export const Slot = memo(function Slot({
@@ -25,6 +26,7 @@ export const Slot = memo(function Slot({
   isDraggingRef,
   setDragItem,
   setSearchTerm,
+  restrictionFunc = () => true,
   children
 }: SlotProps) {
 
@@ -32,14 +34,13 @@ export const Slot = memo(function Slot({
   const [isInside, setIsInside] = useState(false);
   const animationControls = useAnimationControls();
 
-  console.log(`rendering Slot ${index} with item ${item.displayName}`);
-
   const handleMouseEnter = () => {
     setIsInside(true);
     const holdingItem = holdingItemRef.current;
     const isDragging = isDraggingRef.current;
 
     if (!holdingItem || item.id == holdingItem.id) return; // nao ha item selecionado ou ja esta o mesmo item
+    if (!restrictionFunc(holdingItem)) return; // item nao e permitido
     if (!isDragging && holdingItem) return; // item selecionado, mas nao esta arrastando
 
     changeSlot(index, holdingItem);
@@ -74,7 +75,10 @@ export const Slot = memo(function Slot({
 
   const handleClick = () => {
     const holdingItem = holdingItemRef.current;
+
+    if (!holdingItem) return;
     if (item.id == holdingItem?.id) return; // ja esta o mesmo item
+    if (!restrictionFunc(holdingItem)) return; // item nao e permitido
 
     if (!holdingItem) {
       if (item.id !== -1) {
@@ -112,8 +116,10 @@ export const Slot = memo(function Slot({
     onSingleTap: handleClick,
   })
 
-  const isHoldingInside = isInside && holdingItemRef.current !== null;
+  const isHoldingInside = isInside && holdingItemRef.current !== null && restrictionFunc(holdingItemRef.current);
   const isSameItemAsHolding = holdingItemRef.current !== null && item.id === holdingItemRef.current.id;
+
+  console.log('slot', index, 'isHoldingInside', isHoldingInside, 'isSameItemAsHolding', isSameItemAsHolding, 'item', item, 'holdingItemRef', holdingItemRef.current);
 
   return (
     <div
